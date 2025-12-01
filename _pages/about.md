@@ -9,7 +9,7 @@ redirect_from:
 
 # Welcome!
 
-I’m a **27-year-old Control Systems Engineer** with a deep background in control theory, robotics, computer science, and software development.  
+I’m a **28-year-old Control Systems Engineer** with a deep background in control theory, robotics, computer science, and software development.  
 Curiosity drives me: I love tackling complex problems that sit at the intersection of **mathematics, physics, and engineering**—whether that means designing a geometric controller for a VTOL drone or optimizing real-time software on an embedded board.
 
 ---
