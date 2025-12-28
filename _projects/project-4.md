@@ -5,7 +5,7 @@ subject: "Machine Learning - Python (Keras) - CNN"
 permalink: /projects/project-6
 venue: "University 'La Sapienza' of Rome"
 period: "Winter 20234"
-paper: "https://messi-orion10.github.io/s_orion10.github.io/files/HW2_ORELLI.pdf"
+paper: "https://s-orion10.github.io/files/HW2_ORELLI.pdf"
 video: "https://www.youtube.com/watch?v=xVTm94bYn78"
 ---
 
