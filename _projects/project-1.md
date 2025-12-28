@@ -5,7 +5,8 @@ subject: "Digital Control System - Arduino"
 permalink: /projects/project-3
 venue: "University 'La Sapienza' of Rome"
 period: "Autumn - Winter 2023"
-paper: - "/files/self_balancing.pdf"
+paper: 
+  - "/files/self_balancing.pdf"
 video: "/files/demo.mp4"
 ---
 
