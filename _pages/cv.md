@@ -7,8 +7,7 @@ redirect_from:
   - /resume
 ---
 
-[📄 View CV online](https://messi-orion10.github.io/s_orion10.github.io/files/curriculum.pdf){:target="_blank"}  
-[⬇️ Download CV](https://messi-Orion10/s_orion10.github.io/files/curriculum.pdf){:download="cv_Simone_Orelli.pdf"}
+[📄 View CV online](https://s-orion10.github.io/files/curriculum.pdf){:target="_blank"}  
 
 
 {% include base_path %}
