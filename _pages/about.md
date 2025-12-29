@@ -31,11 +31,11 @@ Curiosity drives me: I love tackling complex problems that sit at the intersecti
 <style>
 .skill-section { margin-bottom: 2.5rem; }
 .skill-grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
-.skill-card { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; padding: 1.15rem 0.9rem; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 16px; background: rgba(255, 255, 255, 0.94); text-decoration: none !important; color: inherit; box-shadow: 0 3px 9px rgba(15, 23, 42, 0.05); transition: border-color 0.22s ease; }
-.skill-card:hover, .skill-card:focus { text-decoration: none !important; border-color: rgba(0, 118, 168, 0.24); }
+.skill-card { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; padding: 1.15rem 0.9rem; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 16px; background: rgba(255, 255, 255, 0.94); text-decoration: none !important; color: inherit; box-shadow: 0 3px 9px rgba(15, 23, 42, 0.05); transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; }
+.skill-card:hover, .skill-card:focus { transform: translateY(-2px) scale(1.03); box-shadow: 0 8px 18px rgba(15, 23, 42, 0.09); border-color: rgba(0, 118, 168, 0.28); text-decoration: none !important; }
 .skill-card:focus { outline: 3px solid rgba(0, 123, 255, 0.4); outline-offset: 3px; }
 .skill-icon { width: 48px; height: 48px; object-fit: contain; transition: transform 0.22s ease; background: transparent; }
-.skill-card:hover .skill-icon, .skill-card:focus .skill-icon { transform: scale(1.09); }
+.skill-card:hover .skill-icon, .skill-card:focus .skill-icon { transform: scale(1.03); }
 .skill-stars { font-size: 0.95rem; letter-spacing: 2px; color: #e0a100; }
 .skill-name { font-weight: 600; text-align: center; text-decoration: none !important; }
 .skill-card:hover .skill-name, .skill-card:focus .skill-name { text-decoration: underline; }
