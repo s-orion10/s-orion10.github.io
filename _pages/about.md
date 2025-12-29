@@ -39,8 +39,8 @@ redirect_from:
 .life-section .section-panel { margin: 0; }
 .life-heading { margin: 0; font-size: 1.32rem; font-weight: 700; letter-spacing: 0.01em; }
 .life-list { display: flex; flex-direction: column; gap: 1rem; }
-.life-item { display: flex; flex-direction: column; gap: 0.7rem; padding: 1.15rem 1.05rem; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 16px; background: rgba(255, 255, 255, 0.96); box-shadow: 0 3px 9px rgba(15, 23, 42, 0.05); color: inherit; text-decoration: none; transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; }
-.life-item:hover, .life-item:focus-within { transform: translateY(-2px) scale(1.02); box-shadow: 0 10px 20px rgba(15, 23, 42, 0.12); border-color: rgba(0, 118, 168, 0.28); }
+.life-item { display: flex; flex-direction: column; gap: 0.7rem; padding: 1.15rem 1.05rem; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 16px; background: rgba(255, 255, 255, 0.96); box-shadow: 0 3px 9px rgba(15, 23, 42, 0.05); color: inherit; text-decoration: none !important; transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; }
+.life-item:hover, .life-item:focus-within { transform: translateY(-2px) scale(1.02); box-shadow: 0 10px 20px rgba(15, 23, 42, 0.12); border-color: rgba(0, 118, 168, 0.28); text-decoration: none !important; }
 .life-item:focus-visible { outline: 3px solid rgba(0, 123, 255, 0.35); outline-offset: 3px; }
 .life-icon { font-size: 1.9rem; }
 .life-title { font-weight: 600; font-size: 1.05rem; margin: 0; }
@@ -276,6 +276,6 @@ redirect_from:
   <div class="contact-actions">
     <a class="contact-button contact-button--mail" href="mailto:simoneorelli@icloud.com">Email Me</a>
     <a class="contact-button contact-button--linkedin" href="https://www.linkedin.com/in/simone-orelli-a5b9a1144" target="_blank" rel="noopener">Message on LinkedIn</a>
+    <p><em>Thanks for stopping by!</em></p>
   </div>
-  <p><em>Thanks for stopping by!</em></p>
 </div>
