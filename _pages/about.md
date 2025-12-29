@@ -257,8 +257,7 @@ redirect_from:
         <p class="life-desc">I follow astrophysics via podcasts, documentaries, and books, stay updated on recent developments, and occasionally practice with my telescope and astrophotography.</p>
       </div>
       <div class="life-item">
-        <span class="life-icon" aria-hidden="true">🌐</span>
-        <h3 class="life-title">Open Knowledge</h3>
+        <span class="life-icon" aria-hidden="true">🌐 Open Knowledge</span>
         <p class="life-desc">I enjoy being part of a social network where knowledge is shared openly through platforms like LinkedIn, GitHub, and community talks.</p>
       </div>
     </div>
