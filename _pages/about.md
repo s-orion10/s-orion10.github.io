@@ -20,7 +20,7 @@ redirect_from:
 .skill-card:hover .skill-name, .skill-card:focus .skill-name { text-decoration: underline; }
 .skill-stars span { text-decoration: none !important; }
 .skill-stars .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
-.about-section { margin: 2.8rem 0; }
+.about-section { margin: 0; }
 .about-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
 .about-card { display: flex; flex-direction: column; gap: 0.65rem; padding: 1.25rem 1.1rem; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 18px; background: rgba(248, 250, 252, 0.96); box-shadow: 0 3px 9px rgba(15, 23, 42, 0.05); transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; color: inherit; text-decoration: none !important; }
 .about-card:hover, .about-card:focus-visible { transform: translateY(-2px) scale(1.02); box-shadow: 0 10px 20px rgba(15, 23, 42, 0.12); border-color: rgba(0, 118, 168, 0.28); }
@@ -28,55 +28,63 @@ redirect_from:
 .about-icon { font-size: 2rem; }
 .about-title { font-weight: 600; font-size: 1.08rem; margin: 0; }
 .about-desc { margin: 0; line-height: 1.55; }
+.section-panel { margin: 3rem 0; display: flex; flex-direction: column; gap: 1.6rem; padding: 1.6rem 1.35rem; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 22px; background: rgba(248, 250, 252, 0.98); box-shadow: 0 3px 12px rgba(15, 23, 42, 0.08); }
+.section-panel:first-of-type { margin-top: 0; }
+.section-panel p { margin: 0; line-height: 1.6; }
+.section-panel p + p { margin-top: 0.9rem; }
+.section-heading { margin: 0; font-size: 1.32rem; font-weight: 700; letter-spacing: 0.01em; }
+.section-body { display: flex; flex-direction: column; gap: 2.4rem; }
+.section-body .skill-section { margin: 0; }
 .life-section { margin: 3rem 0; }
-.life-panel { display: flex; flex-direction: column; gap: 1.4rem; padding: 1.5rem 1.3rem; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 22px; background: rgba(248, 250, 252, 0.98); box-shadow: 0 3px 12px rgba(15, 23, 42, 0.08); }
-.life-heading { margin: 0; font-size: 1.28rem; font-weight: 700; letter-spacing: 0.01em; }
+.life-section .section-panel { margin: 0; }
+.life-heading { margin: 0; font-size: 1.32rem; font-weight: 700; letter-spacing: 0.01em; }
 .life-list { display: flex; flex-direction: column; gap: 1rem; }
-.life-item { display: flex; flex-direction: column; gap: 0.7rem; padding: 1.15rem 1.05rem; border: 1px solid rgba(0, 0, 0, 0.07); border-radius: 16px; background: rgba(255, 255, 255, 0.96); box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05); color: inherit; text-decoration: none; transition: none; }
+.life-item { display: flex; flex-direction: column; gap: 0.7rem; padding: 1.15rem 1.05rem; border: 1px solid rgba(0, 0, 0, 0.07); border-radius: 16px; background: rgba(255, 255, 255, 0.96); box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05); color: inherit; text-decoration: none; transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; }
+.life-item:hover, .life-item:focus-within { transform: translateY(-2px) scale(1.02); box-shadow: 0 10px 20px rgba(15, 23, 42, 0.12); border-color: rgba(0, 118, 168, 0.28); }
 .life-item:focus-visible { outline: 3px solid rgba(0, 123, 255, 0.35); outline-offset: 3px; }
 .life-icon { font-size: 1.9rem; }
 .life-title { font-weight: 600; font-size: 1.05rem; margin: 0; }
 .life-desc { margin: 0; line-height: 1.55; }
+.life-note { margin: 0; line-height: 1.6; color: #1f2933; }
 </style>
 
-# About Me
-
-I’m Simone Orelli, a **28-year-old control systems engineer** who thrives where robotics, applied mathematics, and software craftsmanship meet. I love translating complex dynamics into controllers that let airframes, ground robots, and embedded platforms move with confidence in the real world.
-
-Right now I’m focused on **nonlinear control of under-actuated rigid bodies** with tightly coupled moment–force dynamics, blending geometric methods with state estimation, guidance, and embedded implementation.
-
-My workflow is research-first: I dive into theory, build high-fidelity prototypes in MATLAB/Simulink, and iterate until the hardware response matches the mathematical intent.
-
-<div class="about-section">
-  <div class="about-grid">
-    <a class="about-card" href="{{ '/projects/' | relative_url }}">
-      <span class="about-icon" aria-hidden="true">🛩️</span>
-      <h3 class="about-title">Robotics Projects</h3>
-      <p class="about-desc">Autonomy builds across VTOL tricopters, Ingenuity-style rotorcraft, and racing simulators, covering control, estimation, and embedded deployment.</p>
-    </a>
-    <a class="about-card" href="{{ '/publications/' | relative_url }}">
-      <span class="about-icon" aria-hidden="true">📚</span>
-      <h3 class="about-title">Research Notes</h3>
-      <p class="about-desc">Graduate research on nonlinear control, coupled dynamics, and reinforcement learning, distilled into papers, posters, and technical deep dives.</p>
-    </a>
-    <a class="about-card" href="{{ '/work_experiences/' | relative_url }}">
-      <span class="about-icon" aria-hidden="true">🏢</span>
-      <h3 class="about-title">Engineering Experience</h3>
-      <p class="about-desc">Professional stints where I integrated flight software, safety tooling, and systems engineering practices into production robotics programs.</p>
-    </a>
-    <a class="about-card" href="{{ '/teaching/' | relative_url }}">
-      <span class="about-icon" aria-hidden="true">🎓</span>
-      <h3 class="about-title">Teaching & Talks</h3>
-      <p class="about-desc">Workshops and talks on control, autonomy, and experimentation designed to bridge rigorous theory with maker-friendly storytelling.</p>
-    </a>
+<div class="section-panel">
+  <h1 class="section-heading">About Me</h1>
+  <div class="section-body">
+    <p>I’m Simone Orelli, a <strong>28-year-old control systems engineer</strong> who thrives where robotics, applied mathematics, and software craftsmanship meet. I love translating complex dynamics into controllers that let airframes, ground robots, and embedded platforms move with confidence in the real world.</p>
+    <p>Right now I’m focused on <strong>nonlinear control of under-actuated rigid bodies</strong> with tightly coupled moment–force dynamics, blending geometric methods with state estimation, guidance, and embedded implementation.</p>
+    <p>My workflow is research-first: I dive into theory, build high-fidelity prototypes in MATLAB/Simulink, and iterate until the hardware response matches the mathematical intent.</p>
+    <div class="about-section">
+      <div class="about-grid">
+        <a class="about-card" href="{{ '/projects/' | relative_url }}">
+          <span class="about-icon" aria-hidden="true">🛩️</span>
+          <h3 class="about-title">Robotics Projects</h3>
+          <p class="about-desc">Autonomy builds across VTOL tricopters, Ingenuity-style rotorcraft, and racing simulators, covering control, estimation, and embedded deployment.</p>
+        </a>
+        <a class="about-card" href="{{ '/publications/' | relative_url }}">
+          <span class="about-icon" aria-hidden="true">📚</span>
+          <h3 class="about-title">Research Notes</h3>
+          <p class="about-desc">Graduate research on nonlinear control, coupled dynamics, and reinforcement learning, distilled into papers, posters, and technical deep dives.</p>
+        </a>
+        <a class="about-card" href="{{ '/work_experiences/' | relative_url }}">
+          <span class="about-icon" aria-hidden="true">🏢</span>
+          <h3 class="about-title">Engineering Experience</h3>
+          <p class="about-desc">Professional stints where I integrated flight software, safety tooling, and systems engineering practices into production robotics programs.</p>
+        </a>
+        <a class="about-card" href="{{ '/teaching/' | relative_url }}">
+          <span class="about-icon" aria-hidden="true">🎓</span>
+          <h3 class="about-title">Teaching & Talks</h3>
+          <p class="about-desc">Workshops and talks on control, autonomy, and experimentation designed to bridge rigorous theory with maker-friendly storytelling.</p>
+        </a>
+      </div>
+    </div>
   </div>
 </div>
 
----
-
-## Skills Snapshot
-
-<div class="skill-section">
+<div class="section-panel">
+  <h2 class="section-heading">Skills Snapshot</h2>
+  <div class="section-body">
+    <div class="skill-section">
   <h3>Software &amp; Tools</h3>
   <div class="skill-grid">
     <a class="skill-card" href="https://www.arduino.cc/" target="_blank" rel="noopener">
@@ -214,12 +222,12 @@ My workflow is research-first: I dive into theory, build high-fidelity prototype
     </a>
   </div>
 </div>
-
----
+  </div>
+</div>
 
 <div class="life-section">
-  <div class="life-panel">
-    <h2 class="life-heading">Beyond Engineering</h2>
+  <div class="section-panel life-panel">
+    <h2 class="section-heading life-heading">Beyond Engineering</h2>
     <div class="life-list">
       <a class="life-item" href="https://youtu.be/QU9rJnTvPro?si=brRrWfDxHEmQPqcV" target="_blank" rel="noopener">
         <span class="life-icon" aria-hidden="true">🎸</span>
@@ -247,16 +255,13 @@ My workflow is research-first: I dive into theory, build high-fidelity prototype
         <p class="life-desc">I enjoy being part of a social network where knowledge is shared openly through platforms like LinkedIn, GitHub, and community talks.</p>
       </div>
     </div>
+    <p class="life-note">These hobbies keep me balanced, sharpen strategic thinking, and sustain the creativity I bring back to engineering.</p>
   </div>
 </div>
 
-These hobbies keep me balanced, sharpen strategic thinking, and sustain the creativity I bring back to engineering.
-
----
-
-## Let’s connect
-
-I’m always open to new collaborations, research projects, or just a friendly chat about control theory, robotics, or the latest chess opening.  
-Feel free to reach out via [email](mailto:simoneorelli@icloud.com) or connect on [LinkedIn](https://www.linkedin.com/in/simone-orelli-a5b9a1144).
-
-*Thanks for stopping by!*  
+<div class="section-panel">
+  <h2 class="section-heading">Let’s Connect</h2>
+  <p>I’m always open to new collaborations, research projects, or just a friendly chat about control theory, robotics, or the latest chess opening.</p>
+  <p>Feel free to reach out via <a href="mailto:simoneorelli@icloud.com">email</a> or connect on <a href="https://www.linkedin.com/in/simone-orelli-a5b9a1144" target="_blank" rel="noopener">LinkedIn</a>.</p>
+  <p><em>Thanks for stopping by!</em></p>
+</div>
