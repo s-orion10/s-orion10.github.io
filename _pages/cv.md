@@ -519,7 +519,7 @@ html[data-theme="dark"] .education-card-period {
         <div class="education-card">
           <h2 class="education-card-title">Technical Institute Diploma in Business Information Systems</h2>
           <div class="education-card-media">
-            <img src="{{ '/images/ISIS_Pacifici_e_DeMagisreis.png' | relative_url }}" alt="Illustration for business information systems diploma">
+            <img src="{{ '/images/ISIS_Pacifici_e_DeMagistris.png' | relative_url }}" alt="Illustration for business information systems diploma">
           </div>
           <div class="education-card-info">
             <div class="education-card-tags">
