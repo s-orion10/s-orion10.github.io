@@ -39,13 +39,23 @@ redirect_from:
 .life-section .section-panel { margin: 0; }
 .life-heading { margin: 0; font-size: 1.32rem; font-weight: 700; letter-spacing: 0.01em; }
 .life-list { display: flex; flex-direction: column; gap: 1rem; }
-.life-item { display: flex; flex-direction: column; gap: 0.7rem; padding: 1.15rem 1.05rem; border: 1px solid rgba(0, 0, 0, 0.07); border-radius: 16px; background: rgba(255, 255, 255, 0.96); box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05); color: inherit; text-decoration: none; transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; }
+.life-item { display: flex; flex-direction: column; gap: 0.7rem; padding: 1.15rem 1.05rem; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 16px; background: rgba(255, 255, 255, 0.96); box-shadow: 0 3px 9px rgba(15, 23, 42, 0.05); color: inherit; text-decoration: none; transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; }
 .life-item:hover, .life-item:focus-within { transform: translateY(-2px) scale(1.02); box-shadow: 0 10px 20px rgba(15, 23, 42, 0.12); border-color: rgba(0, 118, 168, 0.28); }
 .life-item:focus-visible { outline: 3px solid rgba(0, 123, 255, 0.35); outline-offset: 3px; }
 .life-icon { font-size: 1.9rem; }
 .life-title { font-weight: 600; font-size: 1.05rem; margin: 0; }
 .life-desc { margin: 0; line-height: 1.55; }
 .life-note { margin: 0; line-height: 1.6; color: #1f2933; }
+.contact-panel { position: relative; }
+.contact-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; opacity: 0; transform: translateY(8px); transition: opacity 0.22s ease, transform 0.22s ease; }
+.contact-panel:hover .contact-actions, .contact-panel:focus-within .contact-actions { opacity: 1; transform: translateY(0); }
+.contact-button { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; padding: 0.55rem 1.1rem; border-radius: 999px; font-weight: 600; text-decoration: none; border: 1px solid rgba(0, 118, 168, 0.28); background: rgba(0, 118, 168, 0.08); color: #074b6d; box-shadow: 0 4px 10px rgba(15, 23, 42, 0.1); transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease; }
+.contact-button:hover, .contact-button:focus-visible { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(15, 23, 42, 0.16); background: rgba(0, 118, 168, 0.14); border-color: rgba(0, 118, 168, 0.38); outline: none; }
+.contact-button:focus-visible { outline: 3px solid rgba(0, 123, 255, 0.35); outline-offset: 3px; }
+.contact-button--mail { border-color: rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.12); color: #065f46; }
+.contact-button--mail:hover, .contact-button--mail:focus-visible { background: rgba(16, 185, 129, 0.18); border-color: rgba(16, 185, 129, 0.55); }
+.contact-button--linkedin { border-color: rgba(14, 118, 168, 0.45); background: rgba(14, 118, 168, 0.12); color: #0b4870; }
+.contact-button--linkedin:hover, .contact-button--linkedin:focus-visible { background: rgba(14, 118, 168, 0.2); border-color: rgba(14, 118, 168, 0.6); }
 </style>
 
 <div class="section-panel">
@@ -259,9 +269,13 @@ redirect_from:
   </div>
 </div>
 
-<div class="section-panel">
+<div class="section-panel contact-panel">
   <h2 class="section-heading">Let’s Connect</h2>
   <p>I’m always open to new collaborations, research projects, or just a friendly chat about control theory, robotics, or the latest chess opening.</p>
-  <p>Feel free to reach out via <a href="mailto:simoneorelli@icloud.com">email</a> or connect on <a href="https://www.linkedin.com/in/simone-orelli-a5b9a1144" target="_blank" rel="noopener">LinkedIn</a>.</p>
+  <p>Prefer a quick ping? Hover or focus here to surface instant contact shortcuts.</p>
+  <div class="contact-actions">
+    <a class="contact-button contact-button--mail" href="mailto:simoneorelli@icloud.com">Email Me</a>
+    <a class="contact-button contact-button--linkedin" href="https://www.linkedin.com/in/simone-orelli-a5b9a1144" target="_blank" rel="noopener">Message on LinkedIn</a>
+  </div>
   <p><em>Thanks for stopping by!</em></p>
 </div>
