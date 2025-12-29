@@ -223,8 +223,8 @@ My workflow is research-first: I dive into theory, build high-fidelity prototype
   <div class="life-grid">
     <div class="life-card">
       <span class="life-icon" aria-hidden="true">🎸</span>
-      <h3 class="life-title">[Acoustic Storytelling](https://youtu.be/QU9rJnTvPro?si=LkgSZ5swkY2iJQxP)</h3>
-      <p class="life-desc">I unplug with fingerstyle arrangements, including <a class="life-link" href="https://youtu.be/QU9rJnTvPro?si=brRrWfDxHEmQPqcV" target="_blank" rel="noopener">a recent cover</a> tracked in a single take to keep the emotion intact.</p>
+      <h3 class="life-title">Acoustic Storytelling</h3>
+      <p class="life-desc">I enjoy playing the guitar in my free time, exploring fingerstyle arrangements as a way to relax and express myself. <a class="life-link" href="https://youtu.be/QU9rJnTvPro?si=brRrWfDxHEmQPqcV" target="_blank" rel="noopener">Here’s one example</a>.</p>
     </div>
     <div class="life-card">
       <span class="life-icon" aria-hidden="true">⚽</span>
@@ -234,17 +234,17 @@ My workflow is research-first: I dive into theory, build high-fidelity prototype
     <div class="life-card">
       <span class="life-icon" aria-hidden="true">♟️</span>
       <h3 class="life-title">Strategic Puzzles</h3>
-      <p class="life-desc">Chess.com drills sharpen my pattern recognition and time-to-decision—the same instincts I rely on when tuning controllers under pressure.</p>
+      <p class="life-desc">I enjoy playing chess and regularly train on Chess.com by completing daily exercises, as it helps keep my strategic thinking sharp.</p>
     </div>
     <div class="life-card">
       <span class="life-icon" aria-hidden="true">🪐</span>
       <h3 class="life-title">Cosmic Curiosity</h3>
-      <p class="life-desc">Astrophysics podcasts and mission debriefs keep my imagination wide-angle and inspire rigorous, system-level thinking.</p>
+      <p class="life-desc">I follow astrophysics via podcasts, documentaries, and books, stay updated on recent developments, and occasionally practice with my telescope and astrophotography.</p>
     </div>
     <div class="life-card">
       <span class="life-icon" aria-hidden="true">🌐</span>
       <h3 class="life-title">Open Knowledge</h3>
-      <p class="life-desc">I love distilling project takeaways for LinkedIn, GitHub, and community talks to spark collaboration and share what works.</p>
+      <p class="life-desc">I enjoy being part of a social network where knowledge is shared openly through platforms like LinkedIn, GitHub, and community talks.</p>
     </div>
   </div>
 </div>
