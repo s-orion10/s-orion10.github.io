@@ -1,5 +1,17 @@
 ---
 permalink: /work_experiences/
+title: "Work Experiences"
+author_profile: true
+---
+
+<style>
+:root {
+  --experience-panel-bg: rgba(248, 250, 252, 0.98);
+  --experience-panel-border: rgba(15, 23, 42, 0.08);
+  --experience-panel-shadow: 0 16px 42px rgba(15, 23, 42, 0.12);
+  --experience-card-bg: rgba(255, 255, 255, 0.97);
+  --experience-card-border: rgba(148, 163, 184, 0.24---
+permalink: /work_experiences/
 title: ""
 author_profile: true
 ---
@@ -151,6 +163,19 @@ html[data-theme="dark"] {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.timeline-card-media:hover,
+.timeline-card-media:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.22);
+}
+
+.timeline-card-media:focus-visible {
+  outline: 3px solid rgba(59, 130, 246, 0.4);
+  outline-offset: 3px;
 }
 
 .timeline-card-media img {
@@ -413,9 +438,15 @@ html[data-theme="dark"] .timeline-card-period {
             <span class="timeline-dot" aria-hidden="true"></span>
           </div>
           <div class="timeline-card">
-            <div class="timeline-card-media">
+            {% assign media_link = 'https://www.uniroma1.it/it/' %}
+            {% if experience.venue contains 'Sapienza Aerospace Student Association' %}
+              {% assign media_link = 'https://www.sasa-aerospace.it/flight-team/' %}
+            {% elsif experience.venue contains 'Municipality of Sezze' %}
+              {% assign media_link = 'https://www.comune.sezze.lt.it' %}
+            {% endif %}
+            <a class="timeline-card-media" href="{{ media_link }}" target="_blank" rel="noopener">
               <img src="{{ experience.image | default: '/images/work-experience-default.svg' | relative_url }}" alt="{{ experience.title }} visual">
-            </div>
+            </a>
             <div class="timeline-card-header">
               {% if experience.type %}<span class="timeline-card-role">{{ experience.type }}</span>{% endif %}
               <h2 class="timeline-card-title">{{ experience.title }}</h2>
