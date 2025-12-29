@@ -9,4 +9,4 @@ period: "August 2025 - Present"
 location: "Rome (RM)"
 image: "/images/sapienza.png"
 ---
-Within the SOAR-TOUCH project I lead control and sensing research that helps aerial robots cope with external disturbances. I integrate soft optical tactile perception on a hexarotor platform and craft energy-aware controllers validated through high-fidelity simulation and hands-on trials.
+How can **soft optical tactile sensing** enable **energy-efficient** and **stable** interaction with the environment in aerial robots **under external disturbances**? Within the [SOAR-TOUCH](https://sites.google.com/diag.uniroma1.it/soar-touch-website) project, I address this question by designing control strategies and integrating tactile perception on a hexarotor platform.
