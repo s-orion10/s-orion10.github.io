@@ -6,6 +6,51 @@ author_profile: true
 redirect_from:
   - /resume
   - /cv/
+entries:
+  - title: "Ph.D. in Automatic Control, Bioengineering and Operations"
+    institution: "Sapienza University of Rome"
+    location: "Rome, Italy"
+    period: "Nov 2021 - Present"
+    summary: "Doctoral research on autonomous systems and advanced control architectures, blending theoretical analysis with experimental platforms in robotics and bioengineering."
+    tags:
+      - "Doctorate"
+      - "Control Systems"
+    media_link: "https://www.uniroma1.it/it/"
+    image: "/images/education-default.svg"
+    image_alt: "Illustration for doctoral research"
+  - title: "M.Eng equivalent in Control Engineering"
+    institution: "Sapienza University of Rome"
+    location: "Rome, Italy"
+    period: "Completed Oct 2021"
+    summary: "Advanced coursework and laboratory projects in robust and nonlinear control, culminating in an average exam grade of 29.13/30 and applied research across aerospace and robotics domains."
+    tags:
+      - "Master's Degree"
+      - "Control Engineering"
+    media_link: "https://www.uniroma1.it/it/"
+    image: "/images/education-default.svg"
+    image_alt: "Illustration for control engineering master's studies"
+  - title: "B.Eng equivalent in Information Engineering, Informatics and Statistics"
+    institution: "Sapienza University of Rome (Latina campus)"
+    location: "Latina, Italy"
+    period: "Sep 2016 - Oct 2021"
+    summary: "Integrated curriculum covering automation, computer science, and applied statistics; graduated with final grade 110/110 with honors while delivering capstone projects in embedded systems."
+    tags:
+      - "Bachelor's Degree"
+      - "Information Engineering"
+    media_link: "https://www.uniroma1.it/it/"
+    image: "/images/education-default.svg"
+    image_alt: "Illustration for information engineering bachelor's studies"
+  - title: "Technical Institute Diploma in Business Information Systems"
+    institution: "ISIS Pacifici & De Magistris"
+    location: "Sezze (LT), Italy"
+    period: "Sep 2011 - Jul 2016"
+    summary: "Specialised studies in enterprise information systems, accounting, and applied computer science, completed with final grade 100/100 and internships across local organisations."
+    tags:
+      - "High School Diploma"
+      - "Business IT"
+    media_link: "https://istitutosuperioresezze.edu.it/scuola/"
+    image: "/images/education-default.svg"
+    image_alt: "Illustration for business information systems diploma"
 ---
 
 {% include base_path %}
@@ -59,6 +104,9 @@ html[data-theme="dark"] {
   border-radius: 26px;
   background: var(--education-panel-bg);
   box-shadow: var(--education-panel-shadow);
+  width: 100%;
+  max-width: none;
+  align-self: stretch;
 }
 
 .education-header {
@@ -223,6 +271,13 @@ html[data-theme="dark"] {
   font-size: 1.45rem;
   font-weight: 700;
   line-height: 1.22;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.85rem;
+  border-bottom: 1px solid rgba(14, 116, 144, 0.22);
+}
+
+html[data-theme="dark"] .education-card-title {
+  border-bottom-color: rgba(94, 234, 212, 0.3);
 }
 
 
@@ -458,7 +513,7 @@ html[data-theme="dark"] .education-card-period {
         <div class="education-card">
           <h2 class="education-card-title">Ph.D. in Automatic Control, Bioengineering and Operations</h2>
           <a class="education-card-media" href="https://www.uniroma1.it/it/" target="_blank" rel="noopener">
-            <img src="{{ '/images/sapienza.png' | relative_url }}" alt="Illustration for doctoral research">
+            <img src="{{ '/images/education-default.svg' | relative_url }}" alt="Illustration for doctoral research">
           </a>
           <div class="education-card-info">
             <div class="education-card-tags">
@@ -483,7 +538,7 @@ html[data-theme="dark"] .education-card-period {
         <div class="education-card">
           <h2 class="education-card-title">M.Eng equivalent in Control Engineering</h2>
           <a class="education-card-media" href="https://www.uniroma1.it/it/" target="_blank" rel="noopener">
-            <img src="{{ '/images/sapienza.png' | relative_url }}" alt="Illustration for control engineering master's studies">
+            <img src="{{ '/images/education-default.svg' | relative_url }}" alt="Illustration for control engineering master's studies">
           </a>
           <div class="education-card-info">
             <div class="education-card-tags">
@@ -508,7 +563,7 @@ html[data-theme="dark"] .education-card-period {
         <div class="education-card">
           <h2 class="education-card-title">B.Eng equivalent in Information Engineering, Informatics and Statistics</h2>
           <a class="education-card-media" href="https://www.uniroma1.it/it/" target="_blank" rel="noopener">
-            <img src="{{ '/images/sapienza.png' | relative_url }}" alt="Illustration for information engineering bachelor's studies">
+            <img src="{{ '/images/education-default.svg' | relative_url }}" alt="Illustration for information engineering bachelor's studies">
           </a>
           <div class="education-card-info">
             <div class="education-card-tags">
@@ -533,7 +588,7 @@ html[data-theme="dark"] .education-card-period {
         <div class="education-card">
           <h2 class="education-card-title">Technical Institute Diploma in Business Information Systems</h2>
           <a class="education-card-media" href="https://istitutosuperioresezze.edu.it/scuola/" target="_blank" rel="noopener">
-            <img src="{{ '/images/ISIS_Pacifici_e_DeMagistris.png' | relative_url }}" alt="Illustration for business information systems diploma">
+            <img src="{{ '/images/education-default.svg' | relative_url }}" alt="Illustration for business information systems diploma">
           </a>
           <div class="education-card-info">
             <div class="education-card-tags">
@@ -553,5 +608,6 @@ html[data-theme="dark"] .education-card-period {
     </div>
   </div>
 </div>
+
 
   
