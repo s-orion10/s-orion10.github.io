@@ -8,10 +8,62 @@ redirect_from:
 ---
 
 <style>
+:root {
+  --profile-panel-bg: rgba(248, 250, 252, 0.98);
+  --profile-panel-border: rgba(0, 0, 0, 0.08);
+  --profile-panel-shadow: 0 3px 12px rgba(15, 23, 42, 0.08);
+  --profile-card-bg: rgba(255, 255, 255, 0.96);
+  --profile-card-border: rgba(0, 0, 0, 0.08);
+  --profile-card-shadow: 0 3px 9px rgba(15, 23, 42, 0.05);
+  --profile-card-hover-border: rgba(0, 118, 168, 0.28);
+  --profile-card-hover-shadow: 0 10px 20px rgba(15, 23, 42, 0.12);
+  --profile-contact-bg: rgba(148, 163, 184, 0.18);
+  --profile-contact-border: rgba(148, 163, 184, 0.45);
+  --profile-contact-color: #475569;
+  --profile-contact-hover-bg: rgba(148, 163, 184, 0.26);
+  --profile-contact-hover-border: rgba(148, 163, 184, 0.6);
+  --profile-contact-hover-color: #1f2937;
+  --profile-contact-shadow: 0 3px 9px rgba(15, 23, 42, 0.08);
+  --profile-contact-hover-shadow: 0 6px 16px rgba(15, 23, 42, 0.16);
+  --profile-mail-accent-bg: rgba(16, 185, 129, 0.16);
+  --profile-mail-accent-border: rgba(16, 185, 129, 0.55);
+  --profile-mail-accent-color: #065f46;
+  --profile-linkedin-accent-bg: rgba(14, 118, 168, 0.18);
+  --profile-linkedin-accent-border: rgba(14, 118, 168, 0.6);
+  --profile-linkedin-accent-color: #0b4870;
+  --profile-note-color: #1f2933;
+}
+
+html[data-theme="dark"] {
+  --profile-panel-bg: rgba(17, 24, 39, 0.82);
+  --profile-panel-border: rgba(148, 163, 184, 0.28);
+  --profile-panel-shadow: 0 16px 30px rgba(2, 6, 23, 0.6);
+  --profile-card-bg: rgba(30, 41, 59, 0.78);
+  --profile-card-border: rgba(148, 163, 184, 0.28);
+  --profile-card-shadow: 0 6px 18px rgba(2, 6, 23, 0.55);
+  --profile-card-hover-border: rgba(56, 189, 248, 0.45);
+  --profile-card-hover-shadow: 0 18px 32px rgba(2, 6, 23, 0.58);
+  --profile-contact-bg: rgba(148, 163, 184, 0.14);
+  --profile-contact-border: rgba(148, 163, 184, 0.35);
+  --profile-contact-color: #e2e8f0;
+  --profile-contact-hover-bg: rgba(148, 163, 184, 0.22);
+  --profile-contact-hover-border: rgba(148, 163, 184, 0.48);
+  --profile-contact-hover-color: #f8fafc;
+  --profile-contact-shadow: 0 6px 16px rgba(1, 4, 15, 0.55);
+  --profile-contact-hover-shadow: 0 12px 24px rgba(1, 4, 15, 0.6);
+  --profile-mail-accent-bg: rgba(16, 185, 129, 0.2);
+  --profile-mail-accent-border: rgba(16, 185, 129, 0.5);
+  --profile-mail-accent-color: #bbf7d0;
+  --profile-linkedin-accent-bg: rgba(14, 118, 168, 0.2);
+  --profile-linkedin-accent-border: rgba(14, 118, 168, 0.5);
+  --profile-linkedin-accent-color: #bae6fd;
+  --profile-note-color: #e2e8f0;
+}
+
 .skill-section { margin-bottom: 2.5rem; }
 .skill-grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
-.skill-card { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; padding: 1.15rem 0.9rem; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 16px; background: rgba(255, 255, 255, 0.94); text-decoration: none !important; color: inherit; box-shadow: 0 3px 9px rgba(15, 23, 42, 0.05); transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; }
-.skill-card:hover, .skill-card:focus { transform: translateY(-2px) scale(1.03); box-shadow: 0 8px 18px rgba(15, 23, 42, 0.09); border-color: rgba(0, 118, 168, 0.28); text-decoration: none !important; }
+.skill-card { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; padding: 1.15rem 0.9rem; border: 1px solid var(--profile-card-border); border-radius: 16px; background: var(--profile-card-bg); text-decoration: none !important; color: inherit; box-shadow: var(--profile-card-shadow); transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; }
+.skill-card:hover, .skill-card:focus { transform: translateY(-2px) scale(1.03); box-shadow: var(--profile-card-hover-shadow); border-color: var(--profile-card-hover-border); text-decoration: none !important; }
 .skill-card:focus { outline: 3px solid rgba(0, 123, 255, 0.4); outline-offset: 3px; }
 .skill-icon { width: 48px; height: 48px; object-fit: contain; transition: transform 0.22s ease; background: transparent; box-shadow: none !important; filter: none !important; display: block; }
 .skill-card:hover .skill-icon, .skill-card:focus .skill-icon { transform: scale(1.03); }
@@ -22,14 +74,14 @@ redirect_from:
 .skill-stars .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
 .about-section { margin: 0; }
 .about-list { display: flex; flex-direction: column; gap: 1rem; }
-.about-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem 1.05rem; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 16px; background: rgba(255, 255, 255, 0.96); box-shadow: 0 3px 9px rgba(15, 23, 42, 0.05); color: inherit; text-decoration: none !important; transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; }
-.about-item:hover, .about-item:focus-visible { transform: translateY(-2px) scale(1.02); box-shadow: 0 10px 20px rgba(15, 23, 42, 0.12); border-color: rgba(0, 118, 168, 0.28); text-decoration: none !important; }
+.about-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem 1.05rem; border: 1px solid var(--profile-card-border); border-radius: 16px; background: var(--profile-card-bg); box-shadow: var(--profile-card-shadow); color: inherit; text-decoration: none !important; transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; }
+.about-item:hover, .about-item:focus-visible { transform: translateY(-2px) scale(1.02); box-shadow: var(--profile-card-hover-shadow); border-color: var(--profile-card-hover-border); text-decoration: none !important; }
 .about-item:focus-visible { outline: 3px solid rgba(0, 123, 255, 0.35); outline-offset: 3px; }
 .about-icon { display: flex; align-items: center; justify-content: center; font-size: 1.9rem; line-height: 1; flex-shrink: 0; margin-top: 0.1rem; }
 .about-content { display: flex; flex-direction: column; gap: 0.45rem; }
 .about-title { font-weight: 600; font-size: 1.05rem; margin: 0; }
 .about-desc { margin: 0; line-height: 1.55; }
-.section-panel { margin: 3rem 0; display: flex; flex-direction: column; gap: 1.6rem; padding: 1.6rem 1.35rem; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 22px; background: rgba(248, 250, 252, 0.98); box-shadow: 0 3px 12px rgba(15, 23, 42, 0.08); }
+.section-panel { margin: 3rem 0; display: flex; flex-direction: column; gap: 1.6rem; padding: 1.6rem 1.35rem; border: 1px solid var(--profile-panel-border); border-radius: 22px; background: var(--profile-panel-bg); box-shadow: var(--profile-panel-shadow); }
 .section-panel:first-of-type { margin-top: 0; }
 .section-panel p { margin: 0; line-height: 1.6; }
 .section-panel p + p { margin-top: 0.9rem; }
@@ -40,20 +92,20 @@ redirect_from:
 .life-section .section-panel { margin: 0; }
 .life-heading { margin: 0; font-size: 1.32rem; font-weight: 700; letter-spacing: 0.01em; }
 .life-list { display: flex; flex-direction: column; gap: 1rem; }
-.life-item { display: flex; flex-direction: column; gap: 0.7rem; padding: 1.15rem 1.05rem; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 16px; background: rgba(255, 255, 255, 0.96); box-shadow: 0 3px 9px rgba(15, 23, 42, 0.05); color: inherit; text-decoration: none !important; transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; }
-.life-item:hover, .life-item:focus-within { transform: translateY(-2px) scale(1.02); box-shadow: 0 10px 20px rgba(15, 23, 42, 0.12); border-color: rgba(0, 118, 168, 0.28); text-decoration: none !important; }
+.life-item { display: flex; flex-direction: column; gap: 0.7rem; padding: 1.15rem 1.05rem; border: 1px solid var(--profile-card-border); border-radius: 16px; background: var(--profile-card-bg); box-shadow: var(--profile-card-shadow); color: inherit; text-decoration: none !important; transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; }
+.life-item:hover, .life-item:focus-within { transform: translateY(-2px) scale(1.02); box-shadow: var(--profile-card-hover-shadow); border-color: var(--profile-card-hover-border); text-decoration: none !important; }
 .life-item:focus-visible { outline: 3px solid rgba(0, 123, 255, 0.35); outline-offset: 3px; }
 .life-icon { font-size: 1.9rem; }
 .life-title { font-weight: 600; font-size: 1.05rem; margin: 0; }
 .life-desc { margin: 0; line-height: 1.55; }
-.life-note { margin: 0; line-height: 1.6; color: #1f2933; }
+.life-note { margin: 0; line-height: 1.6; color: var(--profile-note-color); }
 .contact-panel { position: relative; }
 .contact-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
-.contact-button { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; padding: 0.55rem 1.1rem; border-radius: 999px; font-weight: 600; text-decoration: none; border: 1px solid rgba(148, 163, 184, 0.45); background: rgba(148, 163, 184, 0.18); color: #475569; box-shadow: 0 3px 9px rgba(15, 23, 42, 0.08); transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease, color 0.18s ease; }
-.contact-button:hover, .contact-button:focus-visible { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(15, 23, 42, 0.16); background: rgba(148, 163, 184, 0.26); border-color: rgba(148, 163, 184, 0.6); color: #1f2937; outline: none; }
+.contact-button { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; padding: 0.55rem 1.1rem; border-radius: 999px; font-weight: 600; text-decoration: none; border: 1px solid var(--profile-contact-border); background: var(--profile-contact-bg); color: var(--profile-contact-color); box-shadow: var(--profile-contact-shadow); transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease, color 0.18s ease; }
+.contact-button:hover, .contact-button:focus-visible { transform: translateY(-1px); box-shadow: var(--profile-contact-hover-shadow); background: var(--profile-contact-hover-bg); border-color: var(--profile-contact-hover-border); color: var(--profile-contact-hover-color); outline: none; }
 .contact-button:focus-visible { outline: 3px solid rgba(0, 123, 255, 0.35); outline-offset: 3px; }
-.contact-button--mail:hover, .contact-button--mail:focus-visible { background: rgba(16, 185, 129, 0.16); border-color: rgba(16, 185, 129, 0.55); color: #065f46; }
-.contact-button--linkedin:hover, .contact-button--linkedin:focus-visible { background: rgba(14, 118, 168, 0.18); border-color: rgba(14, 118, 168, 0.6); color: #0b4870; }
+.contact-button--mail:hover, .contact-button--mail:focus-visible { background: var(--profile-mail-accent-bg); border-color: var(--profile-mail-accent-border); color: var(--profile-mail-accent-color); }
+.contact-button--linkedin:hover, .contact-button--linkedin:focus-visible { background: var(--profile-linkedin-accent-bg); border-color: var(--profile-linkedin-accent-border); color: var(--profile-linkedin-accent-color); }
 </style>
 
 <div class="section-panel">
@@ -237,23 +289,28 @@ redirect_from:
     <h2 class="section-heading life-heading">Beyond Engineering</h2>
     <div class="life-list">
       <a class="life-item" href="https://youtu.be/QU9rJnTvPro?si=brRrWfDxHEmQPqcV" target="_blank" rel="noopener">
-        <span class="life-icon" aria-hidden="true">🎸 Acoustic Arrangements</span>
+        <span class="life-icon" aria-hidden="true">🎸</span>
+        <h3 class="life-title">Acoustic Storytelling</h3>
         <p class="life-desc">I enjoy playing the guitar in my free time, exploring fingerstyle arrangements as a way to relax and express myself.</p>
       </a>
       <div class="life-item">
-        <span class="life-icon" aria-hidden="true">⚽ Collective Energy</span>
+        <span class="life-icon" aria-hidden="true">⚽</span>
+        <h3 class="life-title">Collective Energy</h3>
         <p class="life-desc">Live matches and pick-up games recharge me; the rhythm of a midfield run reminds me how teamwork elevates complex engineering missions.</p>
       </div>
       <div class="life-item">
-        <span class="life-icon" aria-hidden="true">♟️ Strategic Puzzles</span>
+        <span class="life-icon" aria-hidden="true">♟️</span>
+        <h3 class="life-title">Strategic Puzzles</h3>
         <p class="life-desc">I enjoy playing chess and regularly train on Chess.com by completing daily exercises, as it helps keep my strategic thinking sharp.</p>
       </div>
       <div class="life-item">
-        <span class="life-icon" aria-hidden="true">🪐 Cosmic Curiosity</span>
+        <span class="life-icon" aria-hidden="true">🪐</span>
+        <h3 class="life-title">Cosmic Curiosity</h3>
         <p class="life-desc">I follow astrophysics via podcasts, documentaries, and books, stay updated on recent developments, and occasionally practice with my telescope and astrophotography.</p>
       </div>
       <div class="life-item">
-        <span class="life-icon" aria-hidden="true">🌐 Open Knowledge</span>
+        <span class="life-icon" aria-hidden="true">🌐</span>
+        <h3 class="life-title">Open Knowledge</h3>
         <p class="life-desc">I enjoy being part of a social network where knowledge is shared openly through platforms like LinkedIn, GitHub, and community talks.</p>
       </div>
     </div>
