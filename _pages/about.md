@@ -44,42 +44,42 @@ Curiosity drives me: I love tackling complex problems that sit at the intersecti
   <h3>Software &amp; Tools</h3>
   <div class="skill-grid">
     <a class="skill-card" href="https://www.arduino.cc/" target="_blank" rel="noopener">
-      <img class="skill-icon" src="https://cdn.simpleicons.org/arduino/00979D" alt="Arduino logo">
+      <img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/arduino.svg?color=00979D" alt="Arduino logo">
       <div class="skill-stars" aria-label="2 out of 3 stars"><span aria-hidden="true">&#9733;&#9733;&#9734;</span><span class="sr-only">Advanced</span></div>
       <div class="skill-name">Arduino</div>
     </a>
     <a class="skill-card" href="https://www.blender.org/" target="_blank" rel="noopener">
-      <img class="skill-icon" src="https://cdn.simpleicons.org/blender/F5792A" alt="Blender logo">
+      <img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/blender.svg?color=F5792A" alt="Blender logo">
       <div class="skill-stars" aria-label="2 out of 3 stars"><span aria-hidden="true">&#9733;&#9733;&#9734;</span><span class="sr-only">Advanced</span></div>
       <div class="skill-name">Blender</div>
     </a>
     <a class="skill-card" href="https://www.netacad.com/courses/packet-tracer" target="_blank" rel="noopener">
-      <img class="skill-icon" src="https://cdn.simpleicons.org/cisco/1BA0D7" alt="Cisco logo">
+      <img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/cisco.svg?color=1BA0D7" alt="Cisco logo">
       <div class="skill-stars" aria-label="3 out of 3 stars"><span aria-hidden="true">&#9733;&#9733;&#9733;</span><span class="sr-only">Expert</span></div>
       <div class="skill-name">Cisco Packet Tracer</div>
     </a>
     <a class="skill-card" href="https://www.autodesk.com/products/fusion-360" target="_blank" rel="noopener">
-      <img class="skill-icon" src="https://cdn.simpleicons.org/autodesk/0696D7" alt="Autodesk logo">
+      <img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/autodesk.svg?color=0696D7" alt="Autodesk logo">
       <div class="skill-stars" aria-label="2 out of 3 stars"><span aria-hidden="true">&#9733;&#9733;&#9734;</span><span class="sr-only">Advanced</span></div>
       <div class="skill-name">Fusion 360</div>
     </a>
     <a class="skill-card" href="https://www.microsoft.com/microsoft-365" target="_blank" rel="noopener">
-      <img class="skill-icon" src="https://cdn.simpleicons.org/microsoftoffice/D83B01" alt="Microsoft Office logo">
+      <img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/microsoftoffice.svg?color=D83B01" alt="Microsoft Office logo">
       <div class="skill-stars" aria-label="3 out of 3 stars"><span aria-hidden="true">&#9733;&#9733;&#9733;</span><span class="sr-only">Expert</span></div>
       <div class="skill-name">Microsoft Office</div>
     </a>
     <a class="skill-card" href="https://www.ros.org/" target="_blank" rel="noopener">
-      <img class="skill-icon" src="https://cdn.simpleicons.org/ros/22314E" alt="ROS logo">
+      <img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/ros.svg?color=22314E" alt="ROS logo">
       <div class="skill-stars" aria-label="1 out of 3 stars"><span aria-hidden="true">&#9733;&#9734;&#9734;</span><span class="sr-only">Proficient</span></div>
       <div class="skill-name">ROS</div>
     </a>
     <a class="skill-card" href="https://www.mathworks.com/products/simulink.html" target="_blank" rel="noopener">
-      <img class="skill-icon" src="https://cdn.simpleicons.org/mathworks/0076A8" alt="Simulink logo">
+      <img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/mathworks.svg?color=0076A8" alt="Simulink logo">
       <div class="skill-stars" aria-label="3 out of 3 stars"><span aria-hidden="true">&#9733;&#9733;&#9733;</span><span class="sr-only">Expert</span></div>
       <div class="skill-name">Simulink</div>
     </a>
     <a class="skill-card" href="https://www.mathworks.com/products/stateflow.html" target="_blank" rel="noopener">
-      <img class="skill-icon" src="https://cdn.simpleicons.org/mathworks/FF6F00" alt="Stateflow logo">
+      <img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/mathworks.svg?color=FF6F00" alt="Stateflow logo">
       <div class="skill-stars" aria-label="2 out of 3 stars"><span aria-hidden="true">&#9733;&#9733;&#9734;</span><span class="sr-only">Advanced</span></div>
       <div class="skill-name">Stateflow</div>
     </a>
@@ -90,27 +90,27 @@ Curiosity drives me: I love tackling complex problems that sit at the intersecti
   <h3>Programming &amp; Formatting</h3>
   <div class="skill-grid">
     <a class="skill-card" href="https://isocpp.org/" target="_blank" rel="noopener">
-      <img class="skill-icon" src="https://cdn.simpleicons.org/cplusplus/00599C" alt="C++ logo">
+      <img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/cplusplus.svg?color=00599C" alt="C++ logo">
       <div class="skill-stars" aria-label="3 out of 3 stars"><span aria-hidden="true">&#9733;&#9733;&#9733;</span><span class="sr-only">Expert</span></div>
       <div class="skill-name">C/C++</div>
     </a>
     <a class="skill-card" href="https://www.java.com/" target="_blank" rel="noopener">
-      <img class="skill-icon" src="https://cdn.simpleicons.org/java/007396" alt="Java logo">
+      <img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/java.svg?color=007396" alt="Java logo">
       <div class="skill-stars" aria-label="2 out of 3 stars"><span aria-hidden="true">&#9733;&#9733;&#9734;</span><span class="sr-only">Advanced</span></div>
       <div class="skill-name">Java</div>
     </a>
     <a class="skill-card" href="https://www.mathworks.com/products/matlab.html" target="_blank" rel="noopener">
-      <img class="skill-icon" src="https://cdn.simpleicons.org/matlab/EF3B2D" alt="MATLAB logo">
+      <img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/mathworks.svg?color=EF3B2D" alt="MATLAB logo">
       <div class="skill-stars" aria-label="3 out of 3 stars"><span aria-hidden="true">&#9733;&#9733;&#9733;</span><span class="sr-only">Expert</span></div>
       <div class="skill-name">MATLAB</div>
     </a>
     <a class="skill-card" href="https://www.python.org/" target="_blank" rel="noopener">
-      <img class="skill-icon" src="https://cdn.simpleicons.org/python/3776AB" alt="Python logo">
+      <img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/python.svg?color=3776AB" alt="Python logo">
       <div class="skill-stars" aria-label="3 out of 3 stars"><span aria-hidden="true">&#9733;&#9733;&#9733;</span><span class="sr-only">Expert</span></div>
       <div class="skill-name">Python</div>
     </a>
     <a class="skill-card" href="https://learn.microsoft.com/visualstudio/vba/?view=vs-2022" target="_blank" rel="noopener">
-      <img class="skill-icon" src="https://cdn.simpleicons.org/visualbasic/512BD4" alt="Visual Basic logo">
+      <img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/visualbasic.svg?color=512BD4" alt="Visual Basic logo">
       <div class="skill-stars" aria-label="3 out of 3 stars"><span aria-hidden="true">&#9733;&#9733;&#9733;</span><span class="sr-only">Expert</span></div>
       <div class="skill-name">Visual Basic</div>
     </a>
@@ -121,32 +121,32 @@ Curiosity drives me: I love tackling complex problems that sit at the intersecti
   <h3>Web Languages</h3>
   <div class="skill-grid">
     <a class="skill-card" href="https://developer.mozilla.org/docs/Web/CSS" target="_blank" rel="noopener">
-      <img class="skill-icon" src="https://cdn.simpleicons.org/css3/1572B6" alt="CSS logo">
+      <img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/css3.svg?color=1572B6" alt="CSS logo">
       <div class="skill-stars" aria-label="3 out of 3 stars"><span aria-hidden="true">&#9733;&#9733;&#9733;</span><span class="sr-only">Expert</span></div>
       <div class="skill-name">CSS</div>
     </a>
     <a class="skill-card" href="https://developer.mozilla.org/docs/Web/HTML" target="_blank" rel="noopener">
-      <img class="skill-icon" src="https://cdn.simpleicons.org/html5/E34F26" alt="HTML logo">
+      <img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/html5.svg?color=E34F26" alt="HTML logo">
       <div class="skill-stars" aria-label="3 out of 3 stars"><span aria-hidden="true">&#9733;&#9733;&#9733;</span><span class="sr-only">Expert</span></div>
       <div class="skill-name">HTML</div>
     </a>
     <a class="skill-card" href="https://www.javascript.com/" target="_blank" rel="noopener">
-      <img class="skill-icon" src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JavaScript logo">
+      <img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/javascript.svg?color=F7DF1E" alt="JavaScript logo">
       <div class="skill-stars" aria-label="2 out of 3 stars"><span aria-hidden="true">&#9733;&#9733;&#9734;</span><span class="sr-only">Advanced</span></div>
       <div class="skill-name">JavaScript</div>
     </a>
     <a class="skill-card" href="https://www.latex-project.org/" target="_blank" rel="noopener">
-      <img class="skill-icon" src="https://cdn.simpleicons.org/latex/008080" alt="LaTeX logo">
+      <img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/latex.svg?color=008080" alt="LaTeX logo">
       <div class="skill-stars" aria-label="3 out of 3 stars"><span aria-hidden="true">&#9733;&#9733;&#9733;</span><span class="sr-only">Expert</span></div>
       <div class="skill-name">LaTeX</div>
     </a>
     <a class="skill-card" href="https://www.php.net/" target="_blank" rel="noopener">
-      <img class="skill-icon" src="https://cdn.simpleicons.org/php/777BB4" alt="PHP logo">
+      <img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/php.svg?color=777BB4" alt="PHP logo">
       <div class="skill-stars" aria-label="3 out of 3 stars"><span aria-hidden="true">&#9733;&#9733;&#9733;</span><span class="sr-only">Expert</span></div>
       <div class="skill-name">PHP</div>
     </a>
     <a class="skill-card" href="https://www.w3.org/XML/" target="_blank" rel="noopener">
-      <img class="skill-icon" src="https://cdn.simpleicons.org/xml/005A9C" alt="XML logo">
+      <img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/xml.svg?color=005A9C" alt="XML logo">
       <div class="skill-stars" aria-label="3 out of 3 stars"><span aria-hidden="true">&#9733;&#9733;&#9733;</span><span class="sr-only">Expert</span></div>
       <div class="skill-name">XML</div>
     </a>
@@ -157,22 +157,22 @@ Curiosity drives me: I love tackling complex problems that sit at the intersecti
   <h3>Database</h3>
   <div class="skill-grid">
     <a class="skill-card" href="https://www.diagrams.net/" target="_blank" rel="noopener">
-      <img class="skill-icon" src="https://cdn.simpleicons.org/diagramsdotnet/F08705" alt="Diagrams icon">
+      <img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/diagramsdotnet.svg?color=F08705" alt="Diagrams icon">
       <div class="skill-stars" aria-label="3 out of 3 stars"><span aria-hidden="true">&#9733;&#9733;&#9733;</span><span class="sr-only">Expert</span></div>
       <div class="skill-name">E/R Scheme</div>
     </a>
     <a class="skill-card" href="https://mariadb.org/" target="_blank" rel="noopener">
-      <img class="skill-icon" src="https://cdn.simpleicons.org/mariadb/003545" alt="MariaDB logo">
+      <img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/mariadb.svg?color=003545" alt="MariaDB logo">
       <div class="skill-stars" aria-label="3 out of 3 stars"><span aria-hidden="true">&#9733;&#9733;&#9733;</span><span class="sr-only">Expert</span></div>
       <div class="skill-name">MariaDB</div>
     </a>
     <a class="skill-card" href="https://www.microsoft.com/sql-server" target="_blank" rel="noopener">
-      <img class="skill-icon" src="https://cdn.simpleicons.org/microsoftsqlserver/CC2927" alt="Microsoft SQL Server logo">
+      <img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/microsoftsqlserver.svg?color=CC2927" alt="Microsoft SQL Server logo">
       <div class="skill-stars" aria-label="3 out of 3 stars"><span aria-hidden="true">&#9733;&#9733;&#9733;</span><span class="sr-only">Expert</span></div>
       <div class="skill-name">Microsoft SQL</div>
     </a>
     <a class="skill-card" href="https://www.mysql.com/" target="_blank" rel="noopener">
-      <img class="skill-icon" src="https://cdn.simpleicons.org/mysql/4479A1" alt="MySQL logo">
+      <img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/mysql.svg?color=4479A1" alt="MySQL logo">
       <div class="skill-stars" aria-label="3 out of 3 stars"><span aria-hidden="true">&#9733;&#9733;&#9733;</span><span class="sr-only">Expert</span></div>
       <div class="skill-name">MySQL</div>
     </a>
