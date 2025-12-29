@@ -27,92 +27,27 @@ Curiosity drives me: I love tackling complex problems that sit at the intersecti
 ---
 
 ## Skills snapshot
+
 <style>
 .skill-section { margin-bottom: 2.5rem; }
-
-.skill-grid {
-  display: grid;
-  gap: 1.25rem;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-}
-
-.skill-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 1.15rem 0.9rem;
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 16px;
-  background: rgba(255,255,255,0.92);
-  text-decoration: none !important;
-  color: inherit;
-  box-shadow: 0 4px 10px rgba(15,23,42,0.04);
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
-}
-
-.skill-card:hover,
-.skill-card:focus {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 22px rgba(15,23,42,0.08);
-  border-color: rgba(0,118,168,0.2);
-  background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(248,252,255,0.94));
-  text-decoration: none !important;
-}
-
-.skill-card:focus {
-  outline: 3px solid rgba(0,123,255,0.4);
-  outline-offset: 3px;
-}
-
-.skill-icon-wrap{
-  width: 56px;
-  height: 56px;
-  display: grid;
-  place-items: center;
-  border-radius: 14px;
-  overflow: hidden;              
-  background: transparent;        
-  box-shadow: none;
-}
-
-/* l'immagine */
-.skill-icon{
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-  display: block;
-  background: transparent;
-  box-shadow: none;
-  transition: transform .25s ease;
-}
-
-.skill-card:hover .skill-icon,
-.skill-card:focus .skill-icon{
-  transform: none;
-}
-
+.skill-grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+.skill-card { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; padding: 1.15rem 0.9rem; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 16px; background: rgba(255, 255, 255, 0.94); text-decoration: none !important; color: inherit; box-shadow: 0 3px 9px rgba(15, 23, 42, 0.05); transition: border-color 0.22s ease; }
+.skill-card:hover, .skill-card:focus { text-decoration: none !important; border-color: rgba(0, 118, 168, 0.24); }
+.skill-card:focus { outline: 3px solid rgba(0, 123, 255, 0.4); outline-offset: 3px; }
+.skill-icon { width: 48px; height: 48px; object-fit: contain; transition: transform 0.22s ease; background: transparent; }
+.skill-card:hover .skill-icon, .skill-card:focus .skill-icon { transform: scale(1.09); }
 .skill-stars { font-size: 0.95rem; letter-spacing: 2px; color: #e0a100; }
-
 .skill-name { font-weight: 600; text-align: center; text-decoration: none !important; }
 .skill-card:hover .skill-name, .skill-card:focus .skill-name { text-decoration: underline; }
-
 .skill-stars span { text-decoration: none !important; }
-
-.skill-stars .sr-only {
-  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-  overflow: hidden; clip: rect(0,0,0,0); border: 0;
-}
+.skill-stars .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
 </style>
-
 
 <div class="skill-section">
   <h3>Software &amp; Tools</h3>
   <div class="skill-grid">
     <a class="skill-card" href="https://www.arduino.cc/" target="_blank" rel="noopener">
-      <div class="skill-icon-wrap">
-        <img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/arduino.svg?color=00979D" alt="Arduino logo">
-      </div>
+      <img class="skill-icon" src="https://cdn.jsdelivr.net/npm/simple-icons/icons/arduino.svg?color=00979D" alt="Arduino logo">
       <div class="skill-stars" aria-label="2 out of 3 stars"><span aria-hidden="true">&#9733;&#9733;&#9734;</span><span class="sr-only">Advanced</span></div>
       <div class="skill-name">Arduino</div>
     </a>
@@ -278,3 +213,4 @@ I’m always open to new collaborations, research projects, or just a friendly c
 Feel free to reach out via [email](mailto:simoneorelli@icloud.com) or connect on [LinkedIn](https://www.linkedin.com/in/simone-orelli-a5b9a1144).
 
 *Thanks for stopping by!*  
+
