@@ -31,10 +31,11 @@ Curiosity drives me: I love tackling complex problems that sit at the intersecti
 <style>
 .skill-section { margin-bottom: 2.5rem; }
 .skill-grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
-.skill-card { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; padding: 1.15rem 0.9rem; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 16px; background: #ffffff; text-decoration: none !important; color: inherit; box-shadow: 0 6px 14px rgba(15, 23, 42, 0.06); transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease; }
-.skill-card:hover, .skill-card:focus { transform: translateY(-4px) scale(1.02); box-shadow: 0 18px 32px rgba(15, 23, 42, 0.16); border-color: rgba(0, 118, 168, 0.4); background: linear-gradient(135deg, #ffffff, #f3f7ff); text-decoration: none !important; }
+.skill-card { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; padding: 1.15rem 0.9rem; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 16px; background: rgba(255, 255, 255, 0.92); text-decoration: none !important; color: inherit; box-shadow: 0 4px 10px rgba(15, 23, 42, 0.04); transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease; }
+.skill-card:hover, .skill-card:focus { transform: translateY(-3px); box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08); border-color: rgba(0, 118, 168, 0.2); background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(248, 252, 255, 0.94)); text-decoration: none !important; }
 .skill-card:focus { outline: 3px solid rgba(0, 123, 255, 0.4); outline-offset: 3px; }
-.skill-icon { width: 48px; height: 48px; object-fit: contain; }
+.skill-icon { width: 48px; height: 48px; object-fit: contain; transition: transform 0.25s ease; }
+.skill-card:hover .skill-icon, .skill-card:focus .skill-icon { transform: scale(1.08); }
 .skill-stars { font-size: 0.95rem; letter-spacing: 2px; color: #e0a100; }
 .skill-name { font-weight: 600; text-align: center; text-decoration: none !important; }
 .skill-card:hover .skill-name, .skill-card:focus .skill-name { text-decoration: underline; }
