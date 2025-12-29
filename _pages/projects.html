@@ -116,7 +116,8 @@ html[data-theme="dark"] {
   display: grid;
   grid-template-columns: minmax(150px, 240px) minmax(0, 1fr);
   grid-template-areas:
-    "media header"
+    "title title"
+    "media info"
     "summary summary"
     "actions actions";
   column-gap: 1.9rem;
@@ -156,11 +157,22 @@ html[data-theme="dark"] {
   object-fit: cover;
 }
 
-.project-card-header {
-  grid-area: header;
+
+.project-card-title {
+  grid-area: title;
+  margin: 0;
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.22;
+}
+
+.project-card-info {
+  grid-area: info;
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  gap: 0.65rem;
+  align-self: stretch;
+  justify-content: center;
 }
 
 .project-card-tags {
@@ -174,7 +186,7 @@ html[data-theme="dark"] {
   align-items: center;
   padding: 0.18rem 0.55rem;
   border-radius: 999px;
-  font-size: 0.4rem;
+  font-size: 0.6rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -186,13 +198,6 @@ html[data-theme="dark"] {
 html[data-theme="dark"] .project-card-tag {
   background: rgba(148, 197, 255, 0.2);
   color: rgba(226, 232, 240, 0.92);
-}
-
-.project-card-title {
-  margin: 0;
-  font-size: 1.45rem;
-  font-weight: 700;
-  line-height: 1.22;
 }
 
 .project-card-meta {
@@ -342,8 +347,9 @@ html[data-theme="dark"] .project-card-period {
   .project-card {
     grid-template-columns: 1fr;
     grid-template-areas:
+      "title"
       "media"
-      "header"
+      "info"
       "summary"
       "actions";
     row-gap: 1.2rem;
@@ -410,27 +416,26 @@ html[data-theme="dark"] .project-card-period {
             <span class="project-dot" aria-hidden="true"></span>
           </div>
           <div class="project-card">
+            {% assign tag_items = project.tags %}
+            {% if tag_items == nil or tag_items == empty %}
+              {% assign subject_string = project.subject | to_s %}
+              {% assign tag_items = subject_string | split: ' - ' %}
+            {% endif %}
+            {% capture tag_markup %}
+              {% for tag in tag_items %}
+                {% assign tag_label = tag | strip %}
+                {% if tag_label != '' %}<span class="project-card-tag">{{ tag_label }}</span>{% endif %}
+              {% endfor %}
+            {% endcapture %}
+            {% assign has_tags = tag_markup contains 'project-card-tag' %}
+            <h2 class="project-card-title">{{ project.title }}</h2>
             <div class="project-card-media">
               <img src="{{ project.image | default: '/images/project-default.svg' | relative_url }}" alt="{{ project.title }} visual">
             </div>
-            <div class="project-card-header">
-              {% assign tag_items = project.tags %}
-              {% if tag_items == nil or tag_items == empty %}
-                {% assign subject_string = project.subject | to_s %}
-                {% assign tag_items = subject_string | split: ' - ' %}
+            <div class="project-card-info">
+              {% if has_tags %}
+                <div class="project-card-tags">{{ tag_markup | strip_newlines }}</div>
               {% endif %}
-              {% if tag_items %}
-                {% capture tag_markup %}
-                  {% for tag in tag_items %}
-                    {% assign tag_label = tag | strip %}
-                    {% if tag_label != '' %}<span class="project-card-tag">{{ tag_label }}</span>{% endif %}
-                  {% endfor %}
-                {% endcapture %}
-                {% if tag_markup contains 'project-card-tag' %}
-                  <div class="project-card-tags">{{ tag_markup | strip_newlines }}</div>
-                {% endif %}
-              {% endif %}
-              <h2 class="project-card-title">{{ project.title }}</h2>
               <p class="project-card-meta">
                 <span>{{ project.venue }}</span>
               </p>
