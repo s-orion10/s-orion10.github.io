@@ -103,13 +103,6 @@ html[data-theme="dark"] {
 .life-section { margin: 3rem 0; }
 .life-section .section-panel { margin: 0; }
 .life-heading { margin: 0; font-size: 1.32rem; font-weight: 700; letter-spacing: 0.01em; }
-.life-list { display: flex; flex-direction: column; gap: 1rem; }
-.life-item { display: flex; flex-direction: column; gap: 0.7rem; padding: 1.15rem 1.05rem; border: 1px solid var(--profile-card-border); border-radius: 16px; background: var(--profile-card-bg); box-shadow: var(--profile-card-shadow); color: inherit; text-decoration: none !important; transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; }
-.life-item:hover, .life-item:focus-within { transform: translateY(-2px) scale(1.02); box-shadow: var(--profile-card-hover-shadow); border-color: var(--profile-card-hover-border); text-decoration: none !important; }
-.life-item:focus-visible { outline: 3px solid rgba(0, 123, 255, 0.35); outline-offset: 3px; }
-.life-icon { font-size: 1.9rem; }
-.life-title { font-weight: 600; font-size: 1.05rem; margin: 0; }
-.life-desc { margin: 0; line-height: 1.55; }
 .life-note { margin: 0; line-height: 1.6; color: var(--profile-note-color); }
 .contact-panel { position: relative; }
 .contact-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
@@ -299,26 +292,41 @@ html[data-theme="dark"] {
 <div class="life-section">
   <div class="section-panel life-panel">
     <h2 class="section-heading life-heading">Beyond Engineering</h2>
-    <div class="life-list">
-      <a class="life-item" href="https://youtu.be/QU9rJnTvPro?si=brRrWfDxHEmQPqcV" target="_blank" rel="noopener">
-        <span class="life-icon" aria-hidden="true">🎸 Acoustic Arrangements</span>
-        <p class="life-desc">I enjoy playing the guitar in my free time, exploring fingerstyle arrangements as a way to relax and express myself.</p>
+    <div class="about-list">
+      <a class="about-item" href="https://youtu.be/QU9rJnTvPro?si=brRrWfDxHEmQPqcV" target="_blank" rel="noopener">
+        <span class="about-icon" aria-hidden="true">🎸</span>
+        <div class="about-content">
+          <h3 class="about-title">Acoustic Arrangements</h3>
+          <p class="about-desc">I enjoy playing the guitar in my free time, exploring fingerstyle arrangements as a way to relax and express myself.</p>
+        </div>
       </a>
-      <div class="life-item">
-        <span class="life-icon" aria-hidden="true">⚽ Collective Energy</span>
-        <p class="life-desc">Live matches and pick-up games recharge me; the rhythm of a midfield run reminds me how teamwork elevates complex engineering missions.</p>
+      <div class="about-item">
+        <span class="about-icon" aria-hidden="true">⚽</span>
+        <div class="about-content">
+          <h3 class="about-title">Collective Energy</h3>
+          <p class="about-desc">Live matches and pick-up games recharge me; the rhythm of a midfield run reminds me how teamwork elevates complex engineering missions.</p>
+        </div>
       </div>
-      <div class="life-item">
-        <span class="life-icon" aria-hidden="true">♟️ Strategic Puzzles</span>
-        <p class="life-desc">I enjoy playing chess and regularly train on Chess.com by completing daily exercises, as it helps keep my strategic thinking sharp.</p>
+      <div class="about-item">
+        <span class="about-icon" aria-hidden="true">♟️</span>
+        <div class="about-content">
+          <h3 class="about-title">Strategic Puzzles</h3>
+          <p class="about-desc">I enjoy playing chess and regularly train on Chess.com by completing daily exercises, as it helps keep my strategic thinking sharp.</p>
+        </div>
       </div>
-      <div class="life-item">
-        <span class="life-icon" aria-hidden="true">🪐 Cosmic Curiosity</span>
-        <p class="life-desc">I follow astrophysics via podcasts, documentaries, and books, stay updated on recent developments, and occasionally practice with my telescope and astrophotography.</p>
+      <div class="about-item">
+        <span class="about-icon" aria-hidden="true">🪐</span>
+        <div class="about-content">
+          <h3 class="about-title">Cosmic Curiosity</h3>
+          <p class="about-desc">I follow astrophysics via podcasts, documentaries, and books, stay updated on recent developments, and occasionally practice with my telescope and astrophotography.</p>
+        </div>
       </div>
-      <div class="life-item">
-        <span class="life-icon" aria-hidden="true">🌐 Open Knowledge</span>
-        <p class="life-desc">I enjoy being part of a social network where knowledge is shared openly through platforms like LinkedIn, GitHub, and community talks.</p>
+      <div class="about-item">
+        <span class="about-icon" aria-hidden="true">🌐</span>
+        <div class="about-content">
+          <h3 class="about-title">Open Knowledge</h3>
+          <p class="about-desc">I enjoy being part of a social network where knowledge is shared openly through platforms like LinkedIn, GitHub, and community talks.</p>
+        </div>
       </div>
     </div>
     <p class="life-note">These hobbies keep me balanced, sharpen strategic thinking, and sustain the creativity I bring back to engineering.</p>
