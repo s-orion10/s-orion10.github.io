@@ -163,6 +163,12 @@ html[data-theme="dark"] {
   gap: 0.55rem;
 }
 
+.project-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
 .project-card-tag {
   display: inline-flex;
   align-items: center;
@@ -408,7 +414,22 @@ html[data-theme="dark"] .project-card-period {
               <img src="{{ project.image | default: '/images/project-default.svg' | relative_url }}" alt="{{ project.title }} visual">
             </div>
             <div class="project-card-header">
-              {% if project.subject %}<span class="project-card-tag">{{ project.subject }}</span>{% endif %}
+              {% assign tag_items = project.tags %}
+              {% if tag_items == nil or tag_items == empty %}
+                {% assign subject_string = project.subject | to_s %}
+                {% assign tag_items = subject_string | split: ' - ' %}
+              {% endif %}
+              {% if tag_items %}
+                {% capture tag_markup %}
+                  {% for tag in tag_items %}
+                    {% assign tag_label = tag | strip %}
+                    {% if tag_label != '' %}<span class="project-card-tag">{{ tag_label }}</span>{% endif %}
+                  {% endfor %}
+                {% endcapture %}
+                {% if tag_markup contains 'project-card-tag' %}
+                  <div class="project-card-tags">{{ tag_markup | strip_newlines }}</div>
+                {% endif %}
+              {% endif %}
               <h2 class="project-card-title">{{ project.title }}</h2>
               <p class="project-card-meta">
                 <span>{{ project.venue }}</span>
