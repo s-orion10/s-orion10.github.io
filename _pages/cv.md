@@ -8,8 +8,6 @@ redirect_from:
   - /cv/
 ---
 
-[📄 View CV online](https://s-orion10.github.io/files/curriculum.pdf){:target="_blank"}  
-
 {% include base_path %}
 
 <style>
