@@ -1,17 +1,5 @@
 ---
 permalink: /work_experiences/
-title: "Work Experiences"
-author_profile: true
----
-
-<style>
-:root {
-  --experience-panel-bg: rgba(248, 250, 252, 0.98);
-  --experience-panel-border: rgba(15, 23, 42, 0.08);
-  --experience-panel-shadow: 0 16px 42px rgba(15, 23, 42, 0.12);
-  --experience-card-bg: rgba(255, 255, 255, 0.97);
-  --experience-card-border: rgba(148, 163, 184, 0.24---
-permalink: /work_experiences/
 title: ""
 author_profile: true
 ---
@@ -65,6 +53,9 @@ html[data-theme="dark"] {
   border-radius: 26px;
   background: var(--experience-panel-bg);
   box-shadow: var(--experience-panel-shadow);
+  width: 100%;
+  max-width: none;
+  align-self: stretch;
 }
 
 .work-heading {
@@ -131,7 +122,8 @@ html[data-theme="dark"] {
   display: grid;
   grid-template-columns: minmax(150px, 240px) minmax(0, 1fr);
   grid-template-areas:
-    "media header"
+    "title title"
+    "media info"
     "summary summary"
     "actions actions";
   column-gap: 1.9rem;
@@ -184,36 +176,46 @@ html[data-theme="dark"] {
   object-fit: cover;
 }
 
-.timeline-card-header {
-  grid-area: header;
-  display: flex;
-  flex-direction: column;
-  gap: 0.55rem;
-}
-
-.timeline-card-role {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.28rem 0.75rem;
-  border-radius: 999px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  background: rgba(37, 99, 235, 0.14);
-  color: rgba(29, 78, 216, 0.92);
-  width: fit-content;
-}
-
-html[data-theme="dark"] .timeline-card-role {
-  background: rgba(148, 197, 255, 0.2);
-  color: rgba(226, 232, 240, 0.92);
-}
 .timeline-card-title {
+  grid-area: title;
   margin: 0;
   font-size: 1.45rem;
   font-weight: 700;
   line-height: 1.22;
+}
+
+.timeline-card-info {
+  grid-area: info;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  align-self: stretch;
+  justify-content: center;
+}
+
+.timeline-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.timeline-card-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: rgba(37, 99, 235, 0.16);
+  color: rgba(29, 78, 216, 0.92);
+  width: fit-content;
+}
+
+html[data-theme="dark"] .timeline-card-tag {
+  background: rgba(148, 197, 255, 0.22);
+  color: rgba(226, 232, 240, 0.92);
 }
 
 .timeline-card-meta {
@@ -365,8 +367,9 @@ html[data-theme="dark"] .timeline-card-period {
   .timeline-card {
     grid-template-columns: 1fr;
     grid-template-areas:
+      "title"
       "media"
-      "header"
+      "info"
       "summary"
       "actions";
     row-gap: 1.2rem;
@@ -444,12 +447,26 @@ html[data-theme="dark"] .timeline-card-period {
             {% elsif experience.venue contains 'Municipality of Sezze' %}
               {% assign media_link = 'https://www.comune.sezze.lt.it' %}
             {% endif %}
+            {% assign tag_items = experience.tags %}
+            {% if tag_items == nil or tag_items == empty %}
+              {% assign type_string = experience.type | to_s %}
+              {% assign tag_items = type_string | split: ' - ' %}
+            {% endif %}
+            {% capture tag_markup %}
+              {% for tag in tag_items %}
+                {% assign tag_label = tag | strip %}
+                {% if tag_label != '' %}<span class="timeline-card-tag">{{ tag_label }}</span>{% endif %}
+              {% endfor %}
+            {% endcapture %}
+            {% assign has_tags = tag_markup contains 'timeline-card-tag' %}
+            <h2 class="timeline-card-title">{{ experience.title }}</h2>
             <a class="timeline-card-media" href="{{ media_link }}" target="_blank" rel="noopener">
               <img src="{{ experience.image | default: '/images/work-experience-default.svg' | relative_url }}" alt="{{ experience.title }} visual">
             </a>
-            <div class="timeline-card-header">
-              {% if experience.type %}<span class="timeline-card-role">{{ experience.type }}</span>{% endif %}
-              <h2 class="timeline-card-title">{{ experience.title }}</h2>
+            <div class="timeline-card-info">
+              {% if has_tags %}
+                <div class="timeline-card-tags">{{ tag_markup | strip_newlines }}</div>
+              {% endif %}
               <p class="timeline-card-meta">
                 <span>{{ experience.venue }}</span>
                 {% if experience.location %}<span>{{ experience.location }}</span>{% endif %}
