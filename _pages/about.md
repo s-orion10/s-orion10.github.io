@@ -32,6 +32,7 @@ redirect_from:
   --profile-linkedin-accent-border: rgba(14, 118, 168, 0.6);
   --profile-linkedin-accent-color: #0b4870;
   --profile-note-color: #1f2933;
+  --profile-icon-filter: none;
 }
 
 html[data-theme="dark"] {
@@ -58,6 +59,7 @@ html[data-theme="dark"] {
   --profile-linkedin-accent-border: rgba(14, 118, 168, 0.5);
   --profile-linkedin-accent-color: #bae6fd;
   --profile-note-color: #e2e8f0;
+  --profile-icon-filter: brightness(0) invert(1);
 }
 
 .skill-section { margin-bottom: 2.5rem; }
