@@ -6,6 +6,7 @@ permalink: /work_experiences/2021-work_experience-2
 venue: "Sapienza University of Rome – Latina Campus"
 period: "October 2022 - January 2023"
 location: "Latina (LT)"
+image: "/images/work-experience-default.svg"
 ---
 
 Tutor for the course **Fondamenti di Automatica I – Teoria dei Sistemi**, under the supervision of [Prof. Mattia Mattioni](https://scholar.google.it/citations?user=UMSlThcAAAAJ&hl=it).
