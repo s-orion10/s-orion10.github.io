@@ -91,39 +91,57 @@ html[data-theme="dark"] {
 }
 
 .education-cv-link {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
-  padding: 0.6rem 1.2rem;
+  padding: 0.65rem 1.35rem;
   border-radius: 999px;
   font-weight: 600;
-  font-size: 0.98rem;
+  font-size: 1rem;
   border: 1px solid rgba(14, 116, 144, 0.32);
-  background: rgba(14, 116, 144, 0.12);
+  background: linear-gradient(135deg, rgba(13, 148, 136, 0.16), rgba(45, 212, 191, 0.2));
   color: var(--education-link-color);
   text-decoration: none !important;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  overflow: hidden;
+}
+
+.education-cv-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at top left, rgba(94, 234, 212, 0.35), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .education-cv-link::after {
   content: "→";
   font-size: 1.05rem;
-  transition: transform 0.22s ease;
+  transition: transform 0.25s ease;
 }
 
 .education-cv-link:hover,
 .education-cv-link:focus-visible {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(14, 116, 144, 0.25);
-  background: rgba(14, 116, 144, 0.22);
-  border-color: rgba(14, 116, 144, 0.55);
-  color: var(--education-link-color);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(13, 148, 136, 0.28);
+  background: linear-gradient(135deg, rgba(13, 148, 136, 0.26), rgba(45, 212, 191, 0.32));
+  border-color: rgba(13, 148, 136, 0.6);
+  color: #0f766e;
+}
+
+.education-cv-link:hover::before,
+.education-cv-link:focus-visible::before {
+  opacity: 1;
 }
 
 .education-cv-link:hover::after,
 .education-cv-link:focus-visible::after {
-  transform: translateX(3px);
+  transform: translateX(5px);
 }
 
 .education-cv-link:focus-visible {
@@ -523,4 +541,5 @@ html[data-theme="dark"] .education-card-period {
     </div>
   </div>
 </div>
+
   
