@@ -1,12 +1,427 @@
 ---
-layout: archive
-title: "Projects"
 permalink: /projects/
+title: "Projects"
 author_profile: true
 ---
 
-{% include base_path %}
+<style>
+:root {
+  --project-panel-bg: rgba(248, 250, 252, 0.98);
+  --project-panel-border: rgba(15, 23, 42, 0.08);
+  --project-panel-shadow: 0 16px 42px rgba(15, 23, 42, 0.12);
+  --project-card-bg: rgba(255, 255, 255, 0.97);
+  --project-card-border: rgba(148, 163, 184, 0.24);
+  --project-card-shadow: 0 14px 32px rgba(15, 23, 42, 0.08);
+  --project-card-hover-border: rgba(37, 99, 235, 0.36);
+  --project-card-hover-shadow: 0 22px 50px rgba(15, 23, 42, 0.16);
+  --project-text-color: #1f2937;
+  --project-link-color: #1d4ed8;
+  --timeline-line-color: rgba(37, 99, 235, 0.22);
+  --timeline-dot-color: #2563eb;
+  --timeline-dot-halo: rgba(37, 99, 235, 0.18);
+  --timeline-marker-width: 48px;
+  --timeline-gap: 2.6rem;
+}
 
-{% for post in site.projects reversed %}
-  {% include archive-single.html %}
-{% endfor %}
+html[data-theme="dark"] {
+  --project-panel-bg: rgba(50, 56, 68, 0.96);
+  --project-panel-border: rgba(226, 232, 240, 0.2);
+  --project-panel-shadow: 0 12px 34px rgba(15, 23, 42, 0.45);
+  --project-card-bg: rgba(68, 72, 84, 0.94);
+  --project-card-border: rgba(148, 163, 184, 0.34);
+  --project-card-shadow: 0 18px 40px rgba(15, 23, 42, 0.42);
+  --project-card-hover-border: rgba(148, 197, 255, 0.55);
+  --project-card-hover-shadow: 0 24px 56px rgba(15, 23, 42, 0.5);
+  --project-text-color: #e2e8f0;
+  --project-link-color: #93c5fd;
+  --timeline-line-color: rgba(148, 197, 255, 0.45);
+  --timeline-dot-color: #60a5fa;
+  --timeline-dot-halo: rgba(148, 197, 255, 0.28);
+}
+
+.projects-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2.8rem;
+  margin: 0;
+}
+
+.projects-panel {
+  margin: 0;
+  padding: 2.6rem 2.4rem;
+  border: 1px solid var(--project-panel-border);
+  border-radius: 26px;
+  background: var(--project-panel-bg);
+  box-shadow: var(--project-panel-shadow);
+}
+
+.projects-heading {
+  margin: 0;
+  font-size: clamp(2.1rem, 2vw + 1.2rem, 2.6rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.projects-intro {
+  margin: 0;
+  line-height: 1.65;
+  color: var(--project-text-color);
+}
+
+.projects-timeline {
+  position: relative;
+  margin-top: 2.8rem;
+}
+
+.projects-timeline::before {
+  content: "";
+  position: absolute;
+  top: 0.6rem;
+  bottom: 0.6rem;
+  left: calc(var(--timeline-marker-width) + 0.3rem);
+  width: 3px;
+  border-radius: 999px;
+  background: var(--timeline-line-color);
+}
+
+.project-entry {
+  position: relative;
+  margin-bottom: var(--timeline-gap);
+  padding-left: calc(var(--timeline-marker-width) + 2.1rem);
+}
+
+.project-entry:last-child {
+  margin-bottom: 0;
+}
+
+.project-marker {
+  position: absolute;
+  top: 1.8rem;
+  left: 0;
+  width: calc(var(--timeline-marker-width) + 0.86rem);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.project-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--timeline-dot-color);
+  box-shadow: 0 0 0 6px var(--timeline-dot-halo);
+}
+
+.project-card {
+  display: grid;
+  grid-template-columns: minmax(150px, 240px) minmax(0, 1fr);
+  grid-template-areas:
+    "media header"
+    "summary summary"
+    "actions actions";
+  column-gap: 1.9rem;
+  row-gap: 1.35rem;
+  padding: 2rem 2.2rem;
+  border-radius: 24px;
+  border: 1px solid var(--project-card-border);
+  background: var(--project-card-bg);
+  box-shadow: var(--project-card-shadow);
+  transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
+  align-items: start;
+}
+
+.project-card:hover,
+.project-card:focus-within {
+  border-color: var(--project-card-hover-border);
+  box-shadow: var(--project-card-hover-shadow);
+  transform: translateY(-4px);
+}
+
+.project-card-media {
+  grid-area: media;
+  width: 100%;
+  max-width: 240px;
+  aspect-ratio: 4 / 3;
+  border-radius: 22px;
+  overflow: hidden;
+  background: rgba(148, 163, 184, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-card-header {
+  grid-area: header;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.project-card-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(37, 99, 235, 0.14);
+  color: rgba(29, 78, 216, 0.92);
+  width: fit-content;
+}
+
+html[data-theme="dark"] .project-card-tag {
+  background: rgba(148, 197, 255, 0.2);
+  color: rgba(226, 232, 240, 0.92);
+}
+
+.project-card-title {
+  margin: 0;
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.22;
+}
+
+.project-card-meta {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: rgba(71, 85, 105, 0.95);
+}
+
+html[data-theme="dark"] .project-card-meta {
+  color: rgba(226, 232, 240, 0.72);
+}
+
+.project-card-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.project-card-meta span + span::before {
+  content: "•";
+  font-size: 0.7rem;
+  color: rgba(100, 116, 139, 0.8);
+}
+
+html[data-theme="dark"] .project-card-meta span + span::before {
+  color: rgba(148, 197, 255, 0.55);
+}
+
+.project-card-summary {
+  grid-area: summary;
+  margin: 0;
+  line-height: 1.62;
+  color: var(--project-text-color);
+}
+
+html[data-theme="dark"] .project-card-summary {
+  color: rgba(226, 232, 240, 0.88);
+}
+
+.project-card-actions {
+  grid-area: actions;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.9rem;
+  justify-content: space-between;
+  align-items: center;
+  align-self: end;
+  width: 100%;
+  padding-top: 0.2rem;
+}
+
+.project-card-period {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(15, 23, 42, 0.68);
+  background: rgba(148, 163, 184, 0.16);
+  white-space: nowrap;
+}
+
+html[data-theme="dark"] .project-card-period {
+  color: rgba(226, 232, 240, 0.82);
+  background: rgba(148, 197, 255, 0.22);
+}
+
+.project-card-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  background: rgba(37, 99, 235, 0.12);
+  color: var(--project-link-color);
+  text-decoration: none !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.project-card-button::after {
+  content: "→";
+  font-size: 1.05rem;
+  transition: transform 0.22s ease;
+}
+
+.project-card-button:hover,
+.project-card-button:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+  background: rgba(37, 99, 235, 0.22);
+  border-color: rgba(37, 99, 235, 0.55);
+  color: var(--project-link-color);
+}
+
+.project-card-button:hover::after,
+.project-card-button:focus-visible::after {
+  transform: translateX(3px);
+}
+
+.project-card-button:focus-visible {
+  outline: 3px solid rgba(59, 130, 246, 0.4);
+  outline-offset: 3px;
+}
+
+@media (max-width: 1100px) {
+  :root {
+    --timeline-marker-width: 40px;
+    --timeline-gap: 2.3rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .project-card {
+    grid-template-columns: minmax(140px, 180px) minmax(0, 1fr);
+    column-gap: 1.6rem;
+    row-gap: 1.2rem;
+    padding: 1.8rem;
+  }
+
+  .project-card-media {
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 720px) {
+  :root {
+    --timeline-marker-width: 36px;
+    --timeline-gap: 2rem;
+  }
+
+  .projects-panel {
+    padding: 2.1rem 1.8rem;
+  }
+
+  .project-card {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "media"
+      "header"
+      "summary"
+      "actions";
+    row-gap: 1.2rem;
+  }
+
+  .project-card-media {
+    width: 100%;
+    max-width: none;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 580px) {
+  .projects-timeline::before {
+    display: none;
+  }
+
+  .project-entry {
+    padding-left: 0;
+  }
+
+  .project-marker {
+    position: relative;
+    top: 0;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .project-dot {
+    box-shadow: 0 0 0 4px var(--timeline-dot-halo);
+  }
+
+  .project-card {
+    width: 100%;
+    padding: 1.6rem 1.5rem;
+    row-gap: 1rem;
+  }
+}
+</style>
+
+<div class="projects-section">
+  <div class="projects-panel">
+    <h1 class="projects-heading">Projects</h1>
+    <p class="projects-intro">Selected builds spanning control, robotics, and autonomy—each pairing rigorous theory with hands-on validation.</p>
+
+    <div class="projects-timeline" role="list">
+      {% assign projects = site.projects | sort: 'date' | reverse %}
+      {% for project in projects %}
+        {% assign period_label = project.period 
+          | replace: 'January', 'Jan'
+          | replace: 'February', 'Feb'
+          | replace: 'March', 'Mar'
+          | replace: 'April', 'Apr'
+          | replace: 'May', 'May'
+          | replace: 'June', 'Jun'
+          | replace: 'July', 'Jul'
+          | replace: 'August', 'Aug'
+          | replace: 'September', 'Sep'
+          | replace: 'October', 'Oct'
+          | replace: 'November', 'Nov'
+          | replace: 'December', 'Dec' %}
+        <article class="project-entry" role="listitem">
+          <div class="project-marker">
+            <span class="project-dot" aria-hidden="true"></span>
+          </div>
+          <div class="project-card">
+            <div class="project-card-media">
+              <img src="{{ project.image | default: '/images/project-default.svg' | relative_url }}" alt="{{ project.title }} visual">
+            </div>
+            <div class="project-card-header">
+              {% if project.subject %}<span class="project-card-tag">{{ project.subject }}</span>{% endif %}
+              <h2 class="project-card-title">{{ project.title }}</h2>
+              <p class="project-card-meta">
+                <span>{{ project.venue }}</span>
+              </p>
+            </div>
+            <p class="project-card-summary">{{ project.excerpt | strip_html | strip_newlines | truncate: 220 }}</p>
+            <div class="project-card-actions">
+              <span class="project-card-period">{{ period_label }}</span>
+              <a class="project-card-button" href="{{ project.url | relative_url }}">See more</a>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</div>
