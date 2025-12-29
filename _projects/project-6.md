@@ -6,7 +6,7 @@ permalink: /projects/project-1
 venue: "University 'La Sapienza' of Rome"
 period: "2024/2025"
 paper: "https://s-orion10.github.io/files/master_thesis.pdf"
-video: ""
+video: "https://youtu.be/yf1fu_QvG4o"
 ---
 
 This work presents a rigorous analysis of an **existing geometric control law** specifically developed for **generically tilted multirotor (GTM)** platforms, as originally proposed by Michieletto _et al._ [1,2] for vehicles with arbitrarily placed and tilted propellers. These platforms are fully actuated in orientation and admit at least one direction along which the thrust magnitude can be regulated independently of attitude.
