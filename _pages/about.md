@@ -237,23 +237,19 @@ redirect_from:
     <h2 class="section-heading life-heading">Beyond Engineering</h2>
     <div class="life-list">
       <a class="life-item" href="https://youtu.be/QU9rJnTvPro?si=brRrWfDxHEmQPqcV" target="_blank" rel="noopener">
-        <span class="life-icon" aria-hidden="true">🎸</span>
-        <h3 class="life-title">Acoustic Storytelling</h3>
+        <span class="life-icon" aria-hidden="true">🎸 Acoustic Arrangements</span>
         <p class="life-desc">I enjoy playing the guitar in my free time, exploring fingerstyle arrangements as a way to relax and express myself.</p>
       </a>
       <div class="life-item">
-        <span class="life-icon" aria-hidden="true">⚽</span>
-        <h3 class="life-title">Collective Energy</h3>
+        <span class="life-icon" aria-hidden="true">⚽ Collective Energy</span>
         <p class="life-desc">Live matches and pick-up games recharge me; the rhythm of a midfield run reminds me how teamwork elevates complex engineering missions.</p>
       </div>
       <div class="life-item">
-        <span class="life-icon" aria-hidden="true">♟️</span>
-        <h3 class="life-title">Strategic Puzzles</h3>
+        <span class="life-icon" aria-hidden="true">♟️ Strategic Puzzles</span>
         <p class="life-desc">I enjoy playing chess and regularly train on Chess.com by completing daily exercises, as it helps keep my strategic thinking sharp.</p>
       </div>
       <div class="life-item">
-        <span class="life-icon" aria-hidden="true">🪐</span>
-        <h3 class="life-title">Cosmic Curiosity</h3>
+        <span class="life-icon" aria-hidden="true">🪐 Cosmic Curiosity</span>
         <p class="life-desc">I follow astrophysics via podcasts, documentaries, and books, stay updated on recent developments, and occasionally practice with my telescope and astrophotography.</p>
       </div>
       <div class="life-item">
