@@ -8,6 +8,7 @@ period: "2023/2024"
 paper: 
     - "https://s-orion10.github.io/files/PEV1.pdf" 
     - "https://s-orion10.github.io/files/PEV2.pdf"
+image: "/images/project-default.svg"
 ---
 
 Implemented classical and decentralized MPC to schedule optimal charging of a large fleet of plug-in electric vehicles.
