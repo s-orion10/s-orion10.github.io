@@ -36,29 +36,39 @@ redirect_from:
 }
 
 html[data-theme="dark"] {
-  --profile-panel-bg: rgba(38, 38, 43, 0.94);
-  --profile-panel-border: rgba(156, 163, 175, 0.35);
-  --profile-panel-shadow: 0 16px 32px rgba(12, 12, 16, 0.6);
-  --profile-card-bg: rgba(52, 53, 60, 0.92);
-  --profile-card-border: rgba(156, 163, 175, 0.3);
-  --profile-card-shadow: 0 8px 20px rgba(12, 12, 16, 0.55);
-  --profile-card-hover-border: rgba(226, 232, 240, 0.45);
-  --profile-card-hover-shadow: 0 20px 32px rgba(12, 12, 16, 0.58);
-  --profile-contact-bg: rgba(148, 163, 184, 0.12);
-  --profile-contact-border: rgba(148, 163, 184, 0.32);
-  --profile-contact-color: #e2e8f0;
-  --profile-contact-hover-bg: rgba(148, 163, 184, 0.2);
-  --profile-contact-hover-border: rgba(148, 163, 184, 0.44);
-  --profile-contact-hover-color: #f8fafc;
-  --profile-contact-shadow: 0 8px 20px rgba(8, 8, 12, 0.55);
-  --profile-contact-hover-shadow: 0 14px 26px rgba(8, 8, 12, 0.6);
-  --profile-mail-accent-bg: rgba(16, 185, 129, 0.18);
-  --profile-mail-accent-border: rgba(16, 185, 129, 0.45);
-  --profile-mail-accent-color: #bbf7d0;
-  --profile-linkedin-accent-bg: rgba(148, 163, 184, 0.18);
-  --profile-linkedin-accent-border: rgba(148, 163, 184, 0.45);
-  --profile-linkedin-accent-color: #dbeafe;
-  --profile-note-color: #e2e8f0;
+  /* Panel */
+  --profile-panel-bg: rgba(50, 50, 58, 0.94);
+  --profile-panel-border: rgba(176, 183, 195, 0.38);
+  --profile-panel-shadow: 0 14px 28px rgba(14, 14, 20, 0.45);
+
+  /* Cards */
+  --profile-card-bg: rgba(68, 70, 82, 0.92);
+  --profile-card-border: rgba(176, 183, 195, 0.34);
+  --profile-card-shadow: 0 8px 18px rgba(14, 14, 20, 0.42);
+  --profile-card-hover-border: rgba(226, 232, 240, 0.5);
+  --profile-card-hover-shadow: 0 18px 30px rgba(14, 14, 20, 0.48);
+
+  /* Contact blocks */
+  --profile-contact-bg: rgba(160, 174, 192, 0.18);
+  --profile-contact-border: rgba(160, 174, 192, 0.38);
+  --profile-contact-color: #f1f5f9;
+  --profile-contact-hover-bg: rgba(160, 174, 192, 0.26);
+  --profile-contact-hover-border: rgba(160, 174, 192, 0.5);
+  --profile-contact-hover-color: #ffffff;
+  --profile-contact-shadow: 0 8px 18px rgba(12, 12, 18, 0.42);
+  --profile-contact-hover-shadow: 0 14px 26px rgba(12, 12, 18, 0.48);
+
+  /* Accents */
+  --profile-mail-accent-bg: rgba(16, 185, 129, 0.24);
+  --profile-mail-accent-border: rgba(16, 185, 129, 0.5);
+  --profile-mail-accent-color: #d1fae5;
+
+  --profile-linkedin-accent-bg: rgba(186, 200, 220, 0.22);
+  --profile-linkedin-accent-border: rgba(186, 200, 220, 0.5);
+  --profile-linkedin-accent-color: #eff6ff;
+
+  /* Notes & icons */
+  --profile-note-color: #f1f5f9;
   --profile-icon-filter: none;
 }
 
