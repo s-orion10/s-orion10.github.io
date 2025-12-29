@@ -30,8 +30,9 @@ redirect_from:
 .about-desc { margin: 0; line-height: 1.55; }
 .life-section { margin: 3rem 0; }
 .life-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-.life-card { display: flex; flex-direction: column; gap: 0.75rem; padding: 1.3rem 1.1rem; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 18px; background: rgba(248, 250, 252, 0.96); box-shadow: 0 3px 9px rgba(15, 23, 42, 0.05); transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; }
-.life-card:hover, .life-card:focus-within { transform: translateY(-2px) scale(1.02); box-shadow: 0 10px 20px rgba(15, 23, 42, 0.12); border-color: rgba(0, 118, 168, 0.28); }
+.life-card { display: flex; flex-direction: column; gap: 0.75rem; padding: 1.3rem 1.1rem; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 18px; background: rgba(248, 250, 252, 0.96); box-shadow: 0 3px 9px rgba(15, 23, 42, 0.05); transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; color: inherit; text-decoration: none; }
+.life-card:hover, .life-card:focus-within, .life-card:focus-visible { transform: translateY(-2px) scale(1.02); box-shadow: 0 10px 20px rgba(15, 23, 42, 0.12); border-color: rgba(0, 118, 168, 0.28); }
+.life-card:focus-visible { outline: 3px solid rgba(0, 123, 255, 0.35); outline-offset: 3px; }
 .life-icon { font-size: 1.9rem; }
 .life-title { font-weight: 600; font-size: 1.05rem; margin: 0; }
 .life-desc { margin: 0; line-height: 1.55; }
@@ -221,11 +222,11 @@ My workflow is research-first: I dive into theory, build high-fidelity prototype
 
 <div class="life-section">
   <div class="life-grid">
-    <div class="life-card" href="https://youtu.be/QU9rJnTvPro?si=brRrWfDxHEmQPqcV">
+    <a class="life-card" href="https://youtu.be/QU9rJnTvPro?si=brRrWfDxHEmQPqcV" target="_blank" rel="noopener">
       <span class="life-icon" aria-hidden="true">🎸</span>
-      <h3 class="life-title">Acoustic Storytelling</h3>
+      <h3 class="life-title">Acoustic Arrangements</h3>
       <p class="life-desc">I enjoy playing the guitar in my free time, exploring fingerstyle arrangements as a way to relax and express myself.</p>
-    </div>
+    </a>
     <div class="life-card">
       <span class="life-icon" aria-hidden="true">⚽</span>
       <h3 class="life-title">Collective Energy</h3>
@@ -249,7 +250,7 @@ My workflow is research-first: I dive into theory, build high-fidelity prototype
   </div>
 </div>
 
-These rituals keep me balanced, sharpen strategic thinking, and sustain the creativity I bring back to engineering.
+These hobbies keep me balanced, sharpen strategic thinking, and sustain the creativity I bring back to engineering.
 
 ---
 
