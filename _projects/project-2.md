@@ -7,6 +7,7 @@ venue: "University 'La Sapienza' of Rome"
 period: "Winter - Spring 2023/2024"
 paper: "https://s-orion10.github.io/files/ingenuity.pdf"
 video: "https://s-orion10.github.io/files/ingenuity_edit.mp4"
+image: "/images/project-default.svg"
 ---
 
 Teaming up with three fellow engineers, I spearheaded the creation of a **high-fidelity Simulink digital twin** of NASA’s historic *Ingenuity* helicopter—the first aircraft ever to achieve powered flight on another planet (Mars, 2021 – 2024).  We began by mining published aerodynamic data, rotorcraft papers, and flight-test logs, then fused them into a six-DOF rigid-body model complete with rotor flapping dynamics, motor time constants, and the true martian ISA atmosphere (≈ 0.016 kg/m³, 3.72 m/s² gravity).
