@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Control Systems Engineer & Robotics Enthusiast"
+title: "About Me"
 author_profile: true
 redirect_from:
   - /about/
@@ -114,7 +114,6 @@ html[data-theme="dark"] {
 </style>
 
 <div class="section-panel">
-  <h1 class="section-heading">About Me</h1>
   <div class="section-body">
     <p>I’m Simone Orelli, a control systems engineer with a strong interest in robotics, applied mathematics, and software development. I enjoy translating mathematical theory into real-world systems, designing controllers that allow vehicles to move, adapt, and operate reliably in complex environments. As a control engineer, I am especially drawn to autunomous vehicles that move and interact with their surroundings, such as drones, robots, and autonomous systems. I like working on problems where dynamics matter, where models are imperfect, and where nonlinear control is needed to make theory behave well on real hardware. Whether I am tuning a controller, refining a model, or tracking down subtle system behaviors, I enjoy the process of making complex systems work cleanly and predictably in practice.</p>
     <div class="about-section">
