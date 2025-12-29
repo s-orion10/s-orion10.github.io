@@ -506,105 +506,68 @@ html[data-theme="dark"] .education-card-period {
     </div>
 
     <div class="education-timeline" role="list">
-      <article class="education-entry" role="listitem">
-        <div class="education-marker">
-          <span class="education-dot" aria-hidden="true"></span>
-        </div>
-        <div class="education-card">
-          <h2 class="education-card-title">Ph.D. in Automatic Control, Bioengineering and Operations</h2>
-          <a class="education-card-media" href="https://www.uniroma1.it/it/" target="_blank" rel="noopener">
-            <img src="{{ '/images/education-default.svg' | relative_url }}" alt="Illustration for doctoral research">
-          </a>
-          <div class="education-card-info">
-            <div class="education-card-tags">
-              <span class="education-card-tag">Doctorate</span>
-              <span class="education-card-tag">Control Systems</span>
+      {% assign education_entries = page.entries | default: empty %}
+      {% for entry in education_entries %}
+        {% assign period_label = entry.period
+          | replace: 'January', 'Jan'
+          | replace: 'February', 'Feb'
+          | replace: 'March', 'Mar'
+          | replace: 'April', 'Apr'
+          | replace: 'June', 'Jun'
+          | replace: 'July', 'Jul'
+          | replace: 'August', 'Aug'
+          | replace: 'September', 'Sep'
+          | replace: 'October', 'Oct'
+          | replace: 'November', 'Nov'
+          | replace: 'December', 'Dec' %}
+        <article class="education-entry" role="listitem">
+          <div class="education-marker">
+            <span class="education-dot" aria-hidden="true"></span>
+          </div>
+          <div class="education-card">
+            {% assign tag_items = entry.tags %}
+            {% if tag_items == nil or tag_items == empty %}
+              {% assign type_string = entry.type | to_s %}
+              {% assign tag_items = type_string | split: ' - ' %}
+            {% endif %}
+            {% capture tag_markup %}
+              {% for tag in tag_items %}
+                {% assign tag_label = tag | strip %}
+                {% if tag_label != '' %}<span class="education-card-tag">{{ tag_label }}</span>{% endif %}
+              {% endfor %}
+            {% endcapture %}
+            {% assign has_tags = tag_markup contains 'education-card-tag' %}
+            {% assign media_link = entry.media_link %}
+            {% assign card_image = entry.image | default: '/images/education-default.svg' %}
+            {% assign image_alt = entry.image_alt | default: entry.title %}
+            <h2 class="education-card-title">{{ entry.title }}</h2>
+            {% if media_link %}
+              <a class="education-card-media" href="{{ media_link }}" target="_blank" rel="noopener">
+                <img src="{{ card_image | relative_url }}" alt="{{ image_alt }}">
+              </a>
+            {% else %}
+              <div class="education-card-media" aria-hidden="true">
+                <img src="{{ card_image | relative_url }}" alt="{{ image_alt }}">
+              </div>
+            {% endif %}
+            <div class="education-card-info">
+              {% if has_tags %}
+                <div class="education-card-tags">{{ tag_markup | strip_newlines }}</div>
+              {% endif %}
+              {% if entry.institution or entry.location %}
+                <p class="education-card-meta">
+                  {% if entry.institution %}<span>{{ entry.institution }}</span>{% endif %}
+                  {% if entry.location %}<span>{{ entry.location }}</span>{% endif %}
+                </p>
+              {% endif %}
             </div>
-            <p class="education-card-meta">
-              <span>Sapienza University of Rome</span>
-            </p>
-          </div>
-          <p class="education-card-summary">Doctoral research on autonomous systems and advanced control architectures, blending theoretical analysis with experimental platforms in robotics and bioengineering.</p>
-          <div class="education-card-actions">
-            <span class="education-card-period">Nov 2021 - Present</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="education-entry" role="listitem">
-        <div class="education-marker">
-          <span class="education-dot" aria-hidden="true"></span>
-        </div>
-        <div class="education-card">
-          <h2 class="education-card-title">M.Eng equivalent in Control Engineering</h2>
-          <a class="education-card-media" href="https://www.uniroma1.it/it/" target="_blank" rel="noopener">
-            <img src="{{ '/images/education-default.svg' | relative_url }}" alt="Illustration for control engineering master's studies">
-          </a>
-          <div class="education-card-info">
-            <div class="education-card-tags">
-              <span class="education-card-tag">Master's Degree</span>
-              <span class="education-card-tag">Control Engineering</span>
+            <p class="education-card-summary">{% if entry.summary %}{{ entry.summary }}{% endif %}</p>
+            <div class="education-card-actions">
+              {% if period_label %}<span class="education-card-period">{{ period_label }}</span>{% endif %}
             </div>
-            <p class="education-card-meta">
-              <span>Sapienza University of Rome, Rome, Italy</span>
-            </p>
           </div>
-          <p class="education-card-summary">Advanced coursework and laboratory projects in robust and nonlinear control, culminating in an average exam grade of 29.13/30 and applied research across aerospace and robotics domains.</p>
-          <div class="education-card-actions">
-            <span class="education-card-period">Completed Oct 2021</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="education-entry" role="listitem">
-        <div class="education-marker">
-          <span class="education-dot" aria-hidden="true"></span>
-        </div>
-        <div class="education-card">
-          <h2 class="education-card-title">B.Eng equivalent in Information Engineering, Informatics and Statistics</h2>
-          <a class="education-card-media" href="https://www.uniroma1.it/it/" target="_blank" rel="noopener">
-            <img src="{{ '/images/education-default.svg' | relative_url }}" alt="Illustration for information engineering bachelor's studies">
-          </a>
-          <div class="education-card-info">
-            <div class="education-card-tags">
-              <span class="education-card-tag">Bachelor's Degree</span>
-              <span class="education-card-tag">Information Engineering</span>
-            </div>
-            <p class="education-card-meta">
-              <span>Sapienza University of Rome (Latina campus), Italy</span>
-            </p>
-          </div>
-          <p class="education-card-summary">Integrated curriculum covering automation, computer science, and applied statistics; graduated with final grade 110/110 with honors while delivering capstone projects in embedded systems.</p>
-          <div class="education-card-actions">
-            <span class="education-card-period">Sep 2016 - Oct 2021</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="education-entry" role="listitem">
-        <div class="education-marker">
-          <span class="education-dot" aria-hidden="true"></span>
-        </div>
-        <div class="education-card">
-          <h2 class="education-card-title">Technical Institute Diploma in Business Information Systems</h2>
-          <a class="education-card-media" href="https://istitutosuperioresezze.edu.it/scuola/" target="_blank" rel="noopener">
-            <img src="{{ '/images/education-default.svg' | relative_url }}" alt="Illustration for business information systems diploma">
-          </a>
-          <div class="education-card-info">
-            <div class="education-card-tags">
-              <span class="education-card-tag">High School Diploma</span>
-              <span class="education-card-tag">Business IT</span>
-            </div>
-            <p class="education-card-meta">
-              <span>ISIS Pacifici &amp; De Magistris, Sezze (LT), Italy</span>
-            </p>
-          </div>
-          <p class="education-card-summary">Specialised studies in enterprise information systems, accounting, and applied computer science, completed with final grade 100/100 and internships across local organisations.</p>
-          <div class="education-card-actions">
-            <span class="education-card-period">Sep 2011 - Jul 2016</span>
-          </div>
-        </div>
-      </article>
+        </article>
+      {% endfor %}
     </div>
   </div>
 </div>
