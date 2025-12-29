@@ -301,7 +301,7 @@ html[data-theme="dark"] {
     <h2 class="section-heading life-heading">Beyond Engineering</h2>
     <div class="life-list">
       <a class="life-item" href="https://youtu.be/QU9rJnTvPro?si=brRrWfDxHEmQPqcV" target="_blank" rel="noopener">
-        <span class="life-icon" aria-hidden="true">🎸 Acoustic Arrangements</span>
+        <span class="life-icon" aria-hidden="true">🎸 <h3 class="about-title">Acoustic Arrangements</h3></span>
         <p class="life-desc">I enjoy playing the guitar in my free time, exploring fingerstyle arrangements as a way to relax and express myself.</p>
       </a>
       <div class="life-item">
