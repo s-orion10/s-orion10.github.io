@@ -290,8 +290,8 @@ html[data-theme="dark"] .timeline-card-summary {
 
 <div class="work-section">
   <div class="timeline-panel">
-    <h1 class="work-heading">Esperienze Professionali</h1>
-    <p class="work-intro">Una panoramica delle tappe più significative del mio percorso, raccontate attraverso progetti, responsabilità e i contesti in cui ho contribuito alla crescita dei team.</p>
+    <h1 class="work-heading">Work Experiences</h1>
+    <p class="work-intro">A look at the most meaningful stages of my journey, highlighting the teams, projects, and responsibilities that shaped my contributions.</p>
 
     <div class="timeline" role="list">
       {% assign experiences = site.work_experiences | sort: 'date' | reverse %}
@@ -312,7 +312,7 @@ html[data-theme="dark"] .timeline-card-summary {
                 {% if experience.location %}<span> · {{ experience.location }}</span>{% endif %}
               </p>
               <p class="timeline-card-summary">{{ experience.excerpt | strip_html | strip_newlines | truncate: 220 }}</p>
-              <a class="timeline-card-link" href="{{ experience.url | relative_url }}">Approfondisci l'esperienza</a>
+              <a class="timeline-card-link" href="{{ experience.url | relative_url }}">Explore this experience</a>
             </div>
           </div>
         </article>
@@ -320,7 +320,6 @@ html[data-theme="dark"] .timeline-card-summary {
     </div>
   </div>
 </div>
-
 
 
 
