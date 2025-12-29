@@ -30,14 +30,10 @@ redirect_from:
 .about-desc { margin: 0; line-height: 1.55; }
 .life-section { margin: 3rem 0; }
 .life-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-.life-card { display: flex; flex-direction: column; gap: 0.75rem; padding: 1.3rem 1.1rem; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 18px; background: rgba(248, 250, 252, 0.96); box-shadow: 0 3px 9px rgba(15, 23, 42, 0.05); transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; color: inherit; text-decoration: none; }
-.life-card:hover, .life-card:focus-within, .life-card:focus-visible { transform: translateY(-2px) scale(1.02); box-shadow: 0 10px 20px rgba(15, 23, 42, 0.12); border-color: rgba(0, 118, 168, 0.28); }
-.life-card:focus-visible { outline: 3px solid rgba(0, 123, 255, 0.35); outline-offset: 3px; }
 .life-icon { font-size: 1.9rem; }
 .life-title { font-weight: 600; font-size: 1.05rem; margin: 0; }
 .life-desc { margin: 0; line-height: 1.55; }
 .life-link { color: inherit; text-decoration: underline; font-weight: 600; }
-.life-card:hover .life-link, .life-card:focus-within .life-link { text-decoration: none; }
 </style>
 
 # About Me
@@ -221,28 +217,28 @@ My workflow is research-first: I dive into theory, build high-fidelity prototype
 ## Beyond Engineering
 
 <div class="life-section">
-  <div class="life-grid">
-    <a class="life-card" href="https://youtu.be/QU9rJnTvPro?si=brRrWfDxHEmQPqcV" target="_blank" rel="noopener">
+  <div class="about-card">
+    <a class="about-card" href="https://youtu.be/QU9rJnTvPro?si=brRrWfDxHEmQPqcV" target="_blank" rel="noopener">
       <span class="life-icon" aria-hidden="true">🎸</span>
       <h3 class="life-title">Acoustic Arrangements</h3>
       <p class="life-desc">I enjoy playing the guitar in my free time, exploring fingerstyle arrangements as a way to relax and express myself.</p>
     </a>
-    <div class="life-card">
+    <div class="about-card">
       <span class="life-icon" aria-hidden="true">⚽</span>
       <h3 class="life-title">Collective Energy</h3>
       <p class="life-desc">Live matches and pick-up games recharge me; the rhythm of a midfield run reminds me how teamwork elevates complex engineering missions.</p>
     </div>
-    <div class="life-card">
+    <div class="about-card">
       <span class="life-icon" aria-hidden="true">♟️</span>
       <h3 class="life-title">Strategic Puzzles</h3>
       <p class="life-desc">I enjoy playing chess and regularly train on Chess.com by completing daily exercises, as it helps keep my strategic thinking sharp.</p>
     </div>
-    <div class="life-card">
+    <div class="about-card">
       <span class="life-icon" aria-hidden="true">🪐</span>
       <h3 class="life-title">Cosmic Curiosity</h3>
       <p class="life-desc">I follow astrophysics via podcasts, documentaries, and books, stay updated on recent developments, and occasionally practice with my telescope and astrophotography.</p>
     </div>
-    <div class="life-card">
+    <div class="about-card">
       <span class="life-icon" aria-hidden="true">🌐</span>
       <h3 class="life-title">Open Knowledge</h3>
       <p class="life-desc">I enjoy being part of a social network where knowledge is shared openly through platforms like LinkedIn, GitHub, and community talks.</p>
