@@ -7,7 +7,7 @@ venue: "University 'La Sapienza' of Rome"
 period: "Autumn - Winter 2023"
 paper: "https://s-orion10.github.io/files/self_balancing.pdf"
 video: "https://s-orion10.github.io/files/demo.mp4"
-image: "/images/project-default.svg"
+image: "/images/grandland.png"
 ---
 
 ACC on a self-balancing wheeled robot (GRANDLAND)
