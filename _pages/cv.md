@@ -1,10 +1,11 @@
 ---
 layout: archive
-title: "CV"
-permalink: /cv/
+title: "Education"
+permalink: /education/
 author_profile: true
 redirect_from:
   - /resume
+  - /cv/
 ---
 
 [📄 View CV online](https://s-orion10.github.io/files/curriculum.pdf){:target="_blank"}  
