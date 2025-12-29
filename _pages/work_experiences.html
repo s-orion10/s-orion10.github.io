@@ -19,7 +19,8 @@ author_profile: true
   --experience-line-color: rgba(37, 99, 235, 0.22);
   --experience-dot-color: #2563eb;
   --experience-dot-halo: rgba(37, 99, 235, 0.18);
-  --timeline-marker-width: 200px;
+  --timeline-marker-width: 170px;
+  --timeline-gap: 2.8rem;
 }
 
 html[data-theme="dark"] {
@@ -86,8 +87,8 @@ html[data-theme="dark"] {
 
 .timeline-entry {
   position: relative;
-  margin-bottom: 2.8rem;
-  padding-left: calc(var(--timeline-marker-width) + 2.8rem);
+  margin-bottom: var(--timeline-gap);
+  padding-left: calc(var(--timeline-marker-width) + 2.4rem);
 }
 
 .timeline-entry:last-child {
@@ -98,7 +99,7 @@ html[data-theme="dark"] {
   position: absolute;
   top: 1.8rem;
   left: 0;
-  width: calc(var(--timeline-marker-width) + 1.4rem);
+  width: calc(var(--timeline-marker-width) + 1rem);
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -124,9 +125,9 @@ html[data-theme="dark"] {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  gap: 1.8rem;
-  padding: 1.8rem 1.9rem;
-  border-radius: 22px;
+  gap: 2.1rem;
+  padding: 2rem 2.2rem;
+  border-radius: 24px;
   border: 1px solid var(--experience-card-border);
   background: var(--experience-card-bg);
   box-shadow: var(--experience-card-shadow);
@@ -142,9 +143,9 @@ html[data-theme="dark"] {
 
 .timeline-card-media {
   flex-shrink: 0;
-  width: 148px;
-  height: 148px;
-  border-radius: 20px;
+  width: 168px;
+  height: 168px;
+  border-radius: 22px;
   overflow: hidden;
   background: rgba(148, 163, 184, 0.25);
   display: flex;
@@ -161,24 +162,68 @@ html[data-theme="dark"] {
 .timeline-card-content {
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
+  gap: 1.1rem;
   flex: 1;
+}
+
+.timeline-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.timeline-card-role {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(37, 99, 235, 0.14);
+  color: rgba(29, 78, 216, 0.92);
+  width: fit-content;
+}
+
+html[data-theme="dark"] .timeline-card-role {
+  background: rgba(148, 197, 255, 0.2);
+  color: rgba(226, 232, 240, 0.92);
 }
 
 .timeline-card-title {
   margin: 0;
-  font-size: 1.35rem;
+  font-size: 1.45rem;
   font-weight: 700;
 }
 
 .timeline-card-meta {
   margin: 0;
-  font-size: 0.96rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  font-size: 0.94rem;
   color: rgba(71, 85, 105, 0.95);
 }
 
 html[data-theme="dark"] .timeline-card-meta {
   color: rgba(226, 232, 240, 0.72);
+}
+
+.timeline-card-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.timeline-card-meta span + span::before {
+  content: "•";
+  font-size: 0.7rem;
+  color: rgba(100, 116, 139, 0.8);
+}
+
+html[data-theme="dark"] .timeline-card-meta span + span::before {
+  color: rgba(148, 197, 255, 0.55);
 }
 
 .timeline-card-summary {
@@ -191,53 +236,76 @@ html[data-theme="dark"] .timeline-card-summary {
   color: rgba(226, 232, 240, 0.88);
 }
 
-.timeline-card-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-weight: 600;
-  font-size: 0.98rem;
-  color: var(--experience-link-color);
-  text-decoration: none;
+.timeline-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
-.timeline-card-link::after {
+.timeline-card-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  background: rgba(37, 99, 235, 0.12);
+  color: var(--experience-link-color);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.timeline-card-button::after {
   content: "→";
   font-size: 1.05rem;
   transition: transform 0.22s ease;
 }
 
-.timeline-card-link:hover::after,
-.timeline-card-link:focus-visible::after {
+.timeline-card-button:hover,
+.timeline-card-button:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+  background: rgba(37, 99, 235, 0.22);
+  border-color: rgba(37, 99, 235, 0.55);
+  color: var(--experience-link-color);
+}
+
+.timeline-card-button:hover::after,
+.timeline-card-button:focus-visible::after {
   transform: translateX(3px);
 }
 
-.timeline-card-link:focus-visible {
+.timeline-card-button:focus-visible {
   outline: 3px solid rgba(59, 130, 246, 0.4);
-  outline-offset: 4px;
-  border-radius: 10px;
+  outline-offset: 3px;
 }
 
 @media (max-width: 1100px) {
   :root {
-    --timeline-marker-width: 170px;
+    --timeline-marker-width: 150px;
+    --timeline-gap: 2.4rem;
   }
 }
 
 @media (max-width: 900px) {
   .timeline-card {
-    gap: 1.4rem;
+    gap: 1.6rem;
+    padding: 1.8rem;
   }
 
   .timeline-card-media {
-    width: 132px;
-    height: 132px;
+    width: 145px;
+    height: 145px;
   }
 }
 
 @media (max-width: 720px) {
   :root {
-    --timeline-marker-width: 140px;
+    --timeline-marker-width: 130px;
+    --timeline-gap: 2.1rem;
   }
 
   .timeline-panel {
@@ -247,6 +315,7 @@ html[data-theme="dark"] .timeline-card-summary {
   .timeline-card {
     flex-direction: column;
     align-items: flex-start;
+    gap: 1.4rem;
   }
 
   .timeline-card-media {
@@ -284,6 +353,7 @@ html[data-theme="dark"] .timeline-card-summary {
   .timeline-card {
     width: 100%;
     padding: 1.6rem 1.5rem;
+    gap: 1.2rem;
   }
 }
 </style>
@@ -296,9 +366,22 @@ html[data-theme="dark"] .timeline-card-summary {
     <div class="timeline" role="list">
       {% assign experiences = site.work_experiences | sort: 'date' | reverse %}
       {% for experience in experiences %}
+        {% assign period_label = experience.period 
+          | replace: 'January', 'Jan'
+          | replace: 'February', 'Feb'
+          | replace: 'March', 'Mar'
+          | replace: 'April', 'Apr'
+          | replace: 'May', 'May'
+          | replace: 'June', 'Jun'
+          | replace: 'July', 'Jul'
+          | replace: 'August', 'Aug'
+          | replace: 'September', 'Sep'
+          | replace: 'October', 'Oct'
+          | replace: 'November', 'Nov'
+          | replace: 'December', 'Dec' %}
         <article class="timeline-entry" role="listitem">
           <div class="timeline-marker">
-            <span class="timeline-period">{{ experience.period }}</span>
+            <span class="timeline-period">{{ period_label }}</span>
             <span class="timeline-dot" aria-hidden="true"></span>
           </div>
           <div class="timeline-card">
@@ -306,13 +389,18 @@ html[data-theme="dark"] .timeline-card-summary {
               <img src="{{ experience.image | default: '/images/work-experience-default.svg' | relative_url }}" alt="{{ experience.title }} visual">
             </div>
             <div class="timeline-card-content">
-              <h2 class="timeline-card-title">{{ experience.title }}</h2>
-              <p class="timeline-card-meta">
-                <span>{{ experience.venue }}</span>
-                {% if experience.location %}<span> · {{ experience.location }}</span>{% endif %}
-              </p>
+              <div class="timeline-card-header">
+                {% if experience.type %}<span class="timeline-card-role">{{ experience.type }}</span>{% endif %}
+                <h2 class="timeline-card-title">{{ experience.title }}</h2>
+                <p class="timeline-card-meta">
+                  <span>{{ experience.venue }}</span>
+                  {% if experience.location %}<span>{{ experience.location }}</span>{% endif %}
+                </p>
+              </div>
               <p class="timeline-card-summary">{{ experience.excerpt | strip_html | strip_newlines | truncate: 220 }}</p>
-              <a class="timeline-card-link" href="{{ experience.url | relative_url }}">Explore this experience</a>
+              <div class="timeline-card-actions">
+                <a class="timeline-card-button" href="{{ experience.url | relative_url }}">Explore this experience</a>
+              </div>
             </div>
           </div>
         </article>
@@ -320,6 +408,7 @@ html[data-theme="dark"] .timeline-card-summary {
     </div>
   </div>
 </div>
+
 
 
 
