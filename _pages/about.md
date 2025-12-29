@@ -2,60 +2,11 @@
 permalink: /
 title: "Control Systems Engineer & Robotics Enthusiast"
 author_profile: true
-redirect_from: 
+redirect_from:
   - /about/
   - /about.html
 ---
 
-<style>
- 
-
-.skill-section { margin-bottom: 2.5rem; }
-.skill-grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
-.skill-card { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; padding: 1.15rem 0.9rem; border: 1px solid var(--profile-card-border); border-radius: 16px; background: var(--profile-card-bg); text-decoration: none !important; color: inherit; box-shadow: var(--profile-card-shadow); transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; }
-.skill-card:hover, .skill-card:focus { transform: translateY(-2px) scale(1.03); box-shadow: var(--profile-card-hover-shadow); border-color: var(--profile-card-hover-border); text-decoration: none !important; }
-.skill-card:focus { outline: 3px solid rgba(0, 123, 255, 0.4); outline-offset: 3px; }
-.skill-icon { width: 48px; height: 48px; object-fit: contain; transition: transform 0.22s ease; background: transparent; box-shadow: none !important; filter: var(--profile-icon-filter); display: block; }
-.skill-card:hover .skill-icon, .skill-card:focus .skill-icon { transform: scale(1.03); }
-.skill-stars { font-size: 0.95rem; letter-spacing: 2px; color: #e0a100; }
-.skill-name { font-weight: 600; text-align: center; text-decoration: none !important; }
-.skill-card:hover .skill-name, .skill-card:focus .skill-name { text-decoration: underline; }
-.skill-stars span { text-decoration: none !important; }
-.skill-stars .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
-.about-section { margin: 0; }
-.about-list { display: flex; flex-direction: column; gap: 1rem; }
-.about-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem 1.05rem; border: 1px solid var(--profile-card-border); border-radius: 16px; background: var(--profile-card-bg); box-shadow: var(--profile-card-shadow); color: inherit; text-decoration: none !important; transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; }
-.about-item:hover, .about-item:focus-visible { transform: translateY(-2px) scale(1.02); box-shadow: var(--profile-card-hover-shadow); border-color: var(--profile-card-hover-border); text-decoration: none !important; }
-.about-item:focus-visible { outline: 3px solid rgba(0, 123, 255, 0.35); outline-offset: 3px; }
-.about-icon { display: flex; align-items: center; justify-content: center; font-size: 1.9rem; line-height: 1; flex-shrink: 0; margin-top: 0.1rem; }
-.about-content { display: flex; flex-direction: column; gap: 0.45rem; }
-.about-title { font-weight: 600; font-size: 1.05rem; margin: 0; }
-.about-desc { margin: 0; line-height: 1.55; }
-.section-panel { margin: 3rem 0; display: flex; flex-direction: column; gap: 1.6rem; padding: 1.6rem 1.35rem; border: 1px solid var(--profile-panel-border); border-radius: 22px; background: var(--profile-panel-bg); box-shadow: var(--profile-panel-shadow); }
-.section-panel:first-of-type { margin-top: 0; }
-.section-panel p { margin: 0; line-height: 1.6; }
-.section-panel p + p { margin-top: 0.9rem; }
-.section-heading { margin: 0; font-size: 1.32rem; font-weight: 700; letter-spacing: 0.01em; }
-.section-body { display: flex; flex-direction: column; gap: 2.4rem; }
-.section-body .skill-section { margin: 0; }
-.life-section { margin: 3rem 0; }
-.life-section .section-panel { margin: 0; }
-.life-heading { margin: 0; font-size: 1.32rem; font-weight: 700; letter-spacing: 0.01em; }
-.life-list { display: flex; flex-direction: column; gap: 1rem; }
-.life-item { display: flex; flex-direction: column; gap: 0.7rem; padding: 1.15rem 1.05rem; border: 1px solid var(--profile-card-border); border-radius: 16px; background: var(--profile-card-bg); box-shadow: var(--profile-card-shadow); color: inherit; text-decoration: none !important; transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; }
-.life-item:hover, .life-item:focus-within { transform: translateY(-2px) scale(1.02); box-shadow: var(--profile-card-hover-shadow); border-color: var(--profile-card-hover-border); text-decoration: none !important; }
-.life-item:focus-visible { outline: 3px solid rgba(0, 123, 255, 0.35); outline-offset: 3px; }
-.life-icon { font-size: 1.9rem; }
-.life-title { font-weight: 600; font-size: 1.05rem; margin: 0; }
-.life-desc { margin: 0; line-height: 1.55; }
-.life-note { margin: 0; line-height: 1.6; color: var(--profile-note-color); }
-.contact-panel { position: relative; }
-.contact-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
-.contact-button { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; padding: 0.55rem 1.1rem; border-radius: 999px; font-weight: 600; text-decoration: none; border: 1px solid var(--profile-contact-border); background: var(--profile-contact-bg); color: var(--profile-contact-color); box-shadow: var(--profile-contact-shadow); transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease, color 0.18s ease; }
-.contact-button:hover, .contact-button:focus-visible { transform: translateY(-1px); box-shadow: var(--profile-contact-hover-shadow); background: var(--profile-contact-hover-bg); border-color: var(--profile-contact-hover-border); color: var(--profile-contact-hover-color); outline: none; }
-.contact-button:focus-visible { outline: 3px solid rgba(0, 123, 255, 0.35); outline-offset: 3px; }
-.contact-button--mail:hover, .contact-button--mail:focus-visible { background: var(--profile-mail-accent-bg); border-color: var(--profile-mail-accent-border); color: var(--profile-mail-accent-color); }
-.contact-button--linkedin:hover, .contact-button--linkedin:focus-visible { background: var(--profile-linkedin-accent-bg); border-color: var(--profile-linkedin-accent-border); color: var(--profile-linkedin-accent-color); }
 <style>
 :root {
   --profile-panel-bg: rgba(248, 250, 252, 0.98);
@@ -110,6 +61,54 @@ html[data-theme="dark"] {
   --profile-note-color: #e2e8f0;
   --profile-icon-filter: none;
 }
+
+.skill-section { margin-bottom: 2.5rem; }
+.skill-grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+.skill-card { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; padding: 1.15rem 0.9rem; border: 1px solid var(--profile-card-border); border-radius: 16px; background: var(--profile-card-bg); text-decoration: none !important; color: inherit; box-shadow: var(--profile-card-shadow); transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; }
+.skill-card:hover, .skill-card:focus { transform: translateY(-2px) scale(1.03); box-shadow: var(--profile-card-hover-shadow); border-color: var(--profile-card-hover-border); text-decoration: none !important; }
+.skill-card:focus { outline: 3px solid rgba(0, 123, 255, 0.4); outline-offset: 3px; }
+.skill-icon { width: 48px; height: 48px; object-fit: contain; transition: transform 0.22s ease; background: transparent; box-shadow: none !important; filter: var(--profile-icon-filter); display: block; }
+.skill-card:hover .skill-icon, .skill-card:focus .skill-icon { transform: scale(1.03); }
+.skill-stars { font-size: 0.95rem; letter-spacing: 2px; color: #e0a100; }
+.skill-name { font-weight: 600; text-align: center; text-decoration: none !important; }
+.skill-card:hover .skill-name, .skill-card:focus .skill-name { text-decoration: underline; }
+.skill-stars span { text-decoration: none !important; }
+.skill-stars .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+.about-section { margin: 0; }
+.about-list { display: flex; flex-direction: column; gap: 1rem; }
+.about-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1.15rem 1.05rem; border: 1px solid var(--profile-card-border); border-radius: 16px; background: var(--profile-card-bg); box-shadow: var(--profile-card-shadow); color: inherit; text-decoration: none !important; transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; }
+.about-item:hover, .about-item:focus-visible { transform: translateY(-2px) scale(1.02); box-shadow: var(--profile-card-hover-shadow); border-color: var(--profile-card-hover-border); text-decoration: none !important; }
+.about-item:focus-visible { outline: 3px solid rgba(0, 123, 255, 0.35); outline-offset: 3px; }
+.about-icon { display: flex; align-items: center; justify-content: center; font-size: 1.9rem; line-height: 1; flex-shrink: 0; margin-top: 0.1rem; }
+.about-content { display: flex; flex-direction: column; gap: 0.45rem; }
+.about-title { font-weight: 600; font-size: 1.05rem; margin: 0; }
+.about-desc { margin: 0; line-height: 1.55; }
+.section-panel { margin: 3rem 0; display: flex; flex-direction: column; gap: 1.6rem; padding: 1.6rem 1.35rem; border: 1px solid var(--profile-panel-border); border-radius: 22px; background: var(--profile-panel-bg); box-shadow: var(--profile-panel-shadow); }
+.section-panel:first-of-type { margin-top: 0; }
+.section-panel p { margin: 0; line-height: 1.6; }
+.section-panel p + p { margin-top: 0.9rem; }
+.section-heading { margin: 0; font-size: 1.32rem; font-weight: 700; letter-spacing: 0.01em; }
+.section-body { display: flex; flex-direction: column; gap: 2.4rem; }
+.section-body .skill-section { margin: 0; }
+.life-section { margin: 3rem 0; }
+.life-section .section-panel { margin: 0; }
+.life-heading { margin: 0; font-size: 1.32rem; font-weight: 700; letter-spacing: 0.01em; }
+.life-list { display: flex; flex-direction: column; gap: 1rem; }
+.life-item { display: flex; flex-direction: column; gap: 0.7rem; padding: 1.15rem 1.05rem; border: 1px solid var(--profile-card-border); border-radius: 16px; background: var(--profile-card-bg); box-shadow: var(--profile-card-shadow); color: inherit; text-decoration: none !important; transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; }
+.life-item:hover, .life-item:focus-within { transform: translateY(-2px) scale(1.02); box-shadow: var(--profile-card-hover-shadow); border-color: var(--profile-card-hover-border); text-decoration: none !important; }
+.life-item:focus-visible { outline: 3px solid rgba(0, 123, 255, 0.35); outline-offset: 3px; }
+.life-icon { font-size: 1.9rem; }
+.life-title { font-weight: 600; font-size: 1.05rem; margin: 0; }
+.life-desc { margin: 0; line-height: 1.55; }
+.life-note { margin: 0; line-height: 1.6; color: var(--profile-note-color); }
+.contact-panel { position: relative; }
+.contact-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+.contact-button { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; padding: 0.55rem 1.1rem; border-radius: 999px; font-weight: 600; text-decoration: none; border: 1px solid var(--profile-contact-border); background: var(--profile-contact-bg); color: var(--profile-contact-color); box-shadow: var(--profile-contact-shadow); transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease, color 0.18s ease; }
+.contact-button:hover, .contact-button:focus-visible { transform: translateY(-1px); box-shadow: var(--profile-contact-hover-shadow); background: var(--profile-contact-hover-bg); border-color: var(--profile-contact-hover-border); color: var(--profile-contact-hover-color); outline: none; }
+.contact-button:focus-visible { outline: 3px solid rgba(0, 123, 255, 0.35); outline-offset: 3px; }
+.contact-button--mail:hover, .contact-button--mail:focus-visible { background: var(--profile-mail-accent-bg); border-color: var(--profile-mail-accent-border); color: var(--profile-mail-accent-color); }
+.contact-button--linkedin:hover, .contact-button--linkedin:focus-visible { background: var(--profile-linkedin-accent-bg); border-color: var(--profile-linkedin-accent-border); color: var(--profile-linkedin-accent-color); }
+</style>
 
 <div class="section-panel">
   <h1 class="section-heading">About Me</h1>
@@ -296,7 +295,7 @@ html[data-theme="dark"] {
         <p class="life-desc">I enjoy playing the guitar in my free time, exploring fingerstyle arrangements as a way to relax and express myself.</p>
       </a>
       <div class="life-item">
-        <span class="life-icon" aria-hidden="true">⚽  Collective Energy</span>
+        <span class="life-icon" aria-hidden="true">⚽ Collective Energy</span>
         <p class="life-desc">Live matches and pick-up games recharge me; the rhythm of a midfield run reminds me how teamwork elevates complex engineering missions.</p>
       </div>
       <div class="life-item">
