@@ -14,19 +14,7 @@ Curiosity drives me: I love tackling complex problems that sit at the intersecti
 
 ---
 
-## Professional snapshot
-
-- **Core expertise:** nonlinear & geometric control, state estimation, robotics, embedded C/C++, Python, MATLAB/Simulink  
-- **Recent projects:**  
-  - *VTOL tricopter*: geometric tracking controller and transition management (Sapienza Flight Team)  
-  - *Ingenuity-style Mars helicopter*: high-fidelity Simulink model of NASA’s **Ingenuity** for Martian-atmosphere flight-dynamics analysis  
-  - *Car Racing AI*: end-to-end CNN policy for OpenAI Car Racing—data collection, network training, deployment  
-  - *Under-actuated robot via DDP*: differential dynamic programming on pendubot & acrobot with hard torque limits  
-- **Toolbox I reach for:** Git & GitHub Actions, Matlab, Simulink, LaTeX
-
----
-
-## Skills snapshot
+## Skills Snapshot
 
 <style>
 .skill-section { margin-bottom: 2.5rem; }
@@ -41,6 +29,15 @@ Curiosity drives me: I love tackling complex problems that sit at the intersecti
 .skill-card:hover .skill-name, .skill-card:focus .skill-name { text-decoration: underline; }
 .skill-stars span { text-decoration: none !important; }
 .skill-stars .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+.life-section { margin: 3rem 0; }
+.life-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.life-card { display: flex; flex-direction: column; gap: 0.75rem; padding: 1.3rem 1.1rem; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 18px; background: rgba(248, 250, 252, 0.96); box-shadow: 0 3px 9px rgba(15, 23, 42, 0.05); transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; }
+.life-card:hover, .life-card:focus-within { transform: translateY(-2px) scale(1.02); box-shadow: 0 10px 20px rgba(15, 23, 42, 0.12); border-color: rgba(0, 118, 168, 0.28); }
+.life-icon { font-size: 1.9rem; }
+.life-title { font-weight: 600; font-size: 1.05rem; margin: 0; }
+.life-desc { margin: 0; line-height: 1.55; }
+.life-link { color: inherit; text-decoration: underline; font-weight: 600; }
+.life-card:hover .life-link, .life-card:focus-within .life-link { text-decoration: none; }
 </style>
 
 <div class="skill-section">
@@ -184,7 +181,7 @@ Curiosity drives me: I love tackling complex problems that sit at the intersecti
 
 ---
 
-## Research & learning
+## Research & Learning
 
 I’m passionate about **control theory in all its flavors**: from rigorous, model-based design to modern approaches that leverage machine learning and reinforcement learning.  
 Right now my main focus is on **non-linear control of non-differentially-flat under-actuated rigid bodies with coupled moment–force dynamics**—the core topic of my master’s thesis.
@@ -193,17 +190,39 @@ My workflow is research-driven: I first dig deep into the underlying theory, the
 
 ---
 
-## Beyond engineering
+## Beyond Engineering
 
-Outside of the lab and code editor you’ll likely catch me:
+<div class="life-section">
+  <div class="life-grid">
+    <div class="life-card">
+      <span class="life-icon" aria-hidden="true">🎸</span>
+      <h3 class="life-title">Acoustic Storytelling</h3>
+      <p class="life-desc">I unplug with fingerstyle arrangements, including <a class="life-link" href="https://youtu.be/QU9rJnTvPro?si=brRrWfDxHEmQPqcV" target="_blank" rel="noopener">a recent cover</a> tracked in a single take to keep the emotion intact.</p>
+    </div>
+    <div class="life-card">
+      <span class="life-icon" aria-hidden="true">⚽</span>
+      <h3 class="life-title">Collective Energy</h3>
+      <p class="life-desc">Live matches and pick-up games recharge me; the rhythm of a midfield run reminds me how teamwork elevates complex engineering missions.</p>
+    </div>
+    <div class="life-card">
+      <span class="life-icon" aria-hidden="true">♟️</span>
+      <h3 class="life-title">Strategic Puzzles</h3>
+      <p class="life-desc">Chess.com drills sharpen my pattern recognition and time-to-decision—the same instincts I rely on when tuning controllers under pressure.</p>
+    </div>
+    <div class="life-card">
+      <span class="life-icon" aria-hidden="true">🪐</span>
+      <h3 class="life-title">Cosmic Curiosity</h3>
+      <p class="life-desc">Astrophysics podcasts and mission debriefs keep my imagination wide-angle and inspire rigorous, system-level thinking.</p>
+    </div>
+    <div class="life-card">
+      <span class="life-icon" aria-hidden="true">🌐</span>
+      <h3 class="life-title">Open Knowledge</h3>
+      <p class="life-desc">I love distilling project takeaways for LinkedIn, GitHub, and community talks to spark collaboration and share what works.</p>
+    </div>
+  </div>
+</div>
 
-- 🎸 **Playing guitar** – arranging acoustic covers  
-- ⚽ **Enjoying sports** – football fan and sports fan in general  
-- ♟ **Analyzing chess puzzles** – trying to improve my rapid rating on chess.com
-- 🪐 **Exploring astrophysics** – satisfying my curiosity with popular-science books and following the latest discoveries on social media  
-- 🌐 **Staying social** – actively sharing projects and insights on LinkedIn, GitHub, and tech communities, always eager to connect and exchange ideas
-
-These hobbies keep me balanced, sharpen strategic thinking, and fuel creativity.
+These rituals keep me balanced, sharpen strategic thinking, and sustain the creativity I bring back to engineering.
 
 ---
 
@@ -213,4 +232,3 @@ I’m always open to new collaborations, research projects, or just a friendly c
 Feel free to reach out via [email](mailto:simoneorelli@icloud.com) or connect on [LinkedIn](https://www.linkedin.com/in/simone-orelli-a5b9a1144).
 
 *Thanks for stopping by!*  
-
