@@ -6,6 +6,7 @@ permalink: /work_experiences/2024-work_experience-3
 venue: "Sapienza Aerospace Student Association – Sapienza Flight Team"
 period: "September 2024 - May 2025"
 location: "Rome (RM)"
+image: "/images/work-experience-default.svg"
 ---
 
 Partner of the Sapienza Aerospace Student Association (**SASA**) for the project [**Sapienza Flight Team (SFT)**](https://www.sasa-aerospace.it/flight-team/).
