@@ -225,6 +225,7 @@ html[data-theme="dark"] {
   line-height: 1.22;
 }
 
+
 .education-card-media {
   grid-area: media;
   width: 100%;
@@ -236,6 +237,19 @@ html[data-theme="dark"] {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.education-card-media:hover,
+.education-card-media:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(14, 116, 144, 0.22);
+}
+
+.education-card-media:focus-visible {
+  outline: 3px solid rgba(45, 212, 191, 0.4);
+  outline-offset: 3px;
 }
 
 .education-card-media img {
@@ -443,9 +457,9 @@ html[data-theme="dark"] .education-card-period {
         </div>
         <div class="education-card">
           <h2 class="education-card-title">Ph.D. in Automatic Control, Bioengineering and Operations</h2>
-          <div class="education-card-media">
+          <a class="education-card-media" href="https://www.uniroma1.it/it/" target="_blank" rel="noopener">
             <img src="{{ '/images/sapienza.png' | relative_url }}" alt="Illustration for doctoral research">
-          </div>
+          </a>
           <div class="education-card-info">
             <div class="education-card-tags">
               <span class="education-card-tag">Doctorate</span>
@@ -468,9 +482,9 @@ html[data-theme="dark"] .education-card-period {
         </div>
         <div class="education-card">
           <h2 class="education-card-title">M.Eng equivalent in Control Engineering</h2>
-          <div class="education-card-media">
+          <a class="education-card-media" href="https://www.uniroma1.it/it/" target="_blank" rel="noopener">
             <img src="{{ '/images/sapienza.png' | relative_url }}" alt="Illustration for control engineering master's studies">
-          </div>
+          </a>
           <div class="education-card-info">
             <div class="education-card-tags">
               <span class="education-card-tag">Master's Degree</span>
@@ -493,9 +507,9 @@ html[data-theme="dark"] .education-card-period {
         </div>
         <div class="education-card">
           <h2 class="education-card-title">B.Eng equivalent in Information Engineering, Informatics and Statistics</h2>
-          <div class="education-card-media">
+          <a class="education-card-media" href="https://www.uniroma1.it/it/" target="_blank" rel="noopener">
             <img src="{{ '/images/sapienza.png' | relative_url }}" alt="Illustration for information engineering bachelor's studies">
-          </div>
+          </a>
           <div class="education-card-info">
             <div class="education-card-tags">
               <span class="education-card-tag">Bachelor's Degree</span>
@@ -518,9 +532,9 @@ html[data-theme="dark"] .education-card-period {
         </div>
         <div class="education-card">
           <h2 class="education-card-title">Technical Institute Diploma in Business Information Systems</h2>
-          <div class="education-card-media">
+          <a class="education-card-media" href="https://istitutosuperioresezze.edu.it/scuola/" target="_blank" rel="noopener">
             <img src="{{ '/images/ISIS_Pacifici_e_DeMagistris.png' | relative_url }}" alt="Illustration for business information systems diploma">
-          </div>
+          </a>
           <div class="education-card-info">
             <div class="education-card-tags">
               <span class="education-card-tag">High School Diploma</span>
