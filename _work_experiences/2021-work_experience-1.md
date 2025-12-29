@@ -6,7 +6,7 @@ permalink: /work_experiences/2021-work_experience-1
 venue: "Municipality of Sezze"
 period: "September 2021 - September 2022"
 location: "Sezze (LT)"
-image: "/images/Sezze-Stemma.png"
+image: "/images/sezze.png"
 ---
 Volunteer of the National Civil Service engaged in the social-services sector for the project **Help adults and elderly people in difficult conditions**.
 
