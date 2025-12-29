@@ -32,11 +32,12 @@ Curiosity drives me: I love tackling complex problems that sit at the intersecti
 .skill-section { margin-bottom: 2.5rem; }
 .skill-grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
 .skill-card { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; padding: 1.15rem 0.9rem; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 16px; background: rgba(255, 255, 255, 0.85); text-decoration: none; color: inherit; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.04); transition: transform 0.25s ease, box-shadow 0.25s ease; }
-.skill-card:hover, .skill-card:focus { transform: translateY(-6px); box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08); }
+.skill-card:hover, .skill-card:focus { transform: translateY(-6px); box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08); text-decoration: none; }
 .skill-card:focus { outline: 3px solid rgba(0, 123, 255, 0.4); outline-offset: 3px; }
 .skill-icon { width: 48px; height: 48px; object-fit: contain; }
 .skill-stars { font-size: 0.95rem; letter-spacing: 2px; color: #e0a100; }
-.skill-name { font-weight: 600; text-align: center; }
+.skill-name { font-weight: 600; text-align: center; text-decoration: none; }
+.skill-card:hover .skill-name, .skill-card:focus .skill-name { text-decoration: underline; }
 .skill-stars .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
 </style>
 
