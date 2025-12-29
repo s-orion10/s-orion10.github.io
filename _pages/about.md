@@ -276,6 +276,7 @@ redirect_from:
   <div class="contact-actions">
     <a class="contact-button contact-button--mail" href="mailto:simoneorelli@icloud.com">Email Me</a>
     <a class="contact-button contact-button--linkedin" href="https://www.linkedin.com/in/simone-orelli-a5b9a1144" target="_blank" rel="noopener">Message on LinkedIn</a>
-    <p><em>Thanks for stopping by!</em></p>
   </div>
 </div>
+
+<p><em>Thanks for stopping by!</em></p>
