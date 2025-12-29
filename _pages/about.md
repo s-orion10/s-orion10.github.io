@@ -221,10 +221,10 @@ My workflow is research-first: I dive into theory, build high-fidelity prototype
 
 <div class="life-section">
   <div class="life-grid">
-    <div class="life-card">
+    <div class="life-card" href="https://youtu.be/QU9rJnTvPro?si=brRrWfDxHEmQPqcV">
       <span class="life-icon" aria-hidden="true">🎸</span>
       <h3 class="life-title">Acoustic Storytelling</h3>
-      <p class="life-desc">I enjoy playing the guitar in my free time, exploring fingerstyle arrangements as a way to relax and express myself. <a class="life-link" href="https://youtu.be/QU9rJnTvPro?si=brRrWfDxHEmQPqcV" target="_blank" rel="noopener">Here’s one example</a>.</p>
+      <p class="life-desc">I enjoy playing the guitar in my free time, exploring fingerstyle arrangements as a way to relax and express myself.</p>
     </div>
     <div class="life-card">
       <span class="life-icon" aria-hidden="true">⚽</span>
