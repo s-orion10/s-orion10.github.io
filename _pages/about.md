@@ -7,15 +7,6 @@ redirect_from:
   - /about.html
 ---
 
-# Welcome!
-
-I’m a **28-year-old Control Systems Engineer** with a deep background in control theory, robotics, computer science, and software development.  
-Curiosity drives me: I love tackling complex problems that sit at the intersection of **mathematics, physics, and engineering**—whether that means designing a geometric controller for a VTOL drone or optimizing real-time software on an embedded board.
-
----
-
-## Skills Snapshot
-
 <style>
 .skill-section { margin-bottom: 2.5rem; }
 .skill-grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
@@ -29,6 +20,14 @@ Curiosity drives me: I love tackling complex problems that sit at the intersecti
 .skill-card:hover .skill-name, .skill-card:focus .skill-name { text-decoration: underline; }
 .skill-stars span { text-decoration: none !important; }
 .skill-stars .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+.about-section { margin: 2.8rem 0; }
+.about-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.about-card { display: flex; flex-direction: column; gap: 0.65rem; padding: 1.25rem 1.1rem; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 18px; background: rgba(248, 250, 252, 0.96); box-shadow: 0 3px 9px rgba(15, 23, 42, 0.05); transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; color: inherit; text-decoration: none !important; }
+.about-card:hover, .about-card:focus-visible { transform: translateY(-2px) scale(1.02); box-shadow: 0 10px 20px rgba(15, 23, 42, 0.12); border-color: rgba(0, 118, 168, 0.28); }
+.about-card:focus-visible { outline: 3px solid rgba(0, 123, 255, 0.35); outline-offset: 3px; }
+.about-icon { font-size: 2rem; }
+.about-title { font-weight: 600; font-size: 1.08rem; margin: 0; }
+.about-desc { margin: 0; line-height: 1.55; }
 .life-section { margin: 3rem 0; }
 .life-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
 .life-card { display: flex; flex-direction: column; gap: 0.75rem; padding: 1.3rem 1.1rem; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 18px; background: rgba(248, 250, 252, 0.96); box-shadow: 0 3px 9px rgba(15, 23, 42, 0.05); transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; }
@@ -39,6 +38,43 @@ Curiosity drives me: I love tackling complex problems that sit at the intersecti
 .life-link { color: inherit; text-decoration: underline; font-weight: 600; }
 .life-card:hover .life-link, .life-card:focus-within .life-link { text-decoration: none; }
 </style>
+
+# About Me
+
+I’m Simone Orelli, a **28-year-old control systems engineer** who thrives where robotics, applied mathematics, and software craftsmanship meet. I love translating complex dynamics into controllers that let airframes, ground robots, and embedded platforms move with confidence in the real world.
+
+Right now I’m focused on **nonlinear control of under-actuated rigid bodies** with tightly coupled moment–force dynamics, blending geometric methods with state estimation, guidance, and embedded implementation.
+
+My workflow is research-first: I dive into theory, build high-fidelity prototypes in MATLAB/Simulink, and iterate until the hardware response matches the mathematical intent.
+
+<div class="about-section">
+  <div class="about-grid">
+    <a class="about-card" href="{{ '/projects/' | relative_url }}">
+      <span class="about-icon" aria-hidden="true">🛩️</span>
+      <h3 class="about-title">Robotics Projects</h3>
+      <p class="about-desc">Autonomy builds across VTOL tricopters, Ingenuity-style rotorcraft, and racing simulators, covering control, estimation, and embedded deployment.</p>
+    </a>
+    <a class="about-card" href="{{ '/publications/' | relative_url }}">
+      <span class="about-icon" aria-hidden="true">📚</span>
+      <h3 class="about-title">Research Notes</h3>
+      <p class="about-desc">Graduate research on nonlinear control, coupled dynamics, and reinforcement learning, distilled into papers, posters, and technical deep dives.</p>
+    </a>
+    <a class="about-card" href="{{ '/work_experiences/' | relative_url }}">
+      <span class="about-icon" aria-hidden="true">🏢</span>
+      <h3 class="about-title">Engineering Experience</h3>
+      <p class="about-desc">Professional stints where I integrated flight software, safety tooling, and systems engineering practices into production robotics programs.</p>
+    </a>
+    <a class="about-card" href="{{ '/teaching/' | relative_url }}">
+      <span class="about-icon" aria-hidden="true">🎓</span>
+      <h3 class="about-title">Teaching & Talks</h3>
+      <p class="about-desc">Workshops and talks on control, autonomy, and experimentation designed to bridge rigorous theory with maker-friendly storytelling.</p>
+    </a>
+  </div>
+</div>
+
+---
+
+## Skills Snapshot
 
 <div class="skill-section">
   <h3>Software &amp; Tools</h3>
@@ -181,22 +217,13 @@ Curiosity drives me: I love tackling complex problems that sit at the intersecti
 
 ---
 
-## Research & Learning
-
-I’m passionate about **control theory in all its flavors**: from rigorous, model-based design to modern approaches that leverage machine learning and reinforcement learning.  
-Right now my main focus is on **non-linear control of non-differentially-flat under-actuated rigid bodies with coupled moment–force dynamics**—the core topic of my master’s thesis.
-
-My workflow is research-driven: I first dig deep into the underlying theory, then translate insights into working prototypes in **MATLAB/Simulink**, documenting each project with comprehensive PDF reports.
-
----
-
 ## Beyond Engineering
 
 <div class="life-section">
   <div class="life-grid">
     <div class="life-card">
       <span class="life-icon" aria-hidden="true">🎸</span>
-      <h3 class="life-title">Acoustic Storytelling</h3>
+      <h3 class="life-title">[Acoustic Storytelling](https://youtu.be/QU9rJnTvPro?si=LkgSZ5swkY2iJQxP)</h3>
       <p class="life-desc">I unplug with fingerstyle arrangements, including <a class="life-link" href="https://youtu.be/QU9rJnTvPro?si=brRrWfDxHEmQPqcV" target="_blank" rel="noopener">a recent cover</a> tracked in a single take to keep the emotion intact.</p>
     </div>
     <div class="life-card">
