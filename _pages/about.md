@@ -58,9 +58,7 @@ redirect_from:
 <div class="section-panel">
   <h1 class="section-heading">About Me</h1>
   <div class="section-body">
-    <p>I’m Simone Orelli, a <strong>28-year-old control systems engineer</strong> who thrives where robotics, applied mathematics, and software craftsmanship meet. I love translating complex dynamics into controllers that let airframes, ground robots, and embedded platforms move with confidence in the real world.</p>
-    <p>Right now I’m focused on <strong>nonlinear control of under-actuated rigid bodies</strong> with tightly coupled moment–force dynamics, blending geometric methods with state estimation, guidance, and embedded implementation.</p>
-    <p>My workflow is research-first: I dive into theory, build high-fidelity prototypes in MATLAB/Simulink, and iterate until the hardware response matches the mathematical intent.</p>
+    <p>I’m Simone Orelli, a control systems engineer with a strong interest in robotics, applied mathematics, and software development. I enjoy translating mathematical theory into real-world systems, designing controllers that allow vehicles to move, adapt, and operate reliably in complex environments. As a control engineer, I am especially drawn to autunomous vehicles that move and interact with their surroundings, such as drones, robots, and autonomous systems. I like working on problems where dynamics matter, where models are imperfect, and where nonlinear control is needed to make theory behave well on real hardware. Whether I am tuning a controller, refining a model, or tracking down subtle system behaviors, I enjoy the process of making complex systems work cleanly and predictably in practice.</p>
     <div class="about-section">
       <div class="about-grid">
         <a class="about-card" href="{{ '/projects/' | relative_url }}">
@@ -269,7 +267,7 @@ redirect_from:
 <div class="section-panel contact-panel">
   <h2 class="section-heading">Let’s Connect</h2>
   <p>I’m always open to new collaborations, research projects, or just a friendly chat about control theory, robotics, or the latest chess opening.</p>
-  <p>Prefer a quick ping? Use these shortcuts—they light up when you hover.</p>
+  <p>Prefer a quick ping? Use these shortcuts.</p>
   <div class="contact-actions">
     <a class="contact-button contact-button--mail" href="mailto:simoneorelli@icloud.com">Email Me</a>
     <a class="contact-button contact-button--linkedin" href="https://www.linkedin.com/in/simone-orelli-a5b9a1144" target="_blank" rel="noopener">Message on LinkedIn</a>
