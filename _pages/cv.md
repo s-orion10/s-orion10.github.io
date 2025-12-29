@@ -444,7 +444,7 @@ html[data-theme="dark"] .education-card-period {
         <div class="education-card">
           <h2 class="education-card-title">Ph.D. in Automatic Control, Bioengineering and Operations</h2>
           <div class="education-card-media">
-            <img src="{{ '/images/education-default.svg' | relative_url }}" alt="Illustration for doctoral research">
+            <img src="{{ '/images/sapienza.png' | relative_url }}" alt="Illustration for doctoral research">
           </div>
           <div class="education-card-info">
             <div class="education-card-tags">
@@ -469,7 +469,7 @@ html[data-theme="dark"] .education-card-period {
         <div class="education-card">
           <h2 class="education-card-title">M.Eng equivalent in Control Engineering</h2>
           <div class="education-card-media">
-            <img src="{{ '/images/education-default.svg' | relative_url }}" alt="Illustration for control engineering master's studies">
+            <img src="{{ '/images/sapienza.png' | relative_url }}" alt="Illustration for control engineering master's studies">
           </div>
           <div class="education-card-info">
             <div class="education-card-tags">
@@ -494,7 +494,7 @@ html[data-theme="dark"] .education-card-period {
         <div class="education-card">
           <h2 class="education-card-title">B.Eng equivalent in Information Engineering, Informatics and Statistics</h2>
           <div class="education-card-media">
-            <img src="{{ '/images/education-default.svg' | relative_url }}" alt="Illustration for information engineering bachelor's studies">
+            <img src="{{ '/images/sapienza.png' | relative_url }}" alt="Illustration for information engineering bachelor's studies">
           </div>
           <div class="education-card-info">
             <div class="education-card-tags">
@@ -519,7 +519,7 @@ html[data-theme="dark"] .education-card-period {
         <div class="education-card">
           <h2 class="education-card-title">Technical Institute Diploma in Business Information Systems</h2>
           <div class="education-card-media">
-            <img src="{{ '/images/education-default.svg' | relative_url }}" alt="Illustration for business information systems diploma">
+            <img src="{{ '/images/ISIS_Pacifici_e_DeMagisreis.png' | relative_url }}" alt="Illustration for business information systems diploma">
           </div>
           <div class="education-card-info">
             <div class="education-card-tags">
