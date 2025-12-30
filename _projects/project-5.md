@@ -5,6 +5,7 @@ subject: "Control Problems in Robotics - Differential Dynamic Programming - Opti
 permalink: /projects/project-2
 venue: "University 'La Sapienza' of Rome"
 period: "Winter - Spring 2023/2024"
+date: 2024-03-01
 paper: "https://s-orion10.github.io/files/ddp.pdf"
 video: "https://www.youtube.com/watch?v=K4GSg-HV834"
 image: "/images/ddp.png"
