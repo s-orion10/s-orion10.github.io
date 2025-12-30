@@ -11,7 +11,7 @@ entries:
     institution: "Sapienza University of Rome"
     location: "Rome, Italy"
     period: "Nov 2021 - Present"
-    summary: "Simone Orelli is a PhD student of the 41st cycle within the ABRO research group at the Department of Computer, Control and Management Engineering (DIAG), Sapienza University of Rome, focusing on modeling and nonlinear control for aerial robotics, supervised by Prof. Antonio Franchi."
+    summary: "PhD student of the 41st cycle within the ABRO research group at the Department of Computer, Control and Management Engineering (DIAG), Sapienza University of Rome, focusing on modeling and nonlinear control for aerial robotics, supervised by Prof. Antonio Franchi."
     tags:
       - "Doctorate"
       - "Control Systems"
