@@ -451,6 +451,12 @@ html[data-theme="dark"] .timeline-card-period {
             {% elsif experience.venue contains 'Municipality of Sezze' %}
               {% assign media_link = 'https://www.comune.sezze.lt.it' %}
             {% endif %}
+            {% assign detail_url = experience.url | to_s | strip %}
+            {% if detail_url == '' %}
+              {% assign detail_url = '/404.html' | relative_url %}
+            {% else %}
+              {% assign detail_url = detail_url | relative_url %}
+            {% endif %}
             {% assign tag_items = experience.tags %}
             {% if tag_items == nil or tag_items == empty %}
               {% assign type_string = experience.type | to_s %}
@@ -479,7 +485,7 @@ html[data-theme="dark"] .timeline-card-period {
             <p class="timeline-card-summary">{{ experience.excerpt | strip_html | strip_newlines | truncate: 220 }}</p>
             <div class="timeline-card-actions">
               <span class="timeline-card-period">{{ period_label }}</span>
-              <a class="timeline-card-button" href="{{ experience.url | relative_url }}">See more</a>
+              <a class="timeline-card-button" href="{{ detail_url }}">See more</a>
             </div>
           </div>
         </article>
