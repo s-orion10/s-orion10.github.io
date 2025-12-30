@@ -22,7 +22,7 @@ entries:
     institution: "Sapienza University of Rome"
     location: "Rome, Italy"
     period: "Completed Oct 2021"
-    summary: "Master’s degree in Control Engineering from Sapienza University of Rome, graduating with 110/110 cum laude. The master’s thesis was devoted to the development and theoretical validation of a geometric control law for partially coupled underactuated floating vehicles, with particular attention to the underlying dynamics, nonlinear control design, and stability analysis."
+    summary: "Master’s degree in Control Engineering from Sapienza University of Rome, graduating with 110/110 with honors. The master’s thesis was devoted to the development and theoretical validation of a geometric control law for partially coupled underactuated floating vehicles, with particular attention to the underlying dynamics, nonlinear control design, and stability analysis."
     tags:
       - "Master's Degree"
       - "Control Engineering"
