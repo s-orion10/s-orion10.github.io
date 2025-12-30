@@ -7,6 +7,7 @@ venue: "Sapienza Aerospace Student Association – Sapienza Flight Team"
 period: "September 2024 - May 2025"
 location: "Rome (RM)"
 image: "/images/sft.png"
+video: "https://www.youtube.com/watch?v=wRHayHykyXI"
 ---
 
 Partner of the Sapienza Aerospace Student Association (**SASA**) for the project [**Sapienza Flight Team (SFT)**](https://www.sasa-aerospace.it/flight-team/).
