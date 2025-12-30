@@ -11,7 +11,7 @@ entries:
     institution: "Sapienza University of Rome"
     location: "Rome, Italy"
     period: "Nov 2021 - Present"
-    summary: "PhD student of the 41st cycle within the ABRO research group at the Department of Computer, Control and Management Engineering (DIAG), Sapienza University of Rome, focusing on modeling and nonlinear control for aerial robotics, supervised by Prof. [Antonio Franchi](https://www.diag.uniroma1.it/users/antonio_franchi)."
+    summary: "PhD student of the 41st cycle within the ABRO research group at the Department of Computer, Control and Management Engineering (DIAG), Sapienza University of Rome, focusing on modeling and nonlinear control for aerial robotics, supervised by <a class=\"education-inline-link\" href=\"https://www.diag.uniroma1.it/users/antonio_franchi\" target=\"_blank\" rel=\"noopener\">Prof. Antonio Franchi</a>."
     tags:
       - "Doctorate"
       - "Control Systems"
@@ -491,6 +491,19 @@ html[data-theme="dark"] .education-card-period {
     width: 100%;
     padding: 1.6rem 1.5rem;
     row-gap: 1rem;
+  }
+
+  .education-card-summary a.education-inline-link{
+  color: var(--education-link-color);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(14, 116, 144, 0.35);
+  }
+
+.education-card-summary a.education-inline-link:hover,
+.education-card-summary a.education-inline-link:focus-visible{
+  text-decoration: underline;
+  border-bottom-color: transparent;
   }
 }
 </style>
