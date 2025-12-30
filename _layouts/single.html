@@ -20,7 +20,6 @@ layout: default
 
 {% if requires_project_panel %}
 <style>
-/* ===== Layout shell ===== */
 .project-detail-shell {
   width: calc(100% + 2em);
   margin-left: -1em;
@@ -28,18 +27,17 @@ layout: default
   display: flex;
 }
 
-/* ===== Panel + theme tokens ===== */
 .project-detail-panel {
   --panel-bg: rgba(248, 250, 252, 0.98);
   --panel-border: rgba(15, 23, 42, 0.08);
   --panel-shadow: 0 16px 42px rgba(15, 23, 42, 0.12);
   --panel-text: #1f2937;
 
-  /* Default accent = project (orange) */
-  --accent-color: #b45309;
-  --accent-muted: rgba(180, 83, 9, 0.92);
-  --accent-surface: rgba(217, 119, 6, 0.18);
-  --accent-border: rgba(217, 119, 6, 0.35);
+  /* IMPORTANT: no default accent here */
+  --accent-color: #0f172a;
+  --accent-muted: rgba(15, 23, 42, 0.82);
+  --accent-surface: rgba(15, 23, 42, 0.08);
+  --accent-border: rgba(15, 23, 42, 0.18);
 
   flex: 1;
   display: flex;
@@ -54,7 +52,14 @@ layout: default
   box-sizing: border-box;
 }
 
-/* Work experience = blue */
+/* ===== ACCENTS (LIGHT) ===== */
+.project-detail-panel.project-theme {
+  --accent-color: #b45309;
+  --accent-muted: rgba(180, 83, 9, 0.92);
+  --accent-surface: rgba(217, 119, 6, 0.18);
+  --accent-border: rgba(217, 119, 6, 0.35);
+}
+
 .project-detail-panel.experience-theme {
   --accent-color: #1d4ed8;
   --accent-muted: rgba(37, 99, 235, 0.92);
@@ -62,21 +67,28 @@ layout: default
   --accent-border: rgba(37, 99, 235, 0.35);
 }
 
-/* Dark mode panel base */
+/* ===== DARK PANEL ===== */
 html[data-theme="dark"] .project-detail-panel {
   --panel-bg: rgba(50, 56, 68, 0.96);
   --panel-border: rgba(226, 232, 240, 0.2);
   --panel-shadow: 0 12px 34px rgba(15, 23, 42, 0.45);
   --panel-text: #e2e8f0;
+
+  /* neutral default in dark */
+  --accent-color: #e2e8f0;
+  --accent-muted: rgba(226, 232, 240, 0.82);
+  --accent-surface: rgba(226, 232, 240, 0.10);
+  --accent-border: rgba(226, 232, 240, 0.22);
 }
 
-/* Dark mode accents */
+/* ===== ACCENTS (DARK) ===== */
 html[data-theme="dark"] .project-detail-panel.project-theme {
   --accent-color: #f7ad5a;
   --accent-muted: rgba(252, 211, 77, 0.92);
   --accent-surface: rgba(251, 189, 108, 0.26);
   --accent-border: rgba(217, 119, 6, 0.5);
 }
+
 html[data-theme="dark"] .project-detail-panel.experience-theme {
   --accent-color: #93c5fd;
   --accent-muted: rgba(191, 219, 254, 0.92);
@@ -106,7 +118,7 @@ html[data-theme="dark"] .project-detail-panel.experience-theme {
   color: var(--panel-text);
 }
 
-/* Period badge uses accent tokens => orange for projects, blue for experiences */
+/* Period (accent-driven) */
 .project-detail-period {
   display: inline-flex;
   align-items: center;
@@ -121,7 +133,7 @@ html[data-theme="dark"] .project-detail-panel.experience-theme {
   background: var(--accent-surface);
 }
 
-/* ===== Resource buttons (Paper/Video/Code) use accent tokens ===== */
+/* Buttons (accent-driven) */
 .project-detail-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -139,11 +151,7 @@ html[data-theme="dark"] .project-detail-panel.experience-theme {
   background: var(--accent-surface);
   color: var(--accent-color);
   text-decoration: none !important;
-  transition: transform 0.2s ease,
-              box-shadow 0.2s ease,
-              background 0.2s ease,
-              border-color 0.2s ease,
-              color 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
 }
 .project-detail-button:hover,
 .project-detail-button:focus-visible {
@@ -168,18 +176,27 @@ html[data-theme="dark"] .project-detail-panel.experience-theme .project-detail-b
   background: rgba(96, 165, 250, 0.38);
 }
 
-.project-detail-button:focus-visible {
-  outline: 3px solid rgba(59, 130, 246, 0.4);
-  outline-offset: 3px;
+/* Tags (accent-driven) */
+.project-detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
 }
-.project-detail-panel.project-theme .project-detail-button:focus-visible {
-  outline-color: rgba(217, 119, 6, 0.45);
-}
-.project-detail-panel.experience-theme .project-detail-button:focus-visible {
-  outline-color: rgba(37, 99, 235, 0.45);
+.project-detail-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.18rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: var(--accent-surface);
+  color: var(--accent-muted);
+  width: fit-content;
 }
 
-/* ===== Overview ===== */
+/* Overview */
 .project-detail-overview {
   display: grid;
   grid-template-columns: minmax(220px, 320px) minmax(0, 1fr);
@@ -203,29 +220,6 @@ html[data-theme="dark"] .project-detail-panel.experience-theme .project-detail-b
   flex-direction: column;
   gap: 1.4rem;
 }
-.project-detail-overview-info > *:last-child { margin-bottom: 0; }
-
-.project-detail-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-}
-
-/* Tags also follow accent tokens */
-.project-detail-tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.18rem 0.55rem;
-  border-radius: 999px;
-  font-size: 0.6rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  background: var(--accent-surface);
-  color: var(--accent-muted);
-  width: fit-content;
-}
-
 .project-detail-facts {
   display: grid;
   gap: 0.6rem;
@@ -236,7 +230,7 @@ html[data-theme="dark"] .project-detail-facts {
   color: rgba(226, 232, 240, 0.8);
 }
 
-/* ===== Content ===== */
+/* Content */
 .project-detail-content {
   color: var(--panel-text);
   line-height: 1.68;
@@ -248,10 +242,8 @@ html[data-theme="dark"] .project-detail-facts {
 html[data-theme="dark"] .project-detail-content {
   color: rgba(226, 232, 240, 0.88);
 }
-.project-detail-content > *:first-child { margin-top: 0; }
-.project-detail-content > *:last-child { margin-bottom: 0; }
 
-/* ===== Footer ===== */
+/* Footer */
 .project-detail-footer {
   margin-top: 2.4rem;
   padding-top: 1.4rem;
@@ -261,7 +253,7 @@ html[data-theme="dark"] .project-detail-footer {
   border-color: rgba(148, 197, 255, 0.3);
 }
 
-/* ===== Responsive ===== */
+/* Responsive */
 @media (max-width: 960px) {
   .project-detail-shell { width: 100%; margin: 0; }
   .project-detail-panel { padding: 2.2rem 2rem; }
@@ -272,86 +264,6 @@ html[data-theme="dark"] .project-detail-footer {
   .project-detail-panel { padding: 1.9rem 1.6rem; border-radius: 20px; }
   .project-detail-buttons { width: 100%; }
   .project-detail-button { width: 100%; }
-}
-
-/* ===== Pagination accents (unchanged) ===== */
-.pagination--accent {
-  margin-top: 2.8rem;
-  display: flex;
-  gap: 1rem;
-}
-.pagination--accent .pagination--pager {
-  flex: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.65rem 1.4rem;
-  border-radius: 999px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-}
-.pagination--accent .pagination--pager:hover,
-.pagination--accent .pagination--pager:focus-visible {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
-}
-.pagination--accent .pagination--pager:focus-visible {
-  outline: 3px solid rgba(59, 130, 246, 0.4);
-  outline-offset: 3px;
-}
-.pagination--accent .pagination--pager.disabled {
-  pointer-events: none;
-  opacity: 0.45;
-  background: rgba(148, 163, 184, 0.18);
-  color: rgba(71, 85, 105, 0.62);
-  border: 1px solid rgba(148, 163, 184, 0.24);
-}
-.pagination--accent-project .pagination--pager {
-  background: rgba(217, 119, 6, 0.14);
-  border: 1px solid rgba(217, 119, 6, 0.42);
-  color: #b45309;
-}
-.pagination--accent-project .pagination--pager:hover,
-.pagination--accent-project .pagination--pager:focus-visible {
-  background: rgba(217, 119, 6, 0.22);
-  border-color: rgba(217, 119, 6, 0.62);
-}
-.pagination--accent-experience .pagination--pager {
-  background: rgba(59, 130, 246, 0.16);
-  border: 1px solid rgba(37, 99, 235, 0.42);
-  color: #1d4ed8;
-}
-.pagination--accent-experience .pagination--pager:hover,
-.pagination--accent-experience .pagination--pager:focus-visible {
-  background: rgba(59, 130, 246, 0.24);
-  border-color: rgba(37, 99, 235, 0.6);
-}
-html[data-theme="dark"] .pagination--accent .pagination--pager.disabled {
-  background: rgba(100, 116, 139, 0.18);
-  color: rgba(148, 163, 184, 0.55);
-  border-color: rgba(100, 116, 139, 0.3);
-}
-html[data-theme="dark"] .pagination--accent-project .pagination--pager {
-  background: rgba(251, 189, 108, 0.26);
-  border-color: rgba(217, 119, 6, 0.58);
-  color: #f7ad5a;
-}
-html[data-theme="dark"] .pagination--accent-project .pagination--pager:hover,
-html[data-theme="dark"] .pagination--accent-project .pagination--pager:focus-visible {
-  background: rgba(251, 189, 108, 0.36);
-  border-color: rgba(217, 119, 6, 0.75);
-}
-html[data-theme="dark"] .pagination--accent-experience .pagination--pager {
-  background: rgba(96, 165, 250, 0.28);
-  border-color: rgba(59, 130, 246, 0.58);
-  color: #93c5fd;
-}
-html[data-theme="dark"] .pagination--accent-experience .pagination--pager:hover,
-html[data-theme="dark"] .pagination--accent-experience .pagination--pager:focus-visible {
-  background: rgba(96, 165, 250, 0.38);
-  border-color: rgba(59, 130, 246, 0.75);
 }
 </style>
 {% endif %}
