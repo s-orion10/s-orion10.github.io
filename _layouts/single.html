@@ -6,28 +6,41 @@ layout: default
 
 {% assign is_project = page.collection == 'projects' %}
 {% assign is_work_experience = page.collection == 'work_experiences' %}
-{% assign requires_project_panel = false %}
-{% if is_project or is_work_experience %}
-  {% assign requires_project_panel = true %}
+{% assign requires_project_panel = is_project or is_work_experience %}
+
+{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
+  {% include page__hero.html %}
+{% endif %}
+
+{% if page.url != "/" and site.breadcrumbs %}
+  {% unless paginator %}
+    {% include breadcrumbs.html %}
+  {% endunless %}
 {% endif %}
 
 {% if requires_project_panel %}
 <style>
+/* ===== Layout shell ===== */
 .project-detail-shell {
   width: calc(100% + 2em);
   margin-left: -1em;
   margin-right: -1em;
   display: flex;
 }
+
+/* ===== Panel + theme tokens ===== */
 .project-detail-panel {
   --panel-bg: rgba(248, 250, 252, 0.98);
   --panel-border: rgba(15, 23, 42, 0.08);
   --panel-shadow: 0 16px 42px rgba(15, 23, 42, 0.12);
   --panel-text: #1f2937;
+
+  /* Default accent = project (orange) */
   --accent-color: #b45309;
   --accent-muted: rgba(180, 83, 9, 0.92);
   --accent-surface: rgba(217, 119, 6, 0.18);
   --accent-border: rgba(217, 119, 6, 0.35);
+
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -40,18 +53,24 @@ layout: default
   color: var(--panel-text);
   box-sizing: border-box;
 }
+
+/* Work experience = blue */
 .project-detail-panel.experience-theme {
   --accent-color: #1d4ed8;
   --accent-muted: rgba(37, 99, 235, 0.92);
   --accent-surface: rgba(59, 130, 246, 0.18);
   --accent-border: rgba(37, 99, 235, 0.35);
 }
+
+/* Dark mode panel base */
 html[data-theme="dark"] .project-detail-panel {
   --panel-bg: rgba(50, 56, 68, 0.96);
   --panel-border: rgba(226, 232, 240, 0.2);
   --panel-shadow: 0 12px 34px rgba(15, 23, 42, 0.45);
   --panel-text: #e2e8f0;
 }
+
+/* Dark mode accents */
 html[data-theme="dark"] .project-detail-panel.project-theme {
   --accent-color: #f7ad5a;
   --accent-muted: rgba(252, 211, 77, 0.92);
@@ -64,6 +83,8 @@ html[data-theme="dark"] .project-detail-panel.experience-theme {
   --accent-surface: rgba(96, 165, 250, 0.26);
   --accent-border: rgba(59, 130, 246, 0.5);
 }
+
+/* ===== Header ===== */
 .project-detail-header {
   display: flex;
   flex-direction: column;
@@ -84,6 +105,8 @@ html[data-theme="dark"] .project-detail-panel.experience-theme {
   line-height: 1.2;
   color: var(--panel-text);
 }
+
+/* Period badge uses accent tokens => orange for projects, blue for experiences */
 .project-detail-period {
   display: inline-flex;
   align-items: center;
@@ -97,14 +120,8 @@ html[data-theme="dark"] .project-detail-panel.experience-theme {
   color: var(--accent-muted);
   background: var(--accent-surface);
 }
-.project-detail-panel.project-theme .project-detail-period {
-  color: #b45309;
-  background: rgba(217, 119, 6, 0.18);
-}
-html[data-theme="dark"] .project-detail-panel.project-theme .project-detail-period {
-  color: #f7ad5a;
-  background: rgba(251, 189, 108, 0.26);
-}
+
+/* ===== Resource buttons (Paper/Video/Code) use accent tokens ===== */
 .project-detail-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -122,89 +139,47 @@ html[data-theme="dark"] .project-detail-panel.project-theme .project-detail-peri
   background: var(--accent-surface);
   color: var(--accent-color);
   text-decoration: none !important;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-/* Work experience resource buttons: match pagination--accent-experience style */
-.project-detail-panel.experience-theme .project-detail-button {
-  background: rgba(59, 130, 246, 0.16);
-  border: 1px solid rgba(37, 99, 235, 0.42);
-  color: #1d4ed8;
-}
-.project-detail-panel.experience-theme .project-detail-button:hover,
-.project-detail-panel.experience-theme .project-detail-button:focus-visible {
-  background: rgba(59, 130, 246, 0.24);
-  border-color: rgba(37, 99, 235, 0.6);
-  color: #1d4ed8;
-}
-html[data-theme="dark"] .project-detail-panel.experience-theme .project-detail-button {
-  background: rgba(96, 165, 250, 0.28);
-  border-color: rgba(59, 130, 246, 0.58);
-  color: #93c5fd;
-}
-html[data-theme="dark"] .project-detail-panel.experience-theme .project-detail-button:hover,
-html[data-theme="dark"] .project-detail-panel.experience-theme .project-detail-button:focus-visible {
-  background: rgba(96, 165, 250, 0.38);
-  border-color: rgba(59, 130, 246, 0.75);
-  color: #93c5fd;
-}
-/* Project resource buttons: match pagination--accent-project style (must come after experience-theme for correct override) */
-.project-detail-panel.project-theme .project-detail-button {
-  background: rgba(217, 119, 6, 0.14) !important;
-  border: 1px solid rgba(217, 119, 6, 0.42) !important;
-  color: #b45309 !important;
-}
-.project-detail-panel.project-theme .project-detail-button:hover,
-.project-detail-panel.project-theme .project-detail-button:focus-visible {
-  background: rgba(217, 119, 6, 0.22) !important;
-  border-color: rgba(217, 119, 6, 0.62) !important;
-  color: #b45309 !important;
-}
-html[data-theme="dark"] .project-detail-panel.project-theme .project-detail-button {
-  background: rgba(251, 189, 108, 0.26) !important;
-  border-color: rgba(217, 119, 6, 0.58) !important;
-  color: #f7ad5a !important;
-}
-html[data-theme="dark"] .project-detail-panel.project-theme .project-detail-button:hover,
-html[data-theme="dark"] .project-detail-panel.project-theme .project-detail-button:focus-visible {
-  background: rgba(251, 189, 108, 0.36) !important;
-  border-color: rgba(217, 119, 6, 0.75) !important;
-  color: #f7ad5a !important;
-}
-
-/* Work experience resource buttons: match pagination--accent-experience style */
-.project-detail-panel.experience-theme .project-detail-button {
-  background: rgba(59, 130, 246, 0.16);
-  border: 1px solid rgba(37, 99, 235, 0.42);
-  color: #1d4ed8;
-}
-.project-detail-panel.experience-theme .project-detail-button:hover,
-.project-detail-panel.experience-theme .project-detail-button:focus-visible {
-  background: rgba(59, 130, 246, 0.24);
-  border-color: rgba(37, 99, 235, 0.6);
-  color: #1d4ed8;
-}
-html[data-theme="dark"] .project-detail-panel.experience-theme .project-detail-button {
-  background: rgba(96, 165, 250, 0.28);
-  border-color: rgba(59, 130, 246, 0.58);
-  color: #93c5fd;
-}
-html[data-theme="dark"] .project-detail-panel.experience-theme .project-detail-button:hover,
-html[data-theme="dark"] .project-detail-panel.experience-theme .project-detail-button:focus-visible {
-  background: rgba(96, 165, 250, 0.38);
-  border-color: rgba(59, 130, 246, 0.75);
-  color: #93c5fd;
+  transition: transform 0.2s ease,
+              box-shadow 0.2s ease,
+              background 0.2s ease,
+              border-color 0.2s ease,
+              color 0.2s ease;
 }
 .project-detail-button:hover,
 .project-detail-button:focus-visible {
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.18);
   border-color: var(--accent-color);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.18);
 }
+.project-detail-panel.project-theme .project-detail-button:hover,
+.project-detail-panel.project-theme .project-detail-button:focus-visible {
+  background: rgba(217, 119, 6, 0.22);
+}
+.project-detail-panel.experience-theme .project-detail-button:hover,
+.project-detail-panel.experience-theme .project-detail-button:focus-visible {
+  background: rgba(59, 130, 246, 0.24);
+}
+html[data-theme="dark"] .project-detail-panel.project-theme .project-detail-button:hover,
+html[data-theme="dark"] .project-detail-panel.project-theme .project-detail-button:focus-visible {
+  background: rgba(251, 189, 108, 0.36);
+}
+html[data-theme="dark"] .project-detail-panel.experience-theme .project-detail-button:hover,
+html[data-theme="dark"] .project-detail-panel.experience-theme .project-detail-button:focus-visible {
+  background: rgba(96, 165, 250, 0.38);
+}
+
 .project-detail-button:focus-visible {
   outline: 3px solid rgba(59, 130, 246, 0.4);
   outline-offset: 3px;
 }
+.project-detail-panel.project-theme .project-detail-button:focus-visible {
+  outline-color: rgba(217, 119, 6, 0.45);
+}
+.project-detail-panel.experience-theme .project-detail-button:focus-visible {
+  outline-color: rgba(37, 99, 235, 0.45);
+}
+
+/* ===== Overview ===== */
 .project-detail-overview {
   display: grid;
   grid-template-columns: minmax(220px, 320px) minmax(0, 1fr);
@@ -228,15 +203,15 @@ html[data-theme="dark"] .project-detail-panel.experience-theme .project-detail-b
   flex-direction: column;
   gap: 1.4rem;
 }
-.project-detail-overview-info > *:last-child {
-  margin-bottom: 0;
-}
+.project-detail-overview-info > *:last-child { margin-bottom: 0; }
+
 .project-detail-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
 }
-/* Match project-card-tag style from projects.html */
+
+/* Tags also follow accent tokens */
 .project-detail-tag {
   display: inline-flex;
   align-items: center;
@@ -246,14 +221,11 @@ html[data-theme="dark"] .project-detail-panel.experience-theme .project-detail-b
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  background: rgba(217, 119, 6, 0.18);
-  color: rgba(180, 83, 9, 0.95);
+  background: var(--accent-surface);
+  color: var(--accent-muted);
   width: fit-content;
 }
-html[data-theme="dark"] .project-detail-tag {
-  background: rgba(251, 189, 108, 0.26);
-  color: rgba(252, 211, 77, 0.92);
-}
+
 .project-detail-facts {
   display: grid;
   gap: 0.6rem;
@@ -263,6 +235,8 @@ html[data-theme="dark"] .project-detail-tag {
 html[data-theme="dark"] .project-detail-facts {
   color: rgba(226, 232, 240, 0.8);
 }
+
+/* ===== Content ===== */
 .project-detail-content {
   color: var(--panel-text);
   line-height: 1.68;
@@ -274,12 +248,10 @@ html[data-theme="dark"] .project-detail-facts {
 html[data-theme="dark"] .project-detail-content {
   color: rgba(226, 232, 240, 0.88);
 }
-.project-detail-content > *:first-child {
-  margin-top: 0;
-}
-.project-detail-content > *:last-child {
-  margin-bottom: 0;
-}
+.project-detail-content > *:first-child { margin-top: 0; }
+.project-detail-content > *:last-child { margin-bottom: 0; }
+
+/* ===== Footer ===== */
 .project-detail-footer {
   margin-top: 2.4rem;
   padding-top: 1.4rem;
@@ -288,34 +260,21 @@ html[data-theme="dark"] .project-detail-content {
 html[data-theme="dark"] .project-detail-footer {
   border-color: rgba(148, 197, 255, 0.3);
 }
+
+/* ===== Responsive ===== */
 @media (max-width: 960px) {
-  .project-detail-shell {
-    width: 100%;
-    margin: 0;
-  }
-  .project-detail-panel {
-    padding: 2.2rem 2rem;
-  }
-  .project-detail-overview {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .project-detail-media {
-    aspect-ratio: 16 / 9;
-  }
+  .project-detail-shell { width: 100%; margin: 0; }
+  .project-detail-panel { padding: 2.2rem 2rem; }
+  .project-detail-overview { grid-template-columns: minmax(0, 1fr); }
+  .project-detail-media { aspect-ratio: 16 / 9; }
 }
 @media (max-width: 600px) {
-  .project-detail-panel {
-    padding: 1.9rem 1.6rem;
-    border-radius: 20px;
-  }
-  .project-detail-buttons {
-    width: 100%;
-  }
-  .project-detail-button {
-    width: 100%;
-  }
+  .project-detail-panel { padding: 1.9rem 1.6rem; border-radius: 20px; }
+  .project-detail-buttons { width: 100%; }
+  .project-detail-button { width: 100%; }
 }
 
+/* ===== Pagination accents (unchanged) ===== */
 .pagination--accent {
   margin-top: 2.8rem;
   display: flex;
@@ -397,16 +356,6 @@ html[data-theme="dark"] .pagination--accent-experience .pagination--pager:focus-
 </style>
 {% endif %}
 
-{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
-  {% include page__hero.html %}
-{% endif %}
-
-{% if page.url != "/" and site.breadcrumbs %}
-  {% unless paginator %}
-    {% include breadcrumbs.html %}
-  {% endunless %}
-{% endif %}
-
 <div id="main" role="main">
   {% include sidebar.html %}
 
@@ -455,36 +404,35 @@ html[data-theme="dark"] .pagination--accent-experience .pagination--pager:focus-
       {% endif %}
 
       {% if requires_project_panel %}
+        {% assign fallback_detail_url = '/404.html' | relative_url %}
+
+        {% assign paper_links = page.paper | arrayify | compact %}
+        {% assign sanitized_paper_links = '' %}
+        {% for paper_link in paper_links %}
+          {% assign trimmed_paper = paper_link | to_s | strip %}
+          {% if trimmed_paper != '' and trimmed_paper != '#' %}
+            {% assign sanitized_paper_links = sanitized_paper_links | append: trimmed_paper | append: '||' %}
+          {% endif %}
+        {% endfor %}
+        {% assign sanitized_paper_links = sanitized_paper_links | split: '||' | reject: '' %}
+        {% assign has_paper = sanitized_paper_links.size > 0 %}
+
+        {% assign video_raw = page.video | to_s | strip %}
+        {% assign has_video = video_raw != '' and video_raw != '#' %}
+        {% if has_video %}
+          {% assign video_href = video_raw %}
+        {% endif %}
+
+        {% assign code_raw = page.code | to_s | strip %}
+        {% assign has_code = code_raw != '' and code_raw != '#' %}
+        {% if has_code %}
+          {% assign code_href = code_raw %}
+        {% endif %}
+
+        {% assign show_actions = has_paper or has_video or has_code %}
+
         <div class="project-detail-shell">
           <div class="{{ panel_classes }}">
-            {% assign paper_links = page.paper | arrayify | compact %}
-            {% assign fallback_detail_url = '/404.html' | relative_url %}
-            {% assign sanitized_paper_links = '' %}
-            {% for paper_link in paper_links %}
-              {% assign trimmed_paper = paper_link | to_s | strip %}
-              {% if trimmed_paper != '' and trimmed_paper != '#' %}
-                {% assign sanitized_paper_links = sanitized_paper_links | append: trimmed_paper | append: '||' %}
-              {% else %}
-                {% assign sanitized_paper_links = sanitized_paper_links | append: fallback_detail_url | append: '||' %}
-              {% endif %}
-            {% endfor %}
-            {% assign sanitized_paper_links = sanitized_paper_links | split: '||' | reject: '' %}
-            {% assign has_paper = sanitized_paper_links.size > 0 %}
-            {% assign video_raw = page.video | to_s | strip %}
-            {% if video_raw == '' or video_raw == '#' %}
-              {% assign video_href = fallback_detail_url %}
-            {% else %}
-              {% assign video_href = video_raw %}
-            {% endif %}
-            {% assign has_video = video_raw %}
-            {% assign code_raw = page.code | to_s | strip %}
-            {% if code_raw == '' or code_raw == '#' %}
-              {% assign code_href = fallback_detail_url %}
-            {% else %}
-              {% assign code_href = code_raw %}
-            {% endif %}
-            {% assign has_code = code_raw %}
-            {% assign show_actions = has_paper or has_video or has_code %}
             <header class="project-detail-header">
               <div class="project-detail-top">
                 {% if page.title %}
@@ -494,6 +442,7 @@ html[data-theme="dark"] .pagination--accent-experience .pagination--pager:focus-
                   <span class="project-detail-period">{{ page.period }}</span>
                 {% endif %}
               </div>
+
               {% if show_actions %}
                 <div class="project-detail-buttons">
                   {% if has_paper %}
@@ -502,12 +451,7 @@ html[data-theme="dark"] .pagination--accent-experience .pagination--pager:focus-
                         <a class="project-detail-button" href="{{ paper_link }}" target="_blank" rel="noopener">Paper {{ forloop.index }}</a>
                       {% endfor %}
                     {% else %}
-                      {% assign single_paper_link = sanitized_paper_links[0] | to_s | strip %}
-                      {% if single_paper_link == '' or single_paper_link == '#' %}
-                        <a class="project-detail-button" href="{{ fallback_detail_url }}" target="_blank" rel="noopener">Paper</a>
-                      {% else %}
-                        <a class="project-detail-button" href="{{ single_paper_link }}" target="_blank" rel="noopener">Paper</a>
-                      {% endif %}
+                      <a class="project-detail-button" href="{{ sanitized_paper_links[0] }}" target="_blank" rel="noopener">Paper</a>
                     {% endif %}
                   {% endif %}
                   {% if has_video %}
@@ -564,71 +508,16 @@ html[data-theme="dark"] .pagination--accent-experience .pagination--pager:focus-
               {% endif %}
               {% include page__taxonomy.html %}
             </footer>
+
+            {% include post_pagination.html %}
           </div>
         </div>
+
       {% else %}
         {% unless page.header.overlay_color or page.header.overlay_image %}
           <header>
             {% if page.title %}
               <h1 class="page__title" itemprop="headline">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>
-            {% endif %}
-
-            {% if page.type and page.period %}
-              <p class="page__meta">
-                {% if page.type %}<strong>Type:</strong> {{ page.type }}{% endif %}
-                {% if page.period %}&nbsp;&nbsp;<strong>Period:</strong> {{ page.period }}{% endif %}
-              </p>
-            {% endif %}
-
-            {% if page.subject and page.period %}
-              <p class="page__meta">
-                {% if page.subject %}<strong>Subject:</strong> {{ page.subject }}{% endif %}
-                {% if page.period %}&nbsp;&nbsp;<strong>Period:</strong> {{ page.period }}{% endif %}
-              </p>
-            {% endif %}
-
-            {% assign legacy_fallback_url = '/404.html' | relative_url %}
-            {% assign legacy_paper_links = page.paper | arrayify | compact %}
-            {% assign legacy_sanitized_papers = '' %}
-            {% for legacy_link in legacy_paper_links %}
-              {% assign legacy_trimmed = legacy_link | to_s | strip %}
-              {% if legacy_trimmed != '' and legacy_trimmed != '#' %}
-                {% assign legacy_sanitized_papers = legacy_sanitized_papers | append: legacy_trimmed | append: '||' %}
-              {% else %}
-                {% assign legacy_sanitized_papers = legacy_sanitized_papers | append: legacy_fallback_url | append: '||' %}
-              {% endif %}
-            {% endfor %}
-            {% assign legacy_sanitized_papers = legacy_sanitized_papers | split: '||' | reject: '' %}
-            {% assign legacy_video_raw = page.video | to_s | strip %}
-            {% if legacy_video_raw == '' or legacy_video_raw == '#' %}
-              {% assign legacy_video_href = legacy_fallback_url %}
-            {% else %}
-              {% assign legacy_video_href = legacy_video_raw %}
-            {% endif %}
-            {% assign legacy_code_raw = page.code | to_s | strip %}
-            {% if legacy_code_raw == '' or legacy_code_raw == '#' %}
-              {% assign legacy_code_href = legacy_fallback_url %}
-            {% else %}
-              {% assign legacy_code_href = legacy_code_raw %}
-            {% endif %}
-            {% if legacy_sanitized_papers.size > 0 or page.video or page.code %}
-              <div class="project__resources">
-                {% if legacy_sanitized_papers.size > 1 %}
-                  {% for p in legacy_sanitized_papers %}
-                    <p>📄 <a href="{{ p }}" target="_blank">View associated paper {{ forloop.index }}</a></p>
-                  {% endfor %}
-                {% elsif legacy_sanitized_papers.size == 1 %}
-                  <p>📄 <a href="{{ legacy_sanitized_papers[0] }}" target="_blank">View associated paper</a></p>
-                {% endif %}
-
-                {% if page.video or legacy_video_raw %}
-                  <p>🎥 <a href="{{ legacy_video_href }}" target="_blank">Watch project video</a></p>
-                {% endif %}
-
-                {% if page.code or legacy_code_raw %}
-                  <p>💻 <a href="{{ legacy_code_href }}" target="_blank">View source code</a></p>
-                {% endif %}
-              </div>
             {% endif %}
           </header>
         {% endunless %}
@@ -645,10 +534,11 @@ html[data-theme="dark"] .pagination--accent-experience .pagination--pager:focus-
           {% endif %}
           {% include page__taxonomy.html %}
         </footer>
+
+        {% if page.share %}{% include social-share.html %}{% endif %}
+        {% include post_pagination.html %}
       {% endif %}
 
-      {% if page.share %}{% include social-share.html %}{% endif %}
-      {% include post_pagination.html %}
     </div>
 
     {% if site.comments.provider and page.comments %}
@@ -656,7 +546,6 @@ html[data-theme="dark"] .pagination--accent-experience .pagination--pager:focus-
     {% endif %}
   </article>
 
-  {% comment %}<!-- only show related on a post page when not disabled -->{% endcomment %}
   {% if page.id and page.related and site.related_posts.size > 0 %}
     <div class="page__related">
       {% if site.data.ui-text[site.locale].related_label %}
