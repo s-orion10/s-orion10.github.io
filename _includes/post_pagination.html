@@ -1,7 +1,14 @@
 {% include base_path %}
 
+{% assign pager_classes = "pagination" %}
+{% if page.collection == 'projects' %}
+  {% assign pager_classes = pager_classes | append: ' pagination--accent pagination--accent-project' %}
+{% elsif page.collection == 'work_experiences' %}
+  {% assign pager_classes = pager_classes | append: ' pagination--accent pagination--accent-experience' %}
+{% endif %}
+
 {% if page.previous or page.next %}
-  <nav class="pagination">
+  <nav class="{{ pager_classes }}" aria-label="{{ site.data.ui-text[site.locale].pagination_label | default: 'Pagination' }}">
     {% if page.previous %}
       <a href="{{ base_path }}{{ page.previous.url }}" class="pagination--pager" title="{{ page.previous.title | markdownify | strip_html }}">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}</a>
     {% else %}
