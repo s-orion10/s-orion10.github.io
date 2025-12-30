@@ -2,12 +2,6 @@
 title: "Design and build of a tilt-tricopter VTOL UAV for SUAS Competition 2025"
 collection: projects
 subject: "Aerial Robotics - VTOL - Geometric Control - MATLAB - Simulink"
-tags:
-  - AERIAL ROBOTICS
-  - VTOL
-  - GEOMETRIC CONTROL
-  - MATLAB
-  - SIMULINK
 permalink: /projects/stingray-vtol
 venue: "Sapienza Flight Team"
 period: "Fall 2024 - Present"
