@@ -77,7 +77,7 @@ html[data-theme="dark"] {
 .skill-grid::-webkit-scrollbar { height: 6px; }
 .skill-grid::-webkit-scrollbar-track { background: rgba(148, 163, 184, 0.15); border-radius: 999px; }
 .skill-grid::-webkit-scrollbar-thumb { background: rgba(16, 185, 129, 0.45); border-radius: 999px; }
-.skill-card { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; padding: 0.65rem; border: 1px solid var(--profile-card-border); border-radius: 16px; background: var(--profile-card-bg); text-decoration: none !important; color: inherit; box-shadow: var(--profile-card-shadow); transition: box-shadow 0.18s ease, border-color 0.18s ease; width: 92px; min-height: 92px; justify-content: center; flex: 0 0 auto; scroll-snap-align: start; }
+.skill-card { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; padding: 0.75rem 1rem; border: 1px solid var(--profile-card-border); border-radius: 16px; background: var(--profile-card-bg); text-decoration: none !important; color: inherit; box-shadow: var(--profile-card-shadow); transition: box-shadow 0.18s ease, border-color 0.18s ease; width: 148px; min-height: 100px; justify-content: center; flex: 0 0 auto; scroll-snap-align: start; }
 .skill-card:hover, .skill-card:focus { box-shadow: var(--profile-card-shadow); border-color: var(--profile-card-border); text-decoration: none !important; transform: none; }
 .skill-card:focus { outline: 3px solid rgba(0, 123, 255, 0.4); outline-offset: 3px; }
 .skill-icon { width: 40px; height: 40px; object-fit: contain; transition: transform 0.22s ease; background: transparent; box-shadow: none !important; filter: var(--profile-icon-filter); display: block; }
