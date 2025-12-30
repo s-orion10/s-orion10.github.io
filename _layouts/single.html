@@ -372,34 +372,41 @@ html[data-theme="dark"] .pagination--accent-experience .pagination--pager:focus-
       {% if requires_project_panel %}
         <div class="project-detail-shell">
           <div class="{{ panel_classes }}">
-            {% assign paper_links = page.paper | arrayify | compact %}
+
             {% assign fallback_detail_url = '/404.html' | relative_url %}
-            {% assign sanitized_paper_links = '' %}
+
+            {%- comment -%} Paper links: keep only valid URLs (drop '' and '#') {%- endcomment -%}
+            {% assign paper_links = page.paper | arrayify | compact %}
+            {% assign valid_paper_links = '' %}
             {% for paper_link in paper_links %}
               {% assign trimmed_paper = paper_link | to_s | strip %}
               {% if trimmed_paper != '' and trimmed_paper != '#' %}
-                {% assign sanitized_paper_links = sanitized_paper_links | append: trimmed_paper | append: '||' %}
-              {% else %}
-                {% assign sanitized_paper_links = sanitized_paper_links | append: fallback_detail_url | append: '||' %}
+                {% assign valid_paper_links = valid_paper_links | append: trimmed_paper | append: '||' %}
               {% endif %}
             {% endfor %}
-            {% assign sanitized_paper_links = sanitized_paper_links | split: '||' | reject: '' %}
-            {% assign has_paper = sanitized_paper_links.size > 0 %}
+            {% assign valid_paper_links = valid_paper_links | split: '||' | reject: '' %}
+            {% assign has_paper = valid_paper_links.size > 0 %}
+
+            {%- comment -%} Video link: show button only if valid URL {%- endcomment -%}
             {% assign video_raw = page.video | to_s | strip %}
-            {% if video_raw == '' or video_raw == '#' %}
-              {% assign video_href = fallback_detail_url %}
-            {% else %}
+            {% assign has_video = video_raw != '' and video_raw != '#' %}
+            {% if has_video %}
               {% assign video_href = video_raw %}
-            {% endif %}
-            {% assign has_video = video_raw %}
-            {% assign code_raw = page.code | to_s | strip %}
-            {% if code_raw == '' or code_raw == '#' %}
-              {% assign code_href = fallback_detail_url %}
             {% else %}
-              {% assign code_href = code_raw %}
+              {% assign video_href = fallback_detail_url %}
             {% endif %}
-            {% assign has_code = code_raw %}
+
+            {%- comment -%} Code link: show button only if valid URL {%- endcomment -%}
+            {% assign code_raw = page.code | to_s | strip %}
+            {% assign has_code = code_raw != '' and code_raw != '#' %}
+            {% if has_code %}
+              {% assign code_href = code_raw %}
+            {% else %}
+              {% assign code_href = fallback_detail_url %}
+            {% endif %}
+
             {% assign show_actions = has_paper or has_video or has_code %}
+
             <header class="project-detail-header">
               <div class="project-detail-top">
                 {% if page.title %}
@@ -409,15 +416,16 @@ html[data-theme="dark"] .pagination--accent-experience .pagination--pager:focus-
                   <span class="project-detail-period">{{ page.period }}</span>
                 {% endif %}
               </div>
+
               {% if show_actions %}
                 <div class="project-detail-buttons">
                   {% if has_paper %}
-                    {% if sanitized_paper_links.size > 1 %}
-                      {% for paper_link in sanitized_paper_links %}
+                    {% if valid_paper_links.size > 1 %}
+                      {% for paper_link in valid_paper_links %}
                         <a class="project-detail-button" href="{{ paper_link }}" target="_blank" rel="noopener">Paper {{ forloop.index }}</a>
                       {% endfor %}
                     {% else %}
-                      <a class="project-detail-button" href="{{ sanitized_paper_links[0] }}" target="_blank" rel="noopener">Paper</a>
+                      <a class="project-detail-button" href="{{ valid_paper_links[0] }}" target="_blank" rel="noopener">Paper</a>
                     {% endif %}
                   {% endif %}
                   {% if has_video %}
@@ -476,6 +484,7 @@ html[data-theme="dark"] .pagination--accent-experience .pagination--pager:focus-
             </footer>
           </div>
         </div>
+
       {% else %}
         {% unless page.header.overlay_color or page.header.overlay_image %}
           <header>
@@ -498,45 +507,53 @@ html[data-theme="dark"] .pagination--accent-experience .pagination--pager:focus-
             {% endif %}
 
             {% assign legacy_fallback_url = '/404.html' | relative_url %}
+
+            {%- comment -%} Legacy paper links: keep only valid URLs {%- endcomment -%}
             {% assign legacy_paper_links = page.paper | arrayify | compact %}
-            {% assign legacy_sanitized_papers = '' %}
+            {% assign legacy_valid_papers = '' %}
             {% for legacy_link in legacy_paper_links %}
               {% assign legacy_trimmed = legacy_link | to_s | strip %}
               {% if legacy_trimmed != '' and legacy_trimmed != '#' %}
-                {% assign legacy_sanitized_papers = legacy_sanitized_papers | append: legacy_trimmed | append: '||' %}
-              {% else %}
-                {% assign legacy_sanitized_papers = legacy_sanitized_papers | append: legacy_fallback_url | append: '||' %}
+                {% assign legacy_valid_papers = legacy_valid_papers | append: legacy_trimmed | append: '||' %}
               {% endif %}
             {% endfor %}
-            {% assign legacy_sanitized_papers = legacy_sanitized_papers | split: '||' | reject: '' %}
+            {% assign legacy_valid_papers = legacy_valid_papers | split: '||' | reject: '' %}
+            {% assign legacy_has_paper = legacy_valid_papers.size > 0 %}
+
             {% assign legacy_video_raw = page.video | to_s | strip %}
-            {% if legacy_video_raw == '' or legacy_video_raw == '#' %}
-              {% assign legacy_video_href = legacy_fallback_url %}
-            {% else %}
+            {% assign legacy_has_video = legacy_video_raw != '' and legacy_video_raw != '#' %}
+            {% if legacy_has_video %}
               {% assign legacy_video_href = legacy_video_raw %}
-            {% endif %}
-            {% assign legacy_code_raw = page.code | to_s | strip %}
-            {% if legacy_code_raw == '' or legacy_code_raw == '#' %}
-              {% assign legacy_code_href = legacy_fallback_url %}
             {% else %}
-              {% assign legacy_code_href = legacy_code_raw %}
+              {% assign legacy_video_href = legacy_fallback_url %}
             {% endif %}
-            {% if legacy_sanitized_papers.size > 0 or page.video or page.code %}
+
+            {% assign legacy_code_raw = page.code | to_s | strip %}
+            {% assign legacy_has_code = legacy_code_raw != '' and legacy_code_raw != '#' %}
+            {% if legacy_has_code %}
+              {% assign legacy_code_href = legacy_code_raw %}
+            {% else %}
+              {% assign legacy_code_href = legacy_fallback_url %}
+            {% endif %}
+
+            {% if legacy_has_paper or legacy_has_video or legacy_has_code %}
               <div class="project__resources">
-                {% if legacy_sanitized_papers.size > 1 %}
-                  {% for p in legacy_sanitized_papers %}
-                    <p>📄 <a href="{{ p }}" target="_blank">View associated paper {{ forloop.index }}</a></p>
-                  {% endfor %}
-                {% elsif legacy_sanitized_papers.size == 1 %}
-                  <p>📄 <a href="{{ legacy_sanitized_papers[0] }}" target="_blank">View associated paper</a></p>
+                {% if legacy_has_paper %}
+                  {% if legacy_valid_papers.size > 1 %}
+                    {% for p in legacy_valid_papers %}
+                      <p>📄 <a href="{{ p }}" target="_blank" rel="noopener">View associated paper {{ forloop.index }}</a></p>
+                    {% endfor %}
+                  {% else %}
+                    <p>📄 <a href="{{ legacy_valid_papers[0] }}" target="_blank" rel="noopener">View associated paper</a></p>
+                  {% endif %}
                 {% endif %}
 
-                {% if page.video or legacy_video_raw %}
-                  <p>🎥 <a href="{{ legacy_video_href }}" target="_blank">Watch project video</a></p>
+                {% if legacy_has_video %}
+                  <p>🎥 <a href="{{ legacy_video_href }}" target="_blank" rel="noopener">Watch project video</a></p>
                 {% endif %}
 
-                {% if page.code or legacy_code_raw %}
-                  <p>💻 <a href="{{ legacy_code_href }}" target="_blank">View source code</a></p>
+                {% if legacy_has_code %}
+                  <p>💻 <a href="{{ legacy_code_href }}" target="_blank" rel="noopener">View source code</a></p>
                 {% endif %}
               </div>
             {% endif %}
