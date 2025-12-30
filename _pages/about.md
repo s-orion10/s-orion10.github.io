@@ -73,14 +73,16 @@ html[data-theme="dark"] {
 }
 
 .skill-section { margin-bottom: 2.5rem; }
-.skill-grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
-.skill-card { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; padding: 1.15rem 0.9rem; border: 1px solid var(--profile-card-border); border-radius: 16px; background: var(--profile-card-bg); text-decoration: none !important; color: inherit; box-shadow: var(--profile-card-shadow); transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; }
+.skill-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+.skill-card { display: flex; flex-direction: column; align-items: center; gap: 0.45rem; padding: 0.8rem; border: 1px solid var(--profile-card-border); border-radius: 16px; background: var(--profile-card-bg); text-decoration: none !important; color: inherit; box-shadow: var(--profile-card-shadow); transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; min-height: 120px; justify-content: center; }
 .skill-card:hover, .skill-card:focus { transform: translateY(-2px) scale(1.03); box-shadow: var(--profile-card-hover-shadow); border-color: var(--profile-card-hover-border); text-decoration: none !important; }
 .skill-card:focus { outline: 3px solid rgba(0, 123, 255, 0.4); outline-offset: 3px; }
 .skill-icon { width: 48px; height: 48px; object-fit: contain; transition: transform 0.22s ease; background: transparent; box-shadow: none !important; filter: var(--profile-icon-filter); display: block; }
 .skill-card:hover .skill-icon, .skill-card:focus .skill-icon { transform: scale(1.03); }
-.skill-stars { font-size: 0.95rem; letter-spacing: 2px; color: #e0a100; }
-.skill-name { font-weight: 600; text-align: center; text-decoration: none !important; }
+.skill-stars { font-size: 0.95rem; letter-spacing: 2px; color: #e0a100; opacity: 0; max-height: 0; overflow: hidden; transition: opacity 0.18s ease, max-height 0.18s ease, transform 0.18s ease; transform: translateY(8px); }
+.skill-name { font-weight: 600; text-align: center; text-decoration: none !important; opacity: 0; max-height: 0; overflow: hidden; transition: opacity 0.18s ease, max-height 0.18s ease, transform 0.18s ease; transform: translateY(8px); }
+.skill-card:hover .skill-stars, .skill-card:focus .skill-stars,
+.skill-card:hover .skill-name, .skill-card:focus .skill-name { opacity: 1; max-height: 60px; transform: translateY(0); }
 .skill-card:hover .skill-name, .skill-card:focus .skill-name { text-decoration: underline; }
 .skill-stars span { text-decoration: none !important; }
 .skill-stars .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
@@ -110,7 +112,7 @@ html[data-theme="dark"] {
 .contact-button:hover, .contact-button:focus-visible { transform: translateY(-1px); box-shadow: var(--profile-contact-hover-shadow); background: var(--profile-contact-hover-bg); border-color: var(--profile-contact-hover-border); color: var(--profile-contact-hover-color); outline: none; }
 .contact-button:focus-visible { outline: 3px solid rgba(0, 123, 255, 0.35); outline-offset: 3px; }
 .contact-button--mail:hover, .contact-button--mail:focus-visible { background: var(--profile-mail-accent-bg); border-color: var(--profile-mail-accent-border); color: var(--profile-mail-accent-color); }
-.contact-button--linkedin:hover, .contact-button--linkedin:focus-visible { background: var(--profile-linkedin-accent-bg); border-color: var(--profile-linkedin-accent-border); color: var(--profile-linkedin-accent-color); }
+.contact-button--linkedin:hover, .contact-button--linkedin:focus-visible { background: var(--profile-mail-accent-bg); border-color: var(--profile-mail-accent-border); color: var(--profile-mail-accent-color); }
 </style>
 
 <div class="section-panel">
