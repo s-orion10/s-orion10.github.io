@@ -5,6 +5,7 @@ subject: "Advanced Methods in Control - UAVs - Geometric Tracking Controller - L
 permalink: /projects/project-1
 venue: "University 'La Sapienza' of Rome"
 period: "2024/2025"
+date: 2025-03-01
 paper: "https://s-orion10.github.io/files/master_thesis.pdf"
 video: "https://youtu.be/yf1fu_QvG4o"
 image: "/images/master_thesis.png"
