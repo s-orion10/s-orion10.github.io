@@ -11,7 +11,7 @@ entries:
     institution: "Sapienza University of Rome"
     location: "Rome, Italy"
     period: "Nov 2021 - Present"
-    summary: "Doctoral research on autonomous systems and advanced control architectures, blending theoretical analysis with experimental platforms in robotics and bioengineering."
+    summary: "Simone Orelli is a PhD student of the 41st cycle within the ABRO research group at the Department of Computer, Control and Management Engineering (DIAG), Sapienza University of Rome, focusing on modeling and nonlinear control for aerial robotics, supervised by Prof. Antonio Franchi."
     tags:
       - "Doctorate"
       - "Control Systems"
@@ -22,7 +22,7 @@ entries:
     institution: "Sapienza University of Rome"
     location: "Rome, Italy"
     period: "Completed Oct 2021"
-    summary: "Advanced coursework and laboratory projects in robust and nonlinear control, culminating in an average exam grade of 29.13/30 and applied research across aerospace and robotics domains."
+    summary: "Master’s degree in Control Engineering from Sapienza University of Rome, graduating with 110/110 cum laude. The master’s thesis was devoted to the development and theoretical validation of a geometric control law for partially coupled underactuated floating vehicles, with particular attention to the underlying dynamics, nonlinear control design, and stability analysis."
     tags:
       - "Master's Degree"
       - "Control Engineering"
@@ -33,7 +33,7 @@ entries:
     institution: "Sapienza University of Rome (Latina campus)"
     location: "Latina, Italy"
     period: "Sep 2016 - Oct 2021"
-    summary: "Integrated curriculum covering automation, computer science, and applied statistics; graduated with final grade 110/110 with honors while delivering capstone projects in embedded systems."
+    summary: "Bachelor’s degree obtained in Latina with a curriculum focused on computer science, with particular emphasis on web programming languages, database querying, and theoretical computer science, graduating with 110/110 with honors."
     tags:
       - "Bachelor's Degree"
       - "Information Engineering"
