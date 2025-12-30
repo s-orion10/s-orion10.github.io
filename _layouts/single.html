@@ -4,6 +4,283 @@ layout: default
 
 {% include base_path %}
 
+{% assign requires_project_panel = page.collection == 'projects' or page.collection == 'work_experiences' %}
+
+{% if requires_project_panel %}
+<style>
+:root {
+  --project-panel-bg: rgba(248, 250, 252, 0.98);
+  --project-panel-border: rgba(15, 23, 42, 0.08);
+  --project-panel-shadow: 0 16px 42px rgba(15, 23, 42, 0.12);
+  --project-card-bg: rgba(255, 255, 255, 0.97);
+  --project-card-border: rgba(148, 163, 184, 0.24);
+  --project-card-shadow: 0 14px 32px rgba(15, 23, 42, 0.08);
+  --project-link-color: #b45309;
+  --project-text-color: #1f2937;
+}
+
+html[data-theme="dark"] {
+  --project-panel-bg: rgba(50, 56, 68, 0.96);
+  --project-panel-border: rgba(226, 232, 240, 0.2);
+  --project-panel-shadow: 0 12px 34px rgba(15, 23, 42, 0.45);
+  --project-card-bg: rgba(68, 72, 84, 0.94);
+  --project-card-border: rgba(148, 163, 184, 0.34);
+  --project-card-shadow: 0 18px 40px rgba(15, 23, 42, 0.42);
+  --project-link-color: #f7ad5a;
+  --project-text-color: #e2e8f0;
+}
+
+.project-detail-shell {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.project-detail-panel {
+  width: 100%;
+  margin: 0;
+  padding: 2.6rem 2.4rem;
+  border: 1px solid var(--project-panel-border);
+  border-radius: 26px;
+  background: var(--project-panel-bg);
+  box-shadow: var(--project-panel-shadow);
+  color: var(--project-text-color);
+}
+
+.project-detail-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-bottom: 2.1rem;
+}
+
+.project-detail-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.project-detail-title {
+  margin: 0;
+  font-size: clamp(2rem, 2vw + 1rem, 2.6rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--project-text-color);
+}
+
+.project-detail-period {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(15, 23, 42, 0.68);
+  background: rgba(148, 163, 184, 0.16);
+}
+
+html[data-theme="dark"] .project-detail-period {
+  color: rgba(226, 232, 240, 0.82);
+  background: rgba(148, 197, 255, 0.22);
+}
+
+.project-detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.project-detail-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.18rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: rgba(217, 119, 6, 0.18);
+  color: rgba(180, 83, 9, 0.95);
+}
+
+html[data-theme="dark"] .project-detail-tag {
+  background: rgba(251, 189, 108, 0.26);
+  color: rgba(252, 211, 77, 0.92);
+}
+
+.project-detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.98rem;
+  color: rgba(71, 85, 105, 0.95);
+}
+
+html[data-theme="dark"] .project-detail-meta {
+  color: rgba(226, 232, 240, 0.72);
+}
+
+.project-detail-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.project-detail-meta span + span::before {
+  content: "\2022";
+  font-size: 0.7rem;
+  color: rgba(100, 116, 139, 0.8);
+  margin-right: 0.35rem;
+}
+
+html[data-theme="dark"] .project-detail-meta span + span::before {
+  color: rgba(148, 197, 255, 0.55);
+}
+
+.project-detail-actions {
+  margin-top: 0.5rem;
+}
+
+.project-detail-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.project-detail-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.15rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  border: 1px solid rgba(217, 119, 6, 0.35);
+  background: rgba(217, 119, 6, 0.12);
+  color: var(--project-link-color);
+  text-decoration: none !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.project-detail-button::after {
+  content: "\2192";
+  font-size: 1.05rem;
+  transition: transform 0.22s ease;
+}
+
+.project-detail-button:hover,
+.project-detail-button:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(217, 119, 6, 0.3);
+  background: rgba(217, 119, 6, 0.22);
+  border-color: rgba(217, 119, 6, 0.62);
+  color: var(--project-link-color);
+}
+
+.project-detail-button:hover::after,
+.project-detail-button:focus-visible::after {
+  transform: translateX(3px);
+}
+
+.project-detail-button:focus-visible {
+  outline: 3px solid rgba(59, 130, 246, 0.4);
+  outline-offset: 3px;
+}
+
+.project-detail-body {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
+  margin-bottom: 2.2rem;
+}
+
+.project-detail-media {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 4 / 3;
+  border-radius: 22px;
+  overflow: hidden;
+  background: rgba(148, 163, 184, 0.18);
+  box-shadow: var(--project-card-shadow);
+}
+
+.project-detail-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-detail-content {
+  color: var(--project-text-color);
+  line-height: 1.68;
+}
+
+html[data-theme="dark"] .project-detail-content {
+  color: rgba(226, 232, 240, 0.88);
+}
+
+.project-detail-footer {
+  margin-top: 2.2rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+html[data-theme="dark"] .project-detail-footer {
+  border-color: rgba(148, 197, 255, 0.3);
+}
+
+.project-detail-share {
+  margin-top: 1.6rem;
+}
+
+.project-detail-pagination {
+  margin-top: 1.2rem;
+}
+
+@media (max-width: 960px) {
+  .project-detail-panel {
+    padding: 2.2rem 2rem;
+  }
+
+  .project-detail-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .project-detail-media {
+    max-width: none;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 600px) {
+  .project-detail-panel {
+    padding: 1.9rem 1.6rem;
+  }
+
+  .project-detail-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-detail-buttons {
+    width: 100%;
+  }
+
+  .project-detail-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+</style>
+{% endif %}
+
 {% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
   {% include page__hero.html %}
 {% endif %}
@@ -24,57 +301,12 @@ layout: default
     {% if page.modified %}<meta itemprop="dateModified" content="{{ page.modified | date: "%B %d, %Y" }}">{% endif %}
 
     <div class="page__inner-wrap">
-      {% unless page.header.overlay_color or page.header.overlay_image %}
-        <header>
-          {% if page.title %}
-            <h1 class="page__title" itemprop="headline">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>
-          {% endif %}
-      
-          {% if page.type and page.period %}
-            <p class="page__meta">
-              {% if page.type %}<strong>Type:</strong> {{ page.type }}{% endif %}
-              {% if page.period %}&nbsp;&nbsp;<strong>Period:</strong> {{ page.period }}{% endif %}
-            </p>
-          {% endif %}
+      {% if requires_project_panel %}
+        <div class="project-detail-shell">
+          <div class="project-detail-panel">
+      {% endif %}
 
-          {% if page.subject and page.period %}
-            <p class="page__meta">
-              {% if page.subject %}<strong>Subject:</strong> {{ page.subject }}{% endif %}
-              {% if page.period %}&nbsp;&nbsp;<strong>Period:</strong> {{ page.period }}{% endif %}
-            </p>
-          {% endif %}
-
-          {% if page.paper or page.video or page.code %}
-            <div class="project__resources">
-              {% if page.paper %}
-                {% if page.paper.size > 1 %}
-                  {% for p in page.paper %}
-                    <p>📄 <a href="{{ p }}" target="_blank">View associated paper {{ forloop.index }}</a></p>
-                  {% endfor %}
-                {% else %}
-                  <p>📄 <a href="{{ page.paper[0] }}" target="_blank">View associated paper</a></p>
-                {% endif %}
-              {% endif %}
-              
-              {% if page.video %}
-                <p>🎥 <a href="{{ page.video }}" target="_blank">Watch project video</a></p>
-              {% endif %}
-              
-              {% if page.code %}
-                <p>💻 <a href="{{ page.code }}" target="_blank">View source code</a></p>
-              {% endif %}              
-              
-            </div>
-          {% endif %}
-          
-          
-        </header>
-      {% endunless %}
-
-      
-      <section class="page__content" itemprop="text">
-        {{ content }}
-
+      {% capture detail_citations %}
         {% if page.citation and page.paperurl and page.slidesurl and page.bibtexurl %}
           <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.paperurl }}">Download Paper</a> | <a href="{{ page.slidesurl }}">Download Slides</a> | <a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
         {% elsif page.citation and page.paperurl and page.slidesurl %}
@@ -100,20 +332,158 @@ layout: default
         {% elsif page.bibtexurl %}
           <p style="font-size: smaller"><a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
         {% endif %}
+      {% endcapture %}
+      {% assign detail_citations = detail_citations | strip %}
 
-        {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
-      </section>
+      {% unless page.header.overlay_color or page.header.overlay_image %}
+        {% if requires_project_panel %}
+          {% assign tag_items = page.tags %}
+          {% if tag_items == nil or tag_items == empty %}
+            {% assign subject_string = page.subject | to_s %}
+            {% assign tag_items = subject_string | split: ' - ' %}
+          {% endif %}
+          {% capture tag_markup %}
+            {% for tag in tag_items %}
+              {% assign tag_label = tag | strip %}
+              {% if tag_label != '' %}<span class="project-detail-tag">{{ tag_label }}</span>{% endif %}
+            {% endfor %}
+          {% endcapture %}
+          {% assign has_tags = tag_markup contains 'project-detail-tag' %}
+          {% assign paper_links = page.paper | arrayify | compact | reject: "" %}
+          {% assign has_paper = paper_links.size > 0 %}
+          {% assign has_video = page.video | to_s | strip %}
+          {% assign has_code = page.code | to_s | strip %}
+          {% assign has_link = page.link | to_s | strip %}
+          {% assign show_actions = has_paper or has_video or has_code or has_link %}
+          <header class="project-detail-header">
+            {% if page.title %}
+              <div class="project-detail-top">
+                <h1 class="project-detail-title" itemprop="headline">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>
+                {% if page.period %}<span class="project-detail-period">{{ page.period }}</span>{% endif %}
+              </div>
+            {% endif %}
+            {% if has_tags %}
+              <div class="project-detail-tags">{{ tag_markup | strip_newlines }}</div>
+            {% endif %}
+            {% if page.venue or page.location or page.type %}
+              <div class="project-detail-meta">
+                {% if page.venue %}<span>{{ page.venue }}</span>{% endif %}
+                {% if page.location %}<span>{{ page.location }}</span>{% endif %}
+                {% if page.type %}<span>{{ page.type }}</span>{% endif %}
+              </div>
+            {% endif %}
+            {% if show_actions %}
+              <div class="project-detail-actions">
+                <div class="project-detail-buttons">
+                  {% if has_paper %}
+                    {% if paper_links.size > 1 %}
+                      {% for paper_link in paper_links %}
+                        <a class="project-detail-button" href="{{ paper_link }}" target="_blank" rel="noopener">Paper {{ forloop.index }}</a>
+                      {% endfor %}
+                    {% else %}
+                      <a class="project-detail-button" href="{{ paper_links[0] }}" target="_blank" rel="noopener">Paper</a>
+                    {% endif %}
+                  {% endif %}
+                  {% if has_video %}
+                    <a class="project-detail-button" href="{{ page.video }}" target="_blank" rel="noopener">Video</a>
+                  {% endif %}
+                  {% if has_code %}
+                    <a class="project-detail-button" href="{{ page.code }}" target="_blank" rel="noopener">Code</a>
+                  {% endif %}
+                  {% if has_link %}
+                    <a class="project-detail-button" href="{{ page.link }}" target="_blank" rel="noopener">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a>
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+          </header>
+        {% else %}
+          <header>
+            {% if page.title %}
+              <h1 class="page__title" itemprop="headline">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>
+            {% endif %}
 
-      <footer class="page__meta">
+            {% if page.type and page.period %}
+              <p class="page__meta">
+                {% if page.type %}<strong>Type:</strong> {{ page.type }}{% endif %}
+                {% if page.period %}&nbsp;&nbsp;<strong>Period:</strong> {{ page.period }}{% endif %}
+              </p>
+            {% endif %}
+
+            {% if page.subject and page.period %}
+              <p class="page__meta">
+                {% if page.subject %}<strong>Subject:</strong> {{ page.subject }}{% endif %}
+                {% if page.period %}&nbsp;&nbsp;<strong>Period:</strong> {{ page.period }}{% endif %}
+              </p>
+            {% endif %}
+
+            {% if page.paper or page.video or page.code %}
+              <div class="project__resources">
+                {% if page.paper %}
+                  {% assign legacy_papers = page.paper | arrayify | compact | reject: "" %}
+                  {% if legacy_papers.size > 1 %}
+                    {% for p in legacy_papers %}
+                      <p>📄 <a href="{{ p }}" target="_blank">View associated paper {{ forloop.index }}</a></p>
+                    {% endfor %}
+                  {% elsif legacy_papers.size == 1 %}
+                    <p>📄 <a href="{{ legacy_papers[0] }}" target="_blank">View associated paper</a></p>
+                  {% endif %}
+                {% endif %}
+
+                {% if page.video %}
+                  <p>🎥 <a href="{{ page.video }}" target="_blank">Watch project video</a></p>
+                {% endif %}
+
+                {% if page.code %}
+                  <p>💻 <a href="{{ page.code }}" target="_blank">View source code</a></p>
+                {% endif %}
+              </div>
+            {% endif %}
+          </header>
+        {% endif %}
+      {% endunless %}
+
+      {% if requires_project_panel %}
+        <div class="project-detail-body">
+          {% if page.image %}
+            <div class="project-detail-media">
+              <img src="{{ page.image | relative_url }}" alt="{{ page.title }} visual">
+            </div>
+          {% endif %}
+          <section class="page__content project-detail-content" itemprop="text">
+            {{ content }}
+            {{ detail_citations }}
+          </section>
+        </div>
+      {% else %}
+        <section class="page__content" itemprop="text">
+          {{ content }}
+          {{ detail_citations }}
+          {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
+        </section>
+      {% endif %}
+
+      <footer class="page__meta{% if requires_project_panel %} project-detail-footer{% endif %}">
         {% if site.data.ui-text[site.locale].meta_label %}
           <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
         {% endif %}
         {% include page__taxonomy.html %}
       </footer>
 
-      {% if page.share %}{% include social-share.html %}{% endif %}
+      {% if requires_project_panel %}
+        {% if page.share %}<div class="project-detail-share">{% include social-share.html %}</div>{% endif %}
+        <div class="project-detail-pagination">
+          {% include post_pagination.html %}
+        </div>
+      {% else %}
+        {% if page.share %}{% include social-share.html %}{% endif %}
+        {% include post_pagination.html %}
+      {% endif %}
 
-      {% include post_pagination.html %}
+      {% if requires_project_panel %}
+          </div>
+        </div>
+      {% endif %}
     </div>
 
     {% if site.comments.provider and page.comments %}
@@ -135,3 +505,4 @@ layout: default
     </div>
   {% endif %}
 </div>
+
