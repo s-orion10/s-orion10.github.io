@@ -6,6 +6,7 @@ permalink: /projects/stingray-vtol
 venue: "Sapienza Flight Team"
 period: "Fall 2024 - Present"
 date: 2024-10-01
+video: "https://www.youtube.com/watch?v=wRHayHykyXI"
 image: "/images/tricopter.png"
 ---
 
