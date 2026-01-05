@@ -76,8 +76,8 @@ entries:
   --timeline-marker-width: 48px;
   --timeline-gap: 2.6rem;
 
-  /* Pointer-follow spot (light = subtle dark spot) */
-  --cv-spot-color: rgba(15, 23, 42, 0.18);
+  /* CV spot (light = subtle dark spot) */
+  --cv-spot-active: rgba(15, 23, 42, 0.18);
 }
 
 html[data-theme="dark"] {
@@ -98,8 +98,8 @@ html[data-theme="dark"] {
   --timeline-dot-color: #5eead4;
   --timeline-dot-halo: rgba(94, 234, 212, 0.26);
 
-  /* Pointer-follow spot (dark = glow) */
-  --cv-spot-color: rgba(94, 234, 212, 0.55);
+  /* CV spot (dark = glow) */
+  --cv-spot-active: rgba(94, 234, 212, 0.55);
 }
 
 .education-section {
@@ -149,11 +149,10 @@ html[data-theme="dark"] {
 }
 
 /* ============================= */
-/*  CV BUTTON (FIXED VERSION)    */
+/*  CV BUTTON (POINTER-FOLLOW)   */
 /* ============================= */
 .education-cv-link {
   position: relative;
-  isolation: isolate;
   overflow: hidden;
 
   display: inline-flex;
@@ -163,43 +162,29 @@ html[data-theme="dark"] {
 
   padding: 0.65rem 1.35rem;
   border-radius: 999px;
-
   font-weight: 600;
   font-size: 1rem;
 
   border: 1px solid rgba(14, 116, 144, 0.32);
 
-  background: linear-gradient(
-    135deg,
-    rgba(13, 148, 136, 0.16),
-    rgba(45, 212, 191, 0.2)
-  );
+  /* Updated by JS */
+  --mx: 50%;
+  --my: 50%;
+  --press-x: 0px;
+  --press-y: 0px;
+
+  /* Disabled by default; enabled on hover */
+  --cv-spot: transparent;
+
+  background:
+    radial-gradient(220px circle at var(--mx) var(--my), var(--cv-spot), transparent 65%),
+    linear-gradient(135deg, rgba(13, 148, 136, 0.16), rgba(45, 212, 191, 0.2));
 
   color: var(--education-link-contrast);
   text-decoration: none !important;
 
   transition: transform 0.25s ease, box-shadow 0.25s ease,
-    background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
-
-  --press-x: 0px;
-  --press-y: 0px;
-  --mx: 50%;
-  --my: 50%;
-}
-
-.education-cv-link::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.18s ease;
-
-  background: radial-gradient(
-    220px circle at var(--mx) var(--my),
-    var(--cv-spot-color),
-    transparent 65%
-  );
+    border-color 0.25s ease, color 0.25s ease;
 }
 
 .education-cv-link::after {
@@ -210,15 +195,12 @@ html[data-theme="dark"] {
 
 .education-cv-link:hover,
 .education-cv-link:focus-visible {
+  --cv-spot: var(--cv-spot-active);
+
   transform: translate3d(var(--press-x), var(--press-y), 0) scale(1.01);
   box-shadow: 0 12px 28px rgba(13, 148, 136, 0.28);
   border-color: rgba(13, 148, 136, 0.6);
   color: #0f766e;
-}
-
-.education-cv-link:hover::before,
-.education-cv-link:focus-visible::before {
-  opacity: 1;
 }
 
 .education-cv-link:hover::after,
@@ -554,9 +536,9 @@ html[data-theme="dark"] .education-card-period {
 </style>
 
 <script>
-(function() {
+(function () {
   function setupCvPointerGlow() {
-    const cvLink = document.querySelector('.education-cv-link');
+    const cvLink = document.querySelector(".education-cv-link");
     if (!cvLink) return;
 
     const update = (event) => {
@@ -567,30 +549,33 @@ html[data-theme="dark"] .education-card-period {
       const px = Math.max(0, Math.min(1, x / rect.width));
       const py = Math.max(0, Math.min(1, y / rect.height));
 
-      // Spot position inside the button
-      cvLink.style.setProperty('--mx', `${x.toFixed(1)}px`);
-      cvLink.style.setProperty('--my', `${y.toFixed(1)}px`);
+      cvLink.style.setProperty("--mx", `${x.toFixed(1)}px`);
+      cvLink.style.setProperty("--my", `${y.toFixed(1)}px`);
 
-      // Subtle push
-      cvLink.style.setProperty('--press-x', `${((px - 0.5) * 6).toFixed(2)}px`);
-      cvLink.style.setProperty('--press-y', `${((py - 0.5) * 6).toFixed(2)}px`);
+      cvLink.style.setProperty("--press-x", `${((px - 0.5) * 6).toFixed(2)}px`);
+      cvLink.style.setProperty("--press-y", `${((py - 0.5) * 6).toFixed(2)}px`);
     };
 
     const reset = () => {
-      cvLink.style.setProperty('--mx', '50%');
-      cvLink.style.setProperty('--my', '50%');
-      cvLink.style.setProperty('--press-x', '0px');
-      cvLink.style.setProperty('--press-y', '0px');
+      cvLink.style.setProperty("--mx", "50%");
+      cvLink.style.setProperty("--my", "50%");
+      cvLink.style.setProperty("--press-x", "0px");
+      cvLink.style.setProperty("--press-y", "0px");
     };
 
-    cvLink.addEventListener('pointerenter', update);
-    cvLink.addEventListener('pointermove', update);
-    cvLink.addEventListener('pointerleave', reset);
-    cvLink.addEventListener('blur', reset);
+    cvLink.addEventListener("pointerenter", update);
+    cvLink.addEventListener("pointermove", update);
+    cvLink.addEventListener("pointerleave", reset);
+    cvLink.addEventListener("blur", reset);
   }
 
-  document.addEventListener('DOMContentLoaded', setupCvPointerGlow);
-  window.addEventListener('load', setupCvPointerGlow);
+  document.addEventListener("DOMContentLoaded", setupCvPointerGlow);
+  window.addEventListener("load", setupCvPointerGlow);
+
+  /* Extra hooks for themes that do partial page navigation (Turbo / PJAX / InstantClick) */
+  document.addEventListener("turbo:load", setupCvPointerGlow);
+  document.addEventListener("pjax:complete", setupCvPointerGlow);
+  document.addEventListener("instantclick:change", setupCvPointerGlow);
 })();
 </script>
 
