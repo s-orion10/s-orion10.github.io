@@ -151,29 +151,16 @@ html[data-theme="dark"] {
   font-weight: 600;
   font-size: 1rem;
   border: 1px solid rgba(14, 116, 144, 0.32);
-  background: linear-gradient(135deg, rgba(13, 148, 136, 0.16), rgba(45, 212, 191, 0.2));
+  background: var(--glow, transparent) , linear-gradient(135deg, rgba(13, 148, 136, 0.16), rgba(45, 212, 191, 0.2));
   color: var(--education-link-color);
   text-decoration: none !important;
   transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
   overflow: hidden;
-  --pointer-x: 50%;
-  --pointer-y: 50%;
-  --glow-opacity: 0;
+  --glow: transparent;
   --tilt-x: 0deg;
   --tilt-y: 0deg;
   --press-x: 0px;
   --press-y: 0px;
-}
-
-.education-cv-link::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(160px circle at var(--pointer-x) var(--pointer-y), rgba(94, 234, 212, 0.42), transparent 65%);
-  opacity: var(--glow-opacity);
-  transition: opacity 0.25s ease, background-position 0.15s ease;
-  pointer-events: none;
 }
 
 .education-cv-link::after {
@@ -186,14 +173,9 @@ html[data-theme="dark"] {
 .education-cv-link:focus-visible {
   transform: translate3d(var(--press-x), var(--press-y), 0) rotateX(var(--tilt-y)) rotateY(var(--tilt-x)) scale(1.015);
   box-shadow: 0 12px 28px rgba(13, 148, 136, 0.28);
-  background: linear-gradient(135deg, rgba(13, 148, 136, 0.26), rgba(45, 212, 191, 0.32));
+  background: var(--glow, transparent) , linear-gradient(135deg, rgba(13, 148, 136, 0.26), rgba(45, 212, 191, 0.32));
   border-color: rgba(13, 148, 136, 0.6);
   color: #0f766e;
-}
-
-.education-cv-link:hover::before,
-.education-cv-link:focus-visible::before {
-  opacity: 1;
 }
 
 .education-cv-link:hover::after,
@@ -532,10 +514,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var px = Math.max(0, Math.min(1, x / rect.width));
     var py = Math.max(0, Math.min(1, y / rect.height));
 
-    // Glow follows the pointer in px to avoid rounding to container percentages
-    cvLink.style.setProperty('--pointer-x', x.toFixed(1) + 'px');
-    cvLink.style.setProperty('--pointer-y', y.toFixed(1) + 'px');
-    cvLink.style.setProperty('--glow-opacity', '1');
+    // Glow follows the pointer; we draw it directly into the background stack
+    var glow = 'radial-gradient(220px circle at ' + x.toFixed(1) + 'px ' + y.toFixed(1) + 'px, rgba(94, 234, 212, 0.48), transparent 62%)';
+    cvLink.style.setProperty('--glow', glow);
 
     // Subtle 3D push/tilt
     var tiltX = ((0.5 - px) * 10).toFixed(2) + 'deg'; // invert for natural feel
@@ -550,13 +531,11 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   var resetPointer = function() {
-    cvLink.style.setProperty('--glow-opacity', '0');
+    cvLink.style.setProperty('--glow', 'transparent');
     cvLink.style.setProperty('--tilt-x', '0deg');
     cvLink.style.setProperty('--tilt-y', '0deg');
     cvLink.style.setProperty('--press-x', '0px');
     cvLink.style.setProperty('--press-y', '0px');
-    cvLink.style.setProperty('--pointer-x', '50%');
-    cvLink.style.setProperty('--pointer-y', '50%');
   };
 
   cvLink.addEventListener('pointerenter', updatePointer);
