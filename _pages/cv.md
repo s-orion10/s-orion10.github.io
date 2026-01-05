@@ -67,6 +67,7 @@ entries:
   --education-card-hover-shadow: 0 22px 50px rgba(15, 23, 42, 0.16);
   --education-text-color: #1f2937;
   --education-link-color: #0f766e;
+  --education-link-contrast: #065f46;
   --education-chip-bg: rgba(148, 163, 184, 0.2);
   --education-chip-text: rgba(71, 85, 105, 0.94);
   --timeline-line-color: rgba(14, 116, 144, 0.22);
@@ -87,6 +88,7 @@ html[data-theme="dark"] {
   --education-card-hover-shadow: 0 24px 56px rgba(15, 23, 42, 0.5);
   --education-text-color: #e2e8f0;
   --education-link-color: #5eead4;
+  --education-link-contrast: #c0fff5;
   --education-chip-bg: rgba(148, 163, 184, 0.28);
   --education-chip-text: rgba(226, 232, 240, 0.9);
   --timeline-line-color: rgba(94, 234, 212, 0.38);
@@ -152,7 +154,7 @@ html[data-theme="dark"] {
   font-size: 1rem;
   border: 1px solid rgba(14, 116, 144, 0.32);
   background: var(--glow, radial-gradient(160px circle at 50% 50%, rgba(94, 234, 212, 0.28), transparent 65%)), linear-gradient(135deg, rgba(13, 148, 136, 0.16), rgba(45, 212, 191, 0.2));
-  color: var(--education-link-color);
+  color: var(--education-link-contrast);
   text-decoration: none !important;
   transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
   overflow: hidden;
@@ -174,6 +176,13 @@ html[data-theme="dark"] {
   background: var(--glow, transparent) , linear-gradient(135deg, rgba(13, 148, 136, 0.26), rgba(45, 212, 191, 0.32));
   border-color: rgba(13, 148, 136, 0.6);
   color: #0f766e;
+}
+
+html[data-theme="dark"] .education-cv-link,
+html[data-theme="dark"] .education-cv-link:hover,
+html[data-theme="dark"] .education-cv-link:focus-visible {
+  color: var(--education-link-contrast);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
 }
 
 .education-cv-link:hover::after,
