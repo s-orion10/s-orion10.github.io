@@ -35,6 +35,10 @@ layout: default
   --panel-shadow: 0 16px 42px rgba(15, 23, 42, 0.12);
   --panel-text: #1f2937;
 
+  /* Neutral chips (tags + period) stay consistent across themes/pages */
+  --chip-bg: rgba(148, 163, 184, 0.2);
+  --chip-text: rgba(71, 85, 105, 0.94);
+
   /* Default accent = project (orange) */
   --accent-color: #b45309;
   --accent-muted: rgba(180, 83, 9, 0.92);
@@ -68,6 +72,9 @@ html[data-theme="dark"] .project-detail-panel {
   --panel-border: rgba(226, 232, 240, 0.2);
   --panel-shadow: 0 12px 34px rgba(15, 23, 42, 0.45);
   --panel-text: #e2e8f0;
+
+  --chip-bg: rgba(148, 163, 184, 0.28);
+  --chip-text: rgba(226, 232, 240, 0.9);
 }
 
 /* Dark mode accents */
@@ -106,7 +113,7 @@ html[data-theme="dark"] .project-detail-panel.experience-theme {
   color: var(--panel-text);
 }
 
-/* Period badge uses accent tokens => orange for projects, blue for experiences */
+/* Period badge uses neutral chip tokens so it stays consistent across listing/detail */
 .project-detail-period {
   display: inline-flex;
   align-items: center;
@@ -117,8 +124,8 @@ html[data-theme="dark"] .project-detail-panel.experience-theme {
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--accent-muted);
-  background: var(--accent-surface);
+  color: var(--chip-text);
+  background: var(--chip-bg);
 }
 
 /* ===== Resource buttons (Paper/Video/Code) use accent tokens ===== */
@@ -211,7 +218,7 @@ html[data-theme="dark"] .project-detail-panel.experience-theme .project-detail-b
   gap: 0.35rem;
 }
 
-/* Tags also follow accent tokens */
+/* Tags share the neutral chip tokens */
 .project-detail-tag {
   display: inline-flex;
   align-items: center;
@@ -221,8 +228,8 @@ html[data-theme="dark"] .project-detail-panel.experience-theme .project-detail-b
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  background: var(--accent-surface);
-  color: var(--accent-muted);
+  background: var(--chip-bg);
+  color: var(--chip-text);
   width: fit-content;
 }
 
