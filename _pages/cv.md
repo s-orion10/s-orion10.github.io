@@ -67,6 +67,8 @@ entries:
   --education-card-hover-shadow: 0 22px 50px rgba(15, 23, 42, 0.16);
   --education-text-color: #1f2937;
   --education-link-color: #0f766e;
+  --education-chip-bg: rgba(148, 163, 184, 0.2);
+  --education-chip-text: rgba(71, 85, 105, 0.94);
   --timeline-line-color: rgba(14, 116, 144, 0.22);
   --timeline-dot-color: #0f766e;
   --timeline-dot-halo: rgba(14, 116, 144, 0.18);
@@ -85,6 +87,8 @@ html[data-theme="dark"] {
   --education-card-hover-shadow: 0 24px 56px rgba(15, 23, 42, 0.5);
   --education-text-color: #e2e8f0;
   --education-link-color: #5eead4;
+  --education-chip-bg: rgba(148, 163, 184, 0.28);
+  --education-chip-text: rgba(226, 232, 240, 0.9);
   --timeline-line-color: rgba(94, 234, 212, 0.38);
   --timeline-dot-color: #5eead4;
   --timeline-dot-halo: rgba(94, 234, 212, 0.26);
@@ -337,14 +341,14 @@ html[data-theme="dark"] .education-card-title {
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  background: rgba(14, 116, 144, 0.16);
-  color: rgba(15, 118, 110, 0.9);
+  background: var(--education-chip-bg);
+  color: var(--education-chip-text);
   width: fit-content;
 }
 
 html[data-theme="dark"] .education-card-tag {
-  background: rgba(94, 234, 212, 0.24);
-  color: rgba(226, 232, 240, 0.88);
+  background: var(--education-chip-bg);
+  color: var(--education-chip-text);
 }
 
 .education-card-meta {
@@ -409,14 +413,14 @@ html[data-theme="dark"] .education-card-summary {
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: rgba(15, 23, 42, 0.68);
-  background: rgba(148, 163, 184, 0.16);
+  color: var(--education-chip-text);
+  background: var(--education-chip-bg);
   white-space: nowrap;
 }
 
 html[data-theme="dark"] .education-card-period {
-  color: rgba(226, 232, 240, 0.82);
-  background: rgba(94, 234, 212, 0.22);
+  color: var(--education-chip-text);
+  background: var(--education-chip-bg);
 }
 
 @media (max-width: 1100px) {
