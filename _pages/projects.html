@@ -197,14 +197,14 @@ html[data-theme="dark"] {
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  background: rgba(217, 119, 6, 0.18);
-  color: rgba(180, 83, 9, 0.95);
+  background: rgba(148, 163, 184, 0.2);
+  color: rgba(71, 85, 105, 0.94);
   width: fit-content;
 }
 
 html[data-theme="dark"] .project-card-tag {
-  background: rgba(251, 189, 108, 0.26);
-  color: rgba(252, 211, 77, 0.92);
+  background: rgba(148, 163, 184, 0.28);
+  color: rgba(226, 232, 240, 0.9);
 }
 
 .project-card-meta {
@@ -269,13 +269,13 @@ html[data-theme="dark"] .project-card-summary {
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #b45309;
-  background: rgba(217, 119, 6, 0.18);
+  color: rgba(71, 85, 105, 0.94);
+  background: rgba(148, 163, 184, 0.2);
   white-space: nowrap;
 }
 html[data-theme="dark"] .project-card-period {
-  color: #f7ad5a;
-  background: rgba(251, 189, 108, 0.26);
+  color: rgba(226, 232, 240, 0.9);
+  background: rgba(148, 163, 184, 0.28);
 }
 
 .project-card-button {
@@ -422,6 +422,12 @@ html[data-theme="dark"] .project-card-period {
             <span class="project-dot" aria-hidden="true"></span>
           </div>
           <div class="project-card">
+            {% assign detail_url = project.url | to_s | strip %}
+            {% if detail_url == '' %}
+              {% assign detail_url = '/404.html' | relative_url %}
+            {% else %}
+              {% assign detail_url = detail_url | relative_url %}
+            {% endif %}
             {% assign tag_items = project.tags %}
             {% if tag_items == nil or tag_items == empty %}
               {% assign subject_string = project.subject | to_s %}
@@ -449,7 +455,7 @@ html[data-theme="dark"] .project-card-period {
             <p class="project-card-summary">{{ project.excerpt | strip_html | strip_newlines | truncate: 220 }}</p>
             <div class="project-card-actions">
               <span class="project-card-period">{{ period_label }}</span>
-              <a class="project-card-button" href="{{ project.url | relative_url }}">See more</a>
+              <a class="project-card-button" href="{{ detail_url }}">See more</a>
             </div>
           </div>
         </article>
@@ -457,4 +463,3 @@ html[data-theme="dark"] .project-card-period {
     </div>
   </div>
 </div>
-
