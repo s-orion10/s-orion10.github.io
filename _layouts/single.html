@@ -58,14 +58,6 @@ layout: default
   box-sizing: border-box;
 }
 
-/* Explicit project theme to ensure orange buttons (light mode) */
-.project-detail-panel.project-theme {
-  --accent-color: #b45309;
-  --accent-muted: rgba(180, 83, 9, 0.92);
-  --accent-surface: rgba(217, 119, 6, 0.18);
-  --accent-border: rgba(217, 119, 6, 0.35);
-}
-
 /* Work experience = blue */
 .project-detail-panel.experience-theme {
   --accent-color: #1d4ed8;
@@ -430,18 +422,29 @@ html[data-theme="dark"] .pagination--accent-experience .pagination--pager:focus-
           {% endif %}
         {% endfor %}
         {% assign sanitized_paper_links = sanitized_paper_links | split: '||' | reject: '' %}
+        {% if sanitized_paper_links == empty and paper_links != empty %}
+          {% assign sanitized_paper_links = sanitized_paper_links | push: fallback_detail_url %}
+        {% endif %}
         {% assign has_paper = sanitized_paper_links.size > 0 %}
 
         {% assign video_raw = page.video | to_s | strip %}
-        {% assign has_video = video_raw != '' and video_raw != '#' %}
+        {% assign has_video_prop = video_raw != '' %}
+        {% assign has_video = has_video_prop and video_raw != '#' %}
         {% if has_video %}
           {% assign video_href = video_raw %}
+        {% elsif has_video_prop %}
+          {% assign video_href = fallback_detail_url %}
+          {% assign has_video = true %}
         {% endif %}
 
         {% assign code_raw = page.code | to_s | strip %}
-        {% assign has_code = code_raw != '' and code_raw != '#' %}
+        {% assign has_code_prop = code_raw != '' %}
+        {% assign has_code = has_code_prop and code_raw != '#' %}
         {% if has_code %}
           {% assign code_href = code_raw %}
+        {% elsif has_code_prop %}
+          {% assign code_href = fallback_detail_url %}
+          {% assign has_code = true %}
         {% endif %}
 
         {% assign show_actions = has_paper or has_video or has_code %}
