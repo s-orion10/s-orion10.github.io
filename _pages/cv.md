@@ -532,9 +532,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var px = Math.max(0, Math.min(1, x / rect.width));
     var py = Math.max(0, Math.min(1, y / rect.height));
 
-    // Glow follows the pointer
-    cvLink.style.setProperty('--pointer-x', (px * 100).toFixed(1) + '%');
-    cvLink.style.setProperty('--pointer-y', (py * 100).toFixed(1) + '%');
+    // Glow follows the pointer in px to avoid rounding to container percentages
+    cvLink.style.setProperty('--pointer-x', x.toFixed(1) + 'px');
+    cvLink.style.setProperty('--pointer-y', y.toFixed(1) + 'px');
     cvLink.style.setProperty('--glow-opacity', '1');
 
     // Subtle 3D push/tilt
@@ -561,6 +561,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   cvLink.addEventListener('pointerenter', updatePointer);
   cvLink.addEventListener('pointermove', updatePointer);
+  cvLink.addEventListener('mousemove', updatePointer);
   cvLink.addEventListener('pointerleave', resetPointer);
   cvLink.addEventListener('blur', resetPointer);
 });
