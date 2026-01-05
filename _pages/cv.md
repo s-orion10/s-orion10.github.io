@@ -163,7 +163,7 @@ html[data-theme="dark"] {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: radial-gradient(circle at top left, rgba(94, 234, 212, 0.35), transparent 55%);
+  background: radial-gradient(circle at var(--pointer-x, 25%) var(--pointer-y, 25%), rgba(94, 234, 212, 0.35), transparent 55%);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
@@ -512,6 +512,25 @@ html[data-theme="dark"] .education-card-period {
 }
 </style>
 
+<script>
+// Move the CV button glow to follow the pointer position
+document.addEventListener('DOMContentLoaded', function() {
+  var cvLink = document.querySelector('.education-cv-link');
+  if (!cvLink) return;
+
+  var setPointer = function(event) {
+    var rect = cvLink.getBoundingClientRect();
+    var x = event.clientX - rect.left;
+    var y = event.clientY - rect.top;
+    cvLink.style.setProperty('--pointer-x', x + 'px');
+    cvLink.style.setProperty('--pointer-y', y + 'px');
+  };
+
+  cvLink.addEventListener('pointerenter', setPointer);
+  cvLink.addEventListener('pointermove', setPointer);
+});
+</script>
+
 <div class="education-section">
   <div class="education-panel">
     <div class="education-header">
@@ -588,6 +607,3 @@ html[data-theme="dark"] .education-card-period {
     </div>
   </div>
 </div>
-
-
-  
