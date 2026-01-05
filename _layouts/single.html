@@ -421,7 +421,6 @@ html[data-theme="dark"] .pagination--accent-experience .pagination--pager:focus-
       {% if requires_project_panel %}
         {% assign fallback_detail_url = '/404.html' | relative_url %}
 
-        {% assign paper_prop_exists = page.paper != nil %}
         {% assign paper_links = page.paper | arrayify | compact %}
         {% assign sanitized_paper_links = '' %}
         {% for paper_link in paper_links %}
@@ -431,30 +430,26 @@ html[data-theme="dark"] .pagination--accent-experience .pagination--pager:focus-
           {% endif %}
         {% endfor %}
         {% assign sanitized_paper_links = sanitized_paper_links | split: '||' | reject: '' %}
-        {% if sanitized_paper_links == empty and paper_prop_exists %}
+        {% if sanitized_paper_links == empty %}
           {% assign sanitized_paper_links = sanitized_paper_links | push: fallback_detail_url %}
         {% endif %}
-        {% assign has_paper = sanitized_paper_links.size > 0 %}
+        {% assign has_paper = true %}
 
         {% assign video_raw = page.video | to_s | strip %}
-        {% assign has_video_prop = page.video != nil %}
-        {% assign has_video = has_video_prop and video_raw != '' and video_raw != '#' %}
-        {% if has_video %}
-          {% assign video_href = video_raw %}
-        {% elsif has_video_prop %}
+        {% if video_raw == '' or video_raw == '#' %}
           {% assign video_href = fallback_detail_url %}
-          {% assign has_video = true %}
+        {% else %}
+          {% assign video_href = video_raw %}
         {% endif %}
+        {% assign has_video = true %}
 
         {% assign code_raw = page.code | to_s | strip %}
-        {% assign has_code_prop = page.code != nil %}
-        {% assign has_code = has_code_prop and code_raw != '' and code_raw != '#' %}
-        {% if has_code %}
-          {% assign code_href = code_raw %}
-        {% elsif has_code_prop %}
+        {% if code_raw == '' or code_raw == '#' %}
           {% assign code_href = fallback_detail_url %}
-          {% assign has_code = true %}
+        {% else %}
+          {% assign code_href = code_raw %}
         {% endif %}
+        {% assign has_code = true %}
 
         {% assign show_actions = has_paper or has_video or has_code %}
 
