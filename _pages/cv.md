@@ -151,14 +151,12 @@ html[data-theme="dark"] {
   font-weight: 600;
   font-size: 1rem;
   border: 1px solid rgba(14, 116, 144, 0.32);
-  background: var(--glow, transparent) , linear-gradient(135deg, rgba(13, 148, 136, 0.16), rgba(45, 212, 191, 0.2));
+  background: var(--glow, radial-gradient(160px circle at 50% 50%, rgba(94, 234, 212, 0.28), transparent 65%)), linear-gradient(135deg, rgba(13, 148, 136, 0.16), rgba(45, 212, 191, 0.2));
   color: var(--education-link-color);
   text-decoration: none !important;
   transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
   overflow: hidden;
-  --glow: transparent;
-  --tilt-x: 0deg;
-  --tilt-y: 0deg;
+  --glow: radial-gradient(160px circle at 50% 50%, rgba(94, 234, 212, 0.28), transparent 65%);
   --press-x: 0px;
   --press-y: 0px;
 }
@@ -171,7 +169,7 @@ html[data-theme="dark"] {
 
 .education-cv-link:hover,
 .education-cv-link:focus-visible {
-  transform: translate3d(var(--press-x), var(--press-y), 0) rotateX(var(--tilt-y)) rotateY(var(--tilt-x)) scale(1.015);
+  transform: translate3d(var(--press-x), var(--press-y), 0) scale(1.01);
   box-shadow: 0 12px 28px rgba(13, 148, 136, 0.28);
   background: var(--glow, transparent) , linear-gradient(135deg, rgba(13, 148, 136, 0.26), rgba(45, 212, 191, 0.32));
   border-color: rgba(13, 148, 136, 0.6);
@@ -502,10 +500,13 @@ html[data-theme="dark"] .education-card-period {
 </style>
 
 <script>
-// Pointer-reactive glow and subtle 3D tilt on the CV download button
+// Pointer-reactive glow on the CV download button (no tilt, only slight push)
 document.addEventListener('DOMContentLoaded', function() {
   var cvLink = document.querySelector('.education-cv-link');
   if (!cvLink) return;
+
+  var defaultGlow = 'radial-gradient(160px circle at 50% 50%, rgba(94, 234, 212, 0.28), transparent 65%)';
+  cvLink.style.setProperty('--glow', defaultGlow);
 
   var updatePointer = function(event) {
     var rect = cvLink.getBoundingClientRect();
@@ -514,26 +515,20 @@ document.addEventListener('DOMContentLoaded', function() {
     var px = Math.max(0, Math.min(1, x / rect.width));
     var py = Math.max(0, Math.min(1, y / rect.height));
 
-    // Glow follows the pointer; we draw it directly into the background stack
-    var glow = 'radial-gradient(220px circle at ' + x.toFixed(1) + 'px ' + y.toFixed(1) + 'px, rgba(94, 234, 212, 0.48), transparent 62%)';
+    // Glow follows the pointer; drawn directly into the background stack
+    var glow = 'radial-gradient(220px circle at ' + x.toFixed(1) + 'px ' + y.toFixed(1) + 'px, rgba(94, 234, 212, 0.5), transparent 65%)';
     cvLink.style.setProperty('--glow', glow);
 
-    // Subtle 3D push/tilt
-    var tiltX = ((0.5 - px) * 10).toFixed(2) + 'deg'; // invert for natural feel
-    var tiltY = ((py - 0.5) * 10).toFixed(2) + 'deg';
+    // Subtle push only
     var moveX = ((px - 0.5) * 6).toFixed(2) + 'px';
     var moveY = ((py - 0.5) * 6).toFixed(2) + 'px';
 
-    cvLink.style.setProperty('--tilt-x', tiltX);
-    cvLink.style.setProperty('--tilt-y', tiltY);
     cvLink.style.setProperty('--press-x', moveX);
     cvLink.style.setProperty('--press-y', moveY);
   };
 
   var resetPointer = function() {
-    cvLink.style.setProperty('--glow', 'transparent');
-    cvLink.style.setProperty('--tilt-x', '0deg');
-    cvLink.style.setProperty('--tilt-y', '0deg');
+    cvLink.style.setProperty('--glow', defaultGlow);
     cvLink.style.setProperty('--press-x', '0px');
     cvLink.style.setProperty('--press-y', '0px');
   };
