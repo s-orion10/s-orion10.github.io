@@ -156,6 +156,13 @@ html[data-theme="dark"] {
   text-decoration: none !important;
   transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
   overflow: hidden;
+  --pointer-x: 50%;
+  --pointer-y: 50%;
+  --glow-opacity: 0;
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  --press-x: 0px;
+  --press-y: 0px;
 }
 
 .education-cv-link::before {
@@ -163,9 +170,9 @@ html[data-theme="dark"] {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: radial-gradient(circle at var(--pointer-x, 25%) var(--pointer-y, 25%), rgba(94, 234, 212, 0.35), transparent 55%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  background: radial-gradient(160px circle at var(--pointer-x) var(--pointer-y), rgba(94, 234, 212, 0.42), transparent 65%);
+  opacity: var(--glow-opacity);
+  transition: opacity 0.25s ease, background-position 0.15s ease;
   pointer-events: none;
 }
 
@@ -177,7 +184,7 @@ html[data-theme="dark"] {
 
 .education-cv-link:hover,
 .education-cv-link:focus-visible {
-  transform: translateY(-2px) scale(1.02);
+  transform: translate3d(var(--press-x), var(--press-y), 0) rotateX(var(--tilt-y)) rotateY(var(--tilt-x)) scale(1.015);
   box-shadow: 0 12px 28px rgba(13, 148, 136, 0.28);
   background: linear-gradient(135deg, rgba(13, 148, 136, 0.26), rgba(45, 212, 191, 0.32));
   border-color: rgba(13, 148, 136, 0.6);
@@ -513,21 +520,49 @@ html[data-theme="dark"] .education-card-period {
 </style>
 
 <script>
-// Move the CV button glow to follow the pointer position
+// Pointer-reactive glow and subtle 3D tilt on the CV download button
 document.addEventListener('DOMContentLoaded', function() {
   var cvLink = document.querySelector('.education-cv-link');
   if (!cvLink) return;
 
-  var setPointer = function(event) {
+  var updatePointer = function(event) {
     var rect = cvLink.getBoundingClientRect();
     var x = event.clientX - rect.left;
     var y = event.clientY - rect.top;
-    cvLink.style.setProperty('--pointer-x', x + 'px');
-    cvLink.style.setProperty('--pointer-y', y + 'px');
+    var px = Math.max(0, Math.min(1, x / rect.width));
+    var py = Math.max(0, Math.min(1, y / rect.height));
+
+    // Glow follows the pointer
+    cvLink.style.setProperty('--pointer-x', (px * 100).toFixed(1) + '%');
+    cvLink.style.setProperty('--pointer-y', (py * 100).toFixed(1) + '%');
+    cvLink.style.setProperty('--glow-opacity', '1');
+
+    // Subtle 3D push/tilt
+    var tiltX = ((0.5 - px) * 10).toFixed(2) + 'deg'; // invert for natural feel
+    var tiltY = ((py - 0.5) * 10).toFixed(2) + 'deg';
+    var moveX = ((px - 0.5) * 6).toFixed(2) + 'px';
+    var moveY = ((py - 0.5) * 6).toFixed(2) + 'px';
+
+    cvLink.style.setProperty('--tilt-x', tiltX);
+    cvLink.style.setProperty('--tilt-y', tiltY);
+    cvLink.style.setProperty('--press-x', moveX);
+    cvLink.style.setProperty('--press-y', moveY);
   };
 
-  cvLink.addEventListener('pointerenter', setPointer);
-  cvLink.addEventListener('pointermove', setPointer);
+  var resetPointer = function() {
+    cvLink.style.setProperty('--glow-opacity', '0');
+    cvLink.style.setProperty('--tilt-x', '0deg');
+    cvLink.style.setProperty('--tilt-y', '0deg');
+    cvLink.style.setProperty('--press-x', '0px');
+    cvLink.style.setProperty('--press-y', '0px');
+    cvLink.style.setProperty('--pointer-x', '50%');
+    cvLink.style.setProperty('--pointer-y', '50%');
+  };
+
+  cvLink.addEventListener('pointerenter', updatePointer);
+  cvLink.addEventListener('pointermove', updatePointer);
+  cvLink.addEventListener('pointerleave', resetPointer);
+  cvLink.addEventListener('blur', resetPointer);
 });
 </script>
 
