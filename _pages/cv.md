@@ -7,7 +7,7 @@ redirect_from:
   - /resume
   - /cv/
 entries:
-  - title: "Ph.D. in Automatic Control, Bioengineering and Operations"
+  - title: "Ph.D. in Automatic Control, Bioengineering and Operations Research"
     institution: "Sapienza University of Rome"
     location: "Rome, Italy"
     period: "Nov 2021 - Present"
