@@ -13,13 +13,39 @@
       <li><a href="http://bitbucket.org/{{ site.author.bitbucket }}"><i class="fab fa-bitbucket" aria-hidden="true"></i> Bitbucket</a></li>
     {% endif %}
     {% if site.atom_feed.hide != true %}
-    <li><a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].feed_label | default: "Feed" }}</a></li>
+      <li><a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].feed_label | default: "Feed" }}</a></li>
     {% endif %}
   </ul>
 </div>
 {% endif %}
 
+<!-- R-Federation badge -->
+<div style="margin: 1.2rem 0 0.6rem; text-align: center;">
+  <a href="https://r-federation.eu/"
+     target="_blank"
+     rel="noopener"
+     style="
+       display:inline-block;
+       padding:8px 18px;
+       border:1px solid rgba(156,163,175,0.7);
+       border-radius: 4px;
+       font-size:0.75rem;
+       letter-spacing:0.12em;
+       text-transform:uppercase;
+       text-decoration:none;
+       color:inherit;
+       opacity:0.85;
+       transition:opacity 0.2s ease;
+     "
+     onmouseover="this.style.opacity='1'"
+     onmouseout="this.style.opacity='0.85'">
+    Member of R-Federation
+  </a>
+</div>
+
 <div class="page__footer-copyright">
   &copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}, {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.<br />
   Site last updated {{ "now" | date: '%Y-%m-%d' %}}
 </div>
+
+
