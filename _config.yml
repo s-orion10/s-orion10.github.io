@@ -1,5 +1,5 @@
 # Basic Site Settings
-url                      : https://r-orelli.eu
+url                      : "https://r-orelli.eu"
 baseurl                  : "" 
 repository               : "s-orion10/s-orion10.github.io"
 
