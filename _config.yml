@@ -13,7 +13,7 @@ title                    : "Simone Orelli"
 title_separator          : "-"
 name                     : &name "Simone Orelli"
 description              : &description ""
-url                      : https://s-orion10.github.io/ # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
+url                      : https://r-orelli.eu # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "s-orion10/s-orion10.github.io"
 
@@ -123,7 +123,7 @@ atom_feed:
   path                   : # blank (default) uses feed.xml
 
 # SEO Related
-google_site_verification :
+google_site_verification : "Vbl_tnDtUPTfIP0oVQSA7tDIos71TuVQpDaqlvDRoiA"
 bing_site_verification   :
 alexa_site_verification  :
 yandex_site_verification :
