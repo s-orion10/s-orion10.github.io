@@ -115,28 +115,6 @@ html[data-theme="dark"] {
 .contact-button--linkedin:hover, .contact-button--linkedin:focus-visible { background: var(--profile-mail-accent-bg); border-color: var(--profile-mail-accent-border); color: var(--profile-mail-accent-color); }
 </style>
 
-<div class="section-panel" style="border-left: 4px solid #dc2626;">
-  <p style="margin:0; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:#dc2626;">
-    Node: r-orelli.eu
-  </p>
-
-  <p style="margin-top:1rem; font-size:1.05rem;">
-    <strong>Correspondence:</strong> 
-    <a href="mailto:schol@r-orelli.eu">schol@r-orelli.eu</a>
-  </p>
-
-  <p style="margin:0.6rem 0 0 0; font-size:1.05rem;">
-    <strong>ORCID:</strong> 
-    <a href="https://orcid.org/0009-0007-6613-8597" target="_blank" rel="noopener">
-      0009-0007-6613-8597
-    </a>
-  </p>
-
-  <p style="margin-top:1rem; font-size:0.9rem; opacity:0.75;">
-    For administrative matters, please use institutional gateways (@uniroma1.it).
-  </p>
-</div>
-
 <div class="section-panel">
   <div class="section-body">
     <p>I’m Simone Orelli, a control systems engineer with a strong interest in robotics, applied mathematics, and software development. I enjoy translating mathematical theory into real-world systems, designing controllers that allow vehicles to move, adapt, and operate reliably in complex environments. As a control engineer, I am especially drawn to autunomous vehicles that move and interact with their surroundings, such as drones, robots, and autonomous systems. I like working on problems where dynamics matter, where models are imperfect, and where nonlinear control is needed to make theory behave well on real hardware. Whether I am tuning a controller, refining a model, or tracking down subtle system behaviors, I enjoy the process of making complex systems work cleanly and predictably in practice.</p>
@@ -361,7 +339,7 @@ html[data-theme="dark"] {
   <p>I’m always open to new collaborations, research projects, or just a friendly chat about control theory, robotics, or the latest chess opening.</p>
   <p>Prefer a quick ping? Use these shortcuts.</p>
   <div class="contact-actions">
-    <a class="contact-button contact-button--mail" href="mailto:simoneorelli@icloud.com">Email Me</a>
+    <a class="contact-button contact-button--mail" href="mailto:schol@r-orelli.eu">Email Me</a>
     <a class="contact-button contact-button--linkedin" href="https://www.linkedin.com/in/simone-orelli-a5b9a1144" target="_blank" rel="noopener">Message on LinkedIn</a>
   </div>
 </div>
