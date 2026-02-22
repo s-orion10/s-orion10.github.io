@@ -1,40 +1,42 @@
 {% include base_path %}
 
 <style>
-.rfed-btn {
-  display: inline-block;
-  padding: 10px 22px;
-  border-radius: 6px;
-  font-size: 0.75rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.2s ease;
+.rfed-btn{
+  display:inline-block;
+  padding:10px 22px;
+  border-radius:8px;
+  font-size:.75rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  text-decoration:none;
+  font-weight:600;
+  transition: background .18s ease, border-color .18s ease, color .18s ease, transform .18s ease;
 }
 
-/* Light mode */
-html:not([data-theme="dark"]) .rfed-btn {
-  border: 1px solid #111;
-  background: #111;
-  color: #fff;
+/* LIGHT: sobrio, “ghost”, non spezza */
+html:not([data-theme="dark"]) .rfed-btn{
+  border:1px solid rgba(15, 23, 42, 0.22);
+  background: rgba(15, 23, 42, 0.035);
+  color: rgba(15, 23, 42, 0.62);
 }
 
-html:not([data-theme="dark"]) .rfed-btn:hover {
-  background: #000;
-  transform: translateY(-2px);
+html:not([data-theme="dark"]) .rfed-btn:hover{
+  background: rgba(15, 23, 42, 0.06);
+  border-color: rgba(15, 23, 42, 0.32);
+  color: rgba(15, 23, 42, 0.78);
+  transform: translateY(-1px);
 }
 
-/* Dark mode */
-html[data-theme="dark"] .rfed-btn {
-  border: 1px solid rgba(255,255,255,0.5);
+/* DARK: come piace a te (preservato) */
+html[data-theme="dark"] .rfed-btn{
+  border:1px solid rgba(255,255,255,0.5);
   background: rgba(255,255,255,0.05);
-  color: #fff;
+  color: rgba(255,255,255,0.85);
 }
 
-html[data-theme="dark"] .rfed-btn:hover {
+html[data-theme="dark"] .rfed-btn:hover{
   background: rgba(255,255,255,0.12);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 </style>
 
