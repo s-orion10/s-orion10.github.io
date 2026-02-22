@@ -1,6 +1,7 @@
 {% include base_path %}
 
 <style>
+/* --- R-Federation button --- */
 .rfed-btn{
   display:inline-block;
   padding:10px 22px;
@@ -27,7 +28,7 @@ html:not([data-theme="dark"]) .rfed-btn:hover{
   transform: translateY(-1px);
 }
 
-/* DARK: come piace a te (preservato) */
+/* DARK: come piace a te */
 html[data-theme="dark"] .rfed-btn{
   border:1px solid rgba(255,255,255,0.5);
   background: rgba(255,255,255,0.05);
@@ -38,9 +39,28 @@ html[data-theme="dark"] .rfed-btn:hover{
   background: rgba(255,255,255,0.12);
   transform: translateY(-1px);
 }
+
+/* --- Divider sopra al bottone --- */
+.rfed-divider{
+  width:72px;
+  height:1px;
+  margin:16px auto 18px;
+  background: rgba(15, 23, 42, 0.15);
+}
+
+html[data-theme="dark"] .rfed-divider{
+  background: rgba(255,255,255,0.20);
+}
+
+/* --- Footer text (più sobrio) --- */
+.footer-meta{
+  font-size:0.9rem;
+  opacity:0.75;
+  margin-top:18px;
+}
 </style>
 
-<div style="text-align:center; padding-top: 12px;">
+<div style="text-align:center; padding-top:12px;">
 
   {% if site.author.github or site.author.bitbucket or site.atom_feed.hide != true %}
   <div class="page__footer-follow">
@@ -78,13 +98,13 @@ html[data-theme="dark"] .rfed-btn:hover{
   </div>
   {% endif %}
 
-  <div style="width:72px; height:1px; background:rgba(255,255,255,0.20); margin:16px auto 18px;"></div>
+  <div class="rfed-divider"></div>
 
-<a href="https://r-federation.eu/" target="_blank" rel="noopener" class="rfed-btn">
-  Member of R-Federation
-</a>
+  <a href="https://r-federation.eu/" target="_blank" rel="noopener" class="rfed-btn">
+    Member of R-Federation
+  </a>
 
-  <div class="page__footer-copyright" style="font-size:0.9rem; opacity:0.75;">
+  <div class="page__footer-copyright footer-meta">
     &copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}.
     Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp;
     <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>.<br />
