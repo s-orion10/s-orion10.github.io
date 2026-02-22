@@ -1,30 +1,78 @@
 {% include base_path %}
 
-<div class="custom-footer" style="text-align:center; margin-top:2rem;">
+<style>
+/* --- Clean footer lists (remove bullets/indent) --- */
+.page__footer .social-icons,
+.page__footer .social-icons li,
+.page__footer ul,
+.page__footer li {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Put social icons on one line and centered */
+.page__footer .page__footer-follow .social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Make "Follow:" not look like a list item */
+.page__footer .page__footer-follow .social-icons li strong {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* Optional: tighten footer spacing */
+.page__footer .page__footer-follow {
+  margin-bottom: 12px;
+}
+</style>
+
+<div style="text-align:center; padding-top: 12px;">
 
   {% if site.author.github or site.author.bitbucket or site.atom_feed.hide != true %}
-  <div style="margin-bottom:1.2rem;">
-    <ul class="social-icons" style="justify-content:center;">
+  <div class="page__footer-follow">
+    <ul class="social-icons">
       {% if site.data.ui-text[site.locale].follow_label %}
         <li><strong>{{ site.data.ui-text[site.locale].follow_label }}</strong></li>
+      {% else %}
+        <li><strong>Follow:</strong></li>
       {% endif %}
+
       {% if site.author.github %}
-        <li><a href="http://github.com/{{ site.author.github }}"><i class="fab fa-github"></i> GitHub</a></li>
+        <li>
+          <a href="https://github.com/{{ site.author.github }}">
+            <i class="fab fa-github" aria-hidden="true"></i> GitHub
+          </a>
+        </li>
       {% endif %}
+
+      {% if site.author.bitbucket %}
+        <li>
+          <a href="https://bitbucket.org/{{ site.author.bitbucket }}">
+            <i class="fab fa-bitbucket" aria-hidden="true"></i> Bitbucket
+          </a>
+        </li>
+      {% endif %}
+
       {% if site.atom_feed.hide != true %}
-        <li><a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}">
-          <i class="fa fa-fw fa-rss-square"></i> Feed</a>
+        <li>
+          <a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}">
+            <i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed
+          </a>
         </li>
       {% endif %}
     </ul>
   </div>
   {% endif %}
 
-  <!-- Divider line -->
-  <div style="width:60px; height:1px; background:rgba(255,255,255,0.25); margin:1.5rem auto;"></div>
+  <div style="width:72px; height:1px; background:rgba(255,255,255,0.20); margin:16px auto 18px;"></div>
 
-  <!-- R-Federation badge -->
-  <div style="margin-bottom:1.5rem;">
+  <div style="margin-bottom: 18px;">
     <a href="https://r-federation.eu/"
        target="_blank"
        rel="noopener"
@@ -39,17 +87,14 @@
          text-decoration:none;
          color:inherit;
          opacity:0.85;
-         transition:all 0.2s ease;
-       "
-       onmouseover="this.style.opacity='1'"
-       onmouseout="this.style.opacity='0.85'">
+       ">
       Member of R-Federation
     </a>
   </div>
 
-  <div class="page__footer-copyright" style="font-size:0.85rem; opacity:0.75;">
+  <div class="page__footer-copyright" style="font-size:0.9rem; opacity:0.75;">
     &copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}.
-    Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp;
+    Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp;
     <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>.<br />
     Site last updated {{ "now" | date: '%Y-%m-%d' }}
   </div>
