@@ -48,12 +48,15 @@
     }
     resize();
 
+    let varsCache = null;
     function readVars() {
+      if (varsCache) return varsCache;
       const cs = getComputedStyle(document.documentElement);
       const theme = document.documentElement.getAttribute("data-theme") || "night";
       const ink = cs.getPropertyValue("--ink").trim();
       const accent = cs.getPropertyValue("--accent").trim();
-      return { theme, ink, accent };
+      varsCache = { theme, ink, accent };
+      return varsCache;
     }
 
     /* ---------- Nebula ---------- */
@@ -78,15 +81,6 @@
         g.addColorStop(0, `hsla(${hue}, ${sat}%, ${light}%, ${baseAlpha})`);
         g.addColorStop(0.45, `hsla(${hue}, ${sat}%, ${light}%, ${baseAlpha * 0.34})`);
         g.addColorStop(1, `hsla(${hue}, ${sat}%, ${light}%, 0)`);
-        ctx.fillStyle = g;
-        ctx.fillRect(0, 0, w, h);
-      }
-      // soft glow that follows the cursor
-      if (mouseX > 0 && !reduced) {
-        const hue = hues[1] + hueShift;
-        const g = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, 280);
-        g.addColorStop(0, `hsla(${hue}, 90%, 66%, ${0.1 * k})`);
-        g.addColorStop(1, `hsla(${hue}, 90%, 66%, 0)`);
         ctx.fillStyle = g;
         ctx.fillRect(0, 0, w, h);
       }
@@ -146,34 +140,42 @@
       return `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${a})`;
     }
 
-    /* ---------- Loop ---------- */
-    function loop() {
-      if (!reduced) { time += 16; draw(); }
-      else if (dirty) { draw(); dirty = false; }
-      raf = requestAnimationFrame(loop);
+    /* ---------- On-demand render (no continuous loop) ----------
+       The nebula is static when idle; we only repaint on scroll (parallax /
+       hue), resize, theme change, or a tweak. This keeps the GPU quiet so the
+       blurred top bar doesn't re-composite every frame and hovers stay instant. */
+    let scheduled = false;
+    function schedule() {
+      if (scheduled) return;
+      scheduled = true;
+      raf = requestAnimationFrame(() => { scheduled = false; draw(); });
     }
 
-    function onMove(e) { mouseX = e.clientX; mouseY = e.clientY; dirty = true; }
-    function onLeave() { mouseX = -9999; mouseY = -9999; dirty = true; }
+    function onMove(e) {
+      // Only the dot overlay reacts to the cursor; skip redraws otherwise.
+      if (curPattern !== "dots") return;
+      mouseX = e.clientX; mouseY = e.clientY; schedule();
+    }
+    function onLeave() { if (curPattern !== "dots") return; mouseX = -9999; mouseY = -9999; schedule(); }
     function onScroll() {
       scrollPx = window.scrollY || document.documentElement.scrollTop || 0;
       const docH = Math.max(1, (document.documentElement.scrollHeight || h) - window.innerHeight);
       scrollPhase = Math.min(1, Math.max(0, scrollPx / docH));
-      dirty = true;
+      schedule();
     }
 
-    window.addEventListener("resize", resize);
+    window.addEventListener("resize", () => { resize(); schedule(); });
     window.addEventListener("mousemove", onMove, { passive: true });
     window.addEventListener("mouseleave", onLeave);
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
-    loop();
+    schedule();
 
     return {
-      setPattern(p) { curPattern = p; dirty = true; },
-      setIntensity(v) { curIntensity = Math.max(0, Math.min(100, +v || 0)); dirty = true; },
-      setPalette(p) { if (PALETTES[p]) curPalette = p; dirty = true; },
-      invalidate() { Object.keys(cache).forEach((k) => delete cache[k]); dirty = true; },
+      setPattern(p) { curPattern = p; schedule(); },
+      setIntensity(v) { curIntensity = Math.max(0, Math.min(100, +v || 0)); schedule(); },
+      setPalette(p) { if (PALETTES[p]) curPalette = p; schedule(); },
+      invalidate() { varsCache = null; Object.keys(cache).forEach((k) => delete cache[k]); schedule(); },
       destroy() {
         cancelAnimationFrame(raf);
         window.removeEventListener("resize", resize);

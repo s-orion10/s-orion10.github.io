@@ -101,9 +101,9 @@ em { font-style: italic; }
   border-bottom: 1px solid color-mix(in oklab, var(--border) 60%, transparent);
 }
 .topbar__inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 18px clamp(20px, 4vw, 48px);
+  max-width: none;
+  margin: 0;
+  padding: 18px clamp(20px, 3vw, 40px);
   display: flex;
   align-items: center;
   gap: 32px;
@@ -130,6 +130,7 @@ em { font-style: italic; }
 }
 .topbar__brand:hover .topbar__mark { animation: spin360 .55s cubic-bezier(.4,0,.2,1); }
 @keyframes spin360 { to { transform: rotate(360deg); } }
+@keyframes spin360-click { to { transform: rotate(360deg); } }
 @keyframes pulse {
   0%, 100% { box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 22%, transparent); }
   50%      { box-shadow: 0 0 0 7px color-mix(in oklab, var(--accent) 8%, transparent); }
@@ -167,17 +168,20 @@ em { font-style: italic; }
   transition: all .2s;
 }
 .theme-btn:hover { color: var(--accent); border-color: var(--accent); }
+.theme-btn__icon { display: grid; place-items: center; }
+.theme-btn:hover .theme-btn__icon { animation: spin360 .55s cubic-bezier(.4,0,.2,1); }
+.theme-btn__icon.is-spin { animation: spin360-click .55s cubic-bezier(.4,0,.2,1); }
 
 /* ============================================================
    Layout: profile sidebar + main content
    ============================================================ */
 .page {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 40px clamp(20px, 4vw, 48px) 80px;
+  max-width: none;
+  margin: 0;
+  padding: 40px clamp(20px, 3vw, 40px) 80px;
   display: grid;
   grid-template-columns: 280px 1fr;
-  gap: clamp(32px, 5vw, 64px);
+  gap: clamp(32px, 5vw, 72px);
   align-items: start;
 }
 
@@ -533,8 +537,8 @@ em { font-style: italic; }
   border-radius: 18px;
   padding: 24px 24px 22px;
   background: color-mix(in oklab, var(--surface) 42%, transparent);
-  backdrop-filter: blur(18px) saturate(150%);
-  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
   box-shadow: inset 0 1px 0 color-mix(in oklab, white 8%, transparent);
   transition: border-color .2s, transform .2s;
 }
@@ -1105,9 +1109,9 @@ em { font-style: italic; }
    Footer
    ============================================================ */
 .page-footer {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 24px clamp(20px, 4vw, 48px) 36px;
+  max-width: none;
+  margin: 0;
+  padding: 24px clamp(20px, 3vw, 40px) 36px;
   border-top: 1px solid var(--border);
   display: flex;
   justify-content: space-between;
@@ -1160,8 +1164,8 @@ em { font-style: italic; }
   border: 1px solid color-mix(in oklab, var(--border) 70%, transparent);
   border-radius: 14px;
   background: color-mix(in oklab, var(--surface) 40%, transparent);
-  backdrop-filter: blur(16px) saturate(150%);
-  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
   display: flex;
   flex-direction: column;
   gap: 2px;

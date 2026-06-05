@@ -23,6 +23,8 @@ function useTheme() {
 
 /* ----- Top-bar nav (page-to-page) ----- */
 function TopNav({ current, theme, onTheme }) {
+  const [spin, setSpin] = useState(0);
+  const handleTheme = () => { setSpin((s) => s + 1); onTheme(); };
   return (
     <header className="topbar">
       <div className="topbar__inner">
@@ -47,11 +49,16 @@ function TopNav({ current, theme, onTheme }) {
         </nav>
         <button
           className="theme-btn"
-          onClick={onTheme}
+          onClick={handleTheme}
           aria-label="Toggle theme"
           title="Toggle theme"
         >
-          <Icon name={theme === "night" ? "sun" : "moon"} size={16} />
+          <span
+            key={spin}
+            className={"theme-btn__icon" + (spin > 0 ? " is-spin" : "")}
+          >
+            <Icon name={theme === "night" ? "sun" : "moon"} size={16} />
+          </span>
         </button>
       </div>
     </header>
