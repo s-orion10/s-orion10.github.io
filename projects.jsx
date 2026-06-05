@@ -15,6 +15,7 @@ function ProjectCard({ p }) {
       <div className="proj-card__visual">
         <image-slot
           id={p.photo}
+          src={p.photoSrc || ""}
           shape="rect"
           style={{ width: "100%", height: "100%" }}
           placeholder={p.slotPlaceholder || "Drop a project image"}

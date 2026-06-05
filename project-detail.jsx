@@ -44,6 +44,7 @@ function ProjectDetail() {
           <div className={"proj-detail__hero" + (proj.heroFit === "contain" ? " proj-detail__hero--contain" : "")}>
             <image-slot
               id={proj.photo}
+              src={proj.photoSrc || ""}
               shape="rect"
               fit={proj.heroFit || "cover"}
               style={{ width: "100%", height: "100%" }}

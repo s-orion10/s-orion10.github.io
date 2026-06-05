@@ -36,6 +36,7 @@ function PageCards() {
               <div className="big-card__media">
                 <image-slot
                   id={c.photo}
+                  src={c.photoSrc || ""}
                   shape="rect"
                   style={{ width: "100%", height: "100%" }}
                   placeholder={c.slotPlaceholder || "Drop a photo"}

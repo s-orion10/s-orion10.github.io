@@ -344,6 +344,7 @@ function TLEntry({ entry }) {
           <div className="tl-card__media">
             <image-slot
               id={entry.photo}
+              src={entry.photoSrc || ""}
               shape="rect"
               style={{ width: "100%", height: "100%" }}
               placeholder={entry.slotPlaceholder || "Drop a photo"}

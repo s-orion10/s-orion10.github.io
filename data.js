@@ -30,6 +30,7 @@ window.SITE_DATA = {
       title: "Work Experiences",
       desc: "Research engineering, autopilot work for the Sapienza Flight Team, tutoring at the Latina campus, and a year of National Civil Service in Sezze.",
       photo: "card-work",
+      photoSrc: "images/sft.png",
       slotPlaceholder: "Drop a research / lab photo",
     },
     {
@@ -38,6 +39,7 @@ window.SITE_DATA = {
       title: "Projects",
       desc: "Builds where theory met hardware — from a Lyapunov-certified geometric controller for tilted multirotors to a tilt-tricopter VTOL, DDP for underactuated robots, and a self-balancing robot.",
       photo: "card-projects",
+      photoSrc: "images/tricopter.png",
       slotPlaceholder: "Drop a drone / build render",
     },
     {
@@ -46,6 +48,7 @@ window.SITE_DATA = {
       title: "Education",
       desc: "Doctoral research at DIAG Sapienza, M.Eng. in Control Engineering, B.Eng. in Information Engineering at the Sapienza Latina campus, and a technical-institute diploma in Business Information Systems.",
       photo: "card-education",
+      photoSrc: "images/sapienza.png",
       slotPlaceholder: "Drop a Sapienza / campus photo",
     },
     {
@@ -77,6 +80,7 @@ window.SITE_DATA = {
       to: "MAY 2026",
       current: false,
       photo: "work-soar",
+      photoSrc: "images/sapienza.png",
       slotPlaceholder: "Drop a SOAR-TOUCH / hexarotor photo",
       desc:
         "How can soft optical tactile sensing enable energy-efficient and stable interaction with the environment in aerial robots under external disturbances? Within the SOAR-TOUCH project I addressed this question by designing control strategies and integrating tactile perception on a hexarotor platform.",
@@ -96,6 +100,7 @@ window.SITE_DATA = {
       desc:
         "Partner of the Sapienza Aerospace Student Association (SASA) on the Sapienza Flight Team — a competition-grade tilt-tricopter VTOL UAV.",
       photo: "work-sft",
+      photoSrc: "images/sft.png",
       slotPlaceholder: "Drop an SFT / Stingray photo",
       details: [
         "Designed a geometric tracking controller for autonomous vertical flight of a VTOL tricopter.",
@@ -119,6 +124,7 @@ window.SITE_DATA = {
       desc:
         "Tutor for the course Fondamenti di Automatica I — Teoria dei Sistemi, under the supervision of Prof. Mattia Mattioni. First semester of the 2022/2023 academic year at the Latina campus of Sapienza University of Rome.",
       photo: "work-tutor",
+      photoSrc: "images/latina.jpg",
       slotPlaceholder: "Drop a teaching / campus photo",
       heroFit: "cover",
       details: [
@@ -138,6 +144,7 @@ window.SITE_DATA = {
       desc:
         "Volunteer of the National Civil Service engaged in the social-services sector for the project Help adults and elderly people in difficult conditions.",
       photo: "work-civil",
+      photoSrc: "images/sezze.png",
       slotPlaceholder: "Drop a civil-service photo",
       heroFit: "cover",
       details: [
@@ -161,6 +168,7 @@ window.SITE_DATA = {
       year: "2024 / 2025",
       org: "Sapienza · Master thesis",
       photo: "proj-gtm",
+      photoSrc: "images/master_thesis.png",
       category: "thesis",
       slotPlaceholder: "Drop a GTM / tilted-multirotor render",
       desc:
@@ -188,6 +196,7 @@ window.SITE_DATA = {
       year: "Winter — Spring 2023/2024",
       org: "Sapienza · Control Problems in Robotics",
       photo: "proj-ddp",
+      photoSrc: "images/ddp.png",
       category: "academic",
       slotPlaceholder: "Drop a pendubot / acrobot frame",
       desc:
@@ -208,6 +217,7 @@ window.SITE_DATA = {
       year: "Fall 2024 — 2025",
       org: "Sapienza Flight Team",
       photo: "proj-stingray",
+      photoSrc: "images/tricopter.png",
       category: "academic",
       slotPlaceholder: "Drop a Stingray VTOL photo",
       desc:
@@ -232,6 +242,7 @@ window.SITE_DATA = {
       year: "2024",
       org: "Sapienza · Machine Learning",
       photo: "proj-cnn",
+      photoSrc: "images/ML.png",
       category: "academic",
       slotPlaceholder: "Drop a CarRacing frame",
       desc:
@@ -265,6 +276,7 @@ window.SITE_DATA = {
       year: "Winter — Spring 2023/2024",
       org: "Sapienza · team project",
       photo: "proj-ingenuity",
+      photoSrc: "images/ingenuity.png",
       category: "academic",
       slotPlaceholder: "Drop an Ingenuity render",
       desc:
@@ -293,6 +305,7 @@ window.SITE_DATA = {
       year: "Autumn — Winter 2023",
       org: "Sapienza · Digital Control Systems",
       photo: "proj-balance",
+      photoSrc: "images/grandland.png",
       category: "academic",
       slotPlaceholder: "Drop a self-balancing robot photo",
       desc:
@@ -335,6 +348,7 @@ window.SITE_DATA = {
       org: "Sapienza Università di Roma · DIAG",
       role: "Doctorate",
       photo: "edu-phd",
+      photoSrc: "images/sapienza.png",
       slotPlaceholder: "Drop a DIAG / PhD photo",
       where: "Rome, Italy",
       from: "NOV 2025",
@@ -353,6 +367,7 @@ window.SITE_DATA = {
       org: "Sapienza Università di Roma",
       role: "Master's degree",
       photo: "edu-msc",
+      photoSrc: "images/sapienza.png",
       slotPlaceholder: "Drop a graduation photo",
       where: "Rome, Italy",
       from: "OCT 2021",
@@ -367,6 +382,7 @@ window.SITE_DATA = {
       org: "Sapienza Università di Roma — Latina campus",
       role: "Bachelor's degree",
       photo: "edu-bsc",
+      photoSrc: "images/latina.jpg",
       slotPlaceholder: "Drop a Latina campus photo",
       where: "Latina, Italy",
       from: "SEP 2016",
@@ -381,6 +397,7 @@ window.SITE_DATA = {
       org: "ISIS Pacifici & De Magistris",
       role: "High school",
       photo: "edu-diploma",
+      photoSrc: "images/ISIS_Pacifici_e_DeMagistris.png",
       slotPlaceholder: "Drop a school photo",
       where: "Sezze (LT), Italy",
       from: "SEP 2011",

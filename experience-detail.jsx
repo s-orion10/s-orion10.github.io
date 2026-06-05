@@ -54,6 +54,7 @@ function ExperienceDetail() {
             <div className={"proj-detail__hero" + (heroFit === "contain" ? " proj-detail__hero--contain" : "")}>
               <image-slot
                 id={entry.photo}
+                src={entry.photoSrc || ""}
                 shape="rect"
                 fit={heroFit}
                 style={{ width: "100%", height: "100%" }}
