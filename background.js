@@ -27,14 +27,28 @@
     let curIntensity = intensity;
     let curPalette = PALETTES[palette] ? palette : "cosmic";
 
-    // Soft blob field — positions/sizes as fractions of the viewport.
-    const blobs = [
-      { ox: 0.20, oy: 0.16, r: 0.58, hue: 0, sx: 0.8, sy: 0.6, ph: 0.3, par: 0.05 },
-      { ox: 0.80, oy: 0.30, r: 0.52, hue: 1, sx: 0.6, sy: 0.9, ph: 1.7, par: 0.12 },
-      { ox: 0.50, oy: 0.62, r: 0.66, hue: 2, sx: 0.9, sy: 0.5, ph: 2.6, par: 0.02 },
-      { ox: 0.12, oy: 0.82, r: 0.44, hue: 3, sx: 0.7, sy: 0.8, ph: 4.1, par: 0.16 },
-      { ox: 0.90, oy: 0.74, r: 0.48, hue: 2, sx: 1.0, sy: 0.7, ph: 5.4, par: 0.09 },
-    ];
+    /* The flowing aurora is now pure CSS (GPU-composited transforms) so it
+       never touches the main thread. We inject its layer once and only drive
+       its opacity from the intensity tweak; colours come from [data-palette]
+       via stylesheet. The canvas below is used ONLY for the optional, static
+       dots/grid overlay. */
+    function setAuroraOpacity(v) {
+      const o = Math.max(0, Math.min(1, (v / 100) * 1.0));
+      document.documentElement.style.setProperty("--aurora-opacity", o.toFixed(3));
+    }
+    (function injectAurora() {
+      if (document.querySelector(".aurora")) return;
+      const layer = document.createElement("div");
+      layer.className = "aurora";
+      layer.setAttribute("aria-hidden", "true");
+      layer.innerHTML =
+        '<div class="aurora__blob aurora__blob--1"></div>' +
+        '<div class="aurora__blob aurora__blob--2"></div>' +
+        '<div class="aurora__blob aurora__blob--3"></div>' +
+        '<div class="aurora__blob aurora__blob--4"></div>';
+      document.body.insertBefore(layer, document.body.firstChild);
+    })();
+    setAuroraOpacity(curIntensity);
 
     function resize() {
       w = window.innerWidth;
@@ -116,7 +130,7 @@
     function draw() {
       const { theme, ink, accent } = readVars();
       ctx.clearRect(0, 0, w, h);
-      drawNebula(theme);
+      // Nebula is now CSS (.aurora). Canvas only paints the optional overlay.
       drawPattern(theme, ink, accent);
     }
 
@@ -140,10 +154,11 @@
       return `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${a})`;
     }
 
-    /* ---------- On-demand render (no continuous loop) ----------
-       The nebula is static when idle; we only repaint on scroll (parallax /
-       hue), resize, theme change, or a tweak. This keeps the GPU quiet so the
-       blurred top bar doesn't re-composite every frame and hovers stay instant. */
+    /* ---------- Render scheduling ----------
+       The flowing aurora is CSS, so nothing animates on the canvas. We only
+       repaint the (static) dots/grid overlay on demand: resize, theme change,
+       or a tweak. No continuous loop → the main thread stays free and hovers
+       stay instant. */
     let scheduled = false;
     function schedule() {
       if (scheduled) return;
@@ -151,37 +166,35 @@
       raf = requestAnimationFrame(() => { scheduled = false; draw(); });
     }
 
-    function onMove(e) {
-      // Only the dot overlay reacts to the cursor; skip redraws otherwise.
-      if (curPattern !== "dots") return;
-      mouseX = e.clientX; mouseY = e.clientY; schedule();
-    }
-    function onLeave() { if (curPattern !== "dots") return; mouseX = -9999; mouseY = -9999; schedule(); }
-    function onScroll() {
-      scrollPx = window.scrollY || document.documentElement.scrollTop || 0;
-      const docH = Math.max(1, (document.documentElement.scrollHeight || h) - window.innerHeight);
-      scrollPhase = Math.min(1, Math.max(0, scrollPx / docH));
-      schedule();
-    }
-
     window.addEventListener("resize", () => { resize(); schedule(); });
-    window.addEventListener("mousemove", onMove, { passive: true });
-    window.addEventListener("mouseleave", onLeave);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
     schedule();
+
+    /* Scroll-driven hue shift on the CSS aurora. We only write one custom
+       property (--scroll-hue) that feeds a GPU `hue-rotate` filter — no canvas
+       repaint, no layout — so it stays light. rAF-coalesced. */
+    let hueQueued = false;
+    function onScrollHue() {
+      if (hueQueued) return;
+      hueQueued = true;
+      requestAnimationFrame(() => {
+        hueQueued = false;
+        const top = window.scrollY || document.documentElement.scrollTop || 0;
+        const docH = Math.max(1, (document.documentElement.scrollHeight || h) - window.innerHeight);
+        const phase = Math.min(1, Math.max(0, top / docH));
+        document.documentElement.style.setProperty("--scroll-hue", (phase * 90).toFixed(1) + "deg");
+      });
+    }
+    window.addEventListener("scroll", onScrollHue, { passive: true });
+    onScrollHue();
 
     return {
       setPattern(p) { curPattern = p; schedule(); },
-      setIntensity(v) { curIntensity = Math.max(0, Math.min(100, +v || 0)); schedule(); },
+      setIntensity(v) { curIntensity = Math.max(0, Math.min(100, +v || 0)); setAuroraOpacity(curIntensity); schedule(); },
       setPalette(p) { if (PALETTES[p]) curPalette = p; schedule(); },
       invalidate() { varsCache = null; Object.keys(cache).forEach((k) => delete cache[k]); schedule(); },
       destroy() {
         cancelAnimationFrame(raf);
         window.removeEventListener("resize", resize);
-        window.removeEventListener("mousemove", onMove);
-        window.removeEventListener("mouseleave", onLeave);
-        window.removeEventListener("scroll", onScroll);
       },
     };
   }

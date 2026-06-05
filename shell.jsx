@@ -331,15 +331,15 @@ function SectionHead({ id, label, kicker, title, sub, action }) {
   );
 }
 
-/* ----- Timeline entry — vertical rail + photo + expandable detail ----- */
-function TLEntry({ entry, defaultOpen = false }) {
-  const [open, setOpen] = useState(defaultOpen);
+/* ----- Timeline entry — vertical rail + photo, links to a detail page ----- */
+function TLEntry({ entry }) {
+  const href = "experience.html?id=" + encodeURIComponent(entry.photo || "");
   return (
     <article className={"tl-item" + (entry.current ? " is-current" : "")}>
       <div className="tl-rail" aria-hidden="true">
         <span className="tl-node" />
       </div>
-      <div className={"tl-card" + (entry.photo ? "" : " tl-card--nomedia")}>
+      <a className={"tl-card" + (entry.photo ? "" : " tl-card--nomedia")} href={href}>
         {entry.photo && (
           <div className="tl-card__media">
             <image-slot
@@ -353,7 +353,7 @@ function TLEntry({ entry, defaultOpen = false }) {
         <div className="tl-card__content">
           <div className="tl-card__when">
             <span className="tl-card__range">{entry.from} — {entry.to}</span>
-            {entry.current && <span className="tl-card__now">Now</span>}
+            {entry.current && <span className="tl-card__now"><span className="tl-card__now-dot" aria-hidden="true" />Now</span>}
           </div>
           <h3 className="tl-card__title">
             {entry.title}
@@ -366,38 +366,19 @@ function TLEntry({ entry, defaultOpen = false }) {
             </div>
           )}
           {entry.desc && <p className="tl-card__desc">{entry.desc}</p>}
-          {(entry.details || entry.chips) && (
-            <button className="tl-card__more" onClick={() => setOpen((o) => !o)} aria-expanded={open}>
-              <span>{open ? "Hide details" : "More"}</span>
-              <Icon name={open ? "arrow-down" : "arrow-r"} size={12} />
-            </button>
-          )}
-          {open && (
-            <div className="tl-card__extra">
-              {entry.details && (
-                <ul>
-                  {entry.details.map((d, i) => (
-                    <li key={i}>{d}</li>
-                  ))}
-                </ul>
-              )}
-              {entry.chips && (
-                <div className="chips">
-                  {entry.chips.map((c) => (
-                    <span key={c} className="chip">{c}</span>
-                  ))}
-                </div>
-              )}
-              {entry.link && (
-                <a className="linkout" href={entry.link.href} target="_blank" rel="noopener">
-                  <span>{entry.link.label}</span>
-                  <Icon name="external" size={12} />
-                </a>
-              )}
+          {entry.chips && (
+            <div className="chips tl-card__chips">
+              {entry.chips.map((c) => (
+                <span key={c} className="chip">{c}</span>
+              ))}
             </div>
           )}
+          <span className="tl-card__cta">
+            <span>View details</span>
+            <Icon name="arrow-r" size={13} />
+          </span>
         </div>
-      </div>
+      </a>
     </article>
   );
 }

@@ -120,6 +120,7 @@ window.SITE_DATA = {
         "Tutor for the course Fondamenti di Automatica I — Teoria dei Sistemi, under the supervision of Prof. Mattia Mattioni. First semester of the 2022/2023 academic year at the Latina campus of Sapienza University of Rome.",
       photo: "work-tutor",
       slotPlaceholder: "Drop a teaching / campus photo",
+      heroFit: "cover",
       details: [
         "Designed and explained integrative exercises covering the core topics of the course.",
         "Conducted weekly problem-solving sessions to support students' understanding.",
@@ -138,6 +139,7 @@ window.SITE_DATA = {
         "Volunteer of the National Civil Service engaged in the social-services sector for the project Help adults and elderly people in difficult conditions.",
       photo: "work-civil",
       slotPlaceholder: "Drop a civil-service photo",
+      heroFit: "cover",
       details: [
         "Assistance to adults in uncomfortable conditions.",
         "Support at municipal offices for initiatives promoted for social services.",
@@ -151,7 +153,7 @@ window.SITE_DATA = {
     },
   ],
 
-  /* ===== Projects (sourced from /_projects on GitHub) ===== */
+  /* ===== Projects (most recent first) ===== */
   projects: [
     {
       title:
@@ -159,9 +161,20 @@ window.SITE_DATA = {
       year: "2024 / 2025",
       org: "Sapienza · Master thesis",
       photo: "proj-gtm",
+      category: "thesis",
       slotPlaceholder: "Drop a GTM / tilted-multirotor render",
       desc:
         "Rigorous analysis of an existing geometric control law for generically tilted multirotor (GTM) platforms, originally proposed by Michieletto et al. Bridges empirical validation and theoretical certification with a Lyapunov-based proof of local exponential stability of hovering — the first such result for this broad class of floating rigid bodies.",
+      body: [
+        "This work presents a rigorous analysis of an existing geometric control law specifically developed for generically tilted multirotor (GTM) platforms, as originally proposed by Michieletto et al. [1,2] for vehicles with arbitrarily placed and tilted propellers. These platforms are fully actuated in orientation and admit at least one direction along which the thrust magnitude can be regulated independently of attitude.",
+        "While the effectiveness of the proposed control strategy has been extensively demonstrated through high-fidelity simulations and experimental validation, most notably on a tilted hexarotor platform at LAAS-CNRS, its stability properties have so far been supported only empirically. Despite this strong experimental evidence, the literature has lacked a formal analysis capable of certifying the stability of this broad class of floating rigid bodies.",
+        "The main contribution of this work is to provide, for the first time, a rigorous Lyapunov-based stability proof for the geometric control law proposed by Michieletto et al. This analysis bridges the gap between empirical validation and theoretical certification, establishing that the controller guarantees local exponential stability of the hovering equilibrium, a critical requirement for safety-critical scenarios, independently of the specific underlying actuator configuration.",
+        "The theoretical analysis is complemented by numerical simulations and by a systematic characterization of admissible controller gains, providing explicit conditions on initial states and offering practical insight into the resulting domain of attraction.",
+      ],
+      references: [
+        "G. Michieletto, M. Ryll, and A. Franchi, “Control of Statically Hoverable Multi-Rotor Aerial Vehicles and Application to Rotor-Failure Robustness for Hexarotors,” in Proc. IEEE Int. Conf. on Robotics and Automation (ICRA), Singapore, 2017, pp. 2747–2752, doi: 10.1109/ICRA.2017.7989320.",
+        "G. Michieletto, M. Ryll, and A. Franchi, “Fundamental Actuation Properties of Multirotors: Force–Moment Decoupling and Fail–Safe Robustness,” IEEE Transactions on Robotics, vol. 34, no. 3, pp. 702–715, 2018.",
+      ],
       tags: ["Geometric control", "Lyapunov stability", "UAVs", "MATLAB"],
       visual: "drone",
       links: [
@@ -170,13 +183,39 @@ window.SITE_DATA = {
       ],
     },
     {
+      title:
+        "DDP for underactuated robots under hard input constraints",
+      year: "Winter — Spring 2023/2024",
+      org: "Sapienza · Control Problems in Robotics",
+      photo: "proj-ddp",
+      category: "academic",
+      slotPlaceholder: "Drop a pendubot / acrobot frame",
+      desc:
+        "Pushed Differential Dynamic Programming beyond textbook form to tame under-actuated robots — fusing DDP with Levenberg–Marquardt regularisation, line-search safeguarding, hard input constraints and a receding-horizon MPC wrapper. Experiments on the pendubot and acrobot show rapid convergence, constraint satisfaction, and graceful swings-to-upright.",
+      body: [
+        "We push Differential Dynamic Programming beyond textbook form to tame under-actuated robots — machines with more freedom than motors. By fusing DDP with Levenberg–Marquardt regularisation, line-search safeguarding, hard input constraints, and a receding-horizon (MPC-style) wrapper, we turn a notoriously sensitive optimiser into a robust, real-time controller.",
+        "Step-by-step pseudocode and experiments on the pendubot and acrobot show the payoff: rapid convergence, constraint satisfaction, and graceful swings-to-upright that spotlight DDP's power when precision meets smart regularisation.",
+      ],
+      tags: ["Optimal control", "DDP", "MPC", "Underactuated"],
+      visual: "race",
+      links: [
+        { label: "Paper", href: "https://s-orion10.github.io/files/ddp.pdf" },
+        { label: "Video", href: "https://www.youtube.com/watch?v=K4GSg-HV834" },
+      ],
+    },
+    {
       title: "Stingray — tilt-tricopter VTOL for SUAS 2025",
-      year: "Fall 2024 — Present",
+      year: "Fall 2024 — 2025",
       org: "Sapienza Flight Team",
       photo: "proj-stingray",
+      category: "academic",
       slotPlaceholder: "Drop a Stingray VTOL photo",
       desc:
-        "Sapienza Flight Team's Stingray VTOL program competing in SUAS 2025 — a novel tilt-tricopter platform that hovers like a multirotor and cruises like a fixed-wing. Geometric controllers for attitude and thrust allocation, MATLAB/Simulink mission sequencing, redundancy monitoring, and envelope protection. SITL and field sorties verified transition logic and gain schedules under gusts and actuator nonlinearities.",
+        "Sapienza Flight Team's Stingray VTOL program for SUAS 2025 — a novel tilt-tricopter platform that hovers like a multirotor and cruises like a fixed-wing. Geometric controllers for attitude and thrust allocation, MATLAB/Simulink mission sequencing, redundancy monitoring, and envelope protection, validated through SITL and field sorties.",
+      body: [
+        "Sapienza Flight Team launched the Stingray VTOL program to compete in SUAS 2025 with a novel tilt-tricopter platform capable of hovering like a multirotor and cruising like a fixed-wing aircraft. I led the design of the mission-planning and control stack that drove the vehicle through vertical, transition, and forward-flight regimes while enforcing the competition safety envelope.",
+        "The architecture couples geometric controllers for attitude and thrust allocation with MATLAB/Simulink toolchains for mission sequencing, redundancy monitoring, and envelope protection. Extensive software-in-the-loop testing and repeated field sorties stress-tested fault responses, verified transition logic, and tuned gain schedules so the aircraft could withstand gusts, actuator nonlinearities, and communication dropouts during autonomous sorties.",
+      ],
       tags: ["VTOL", "Aerial robotics", "Geometric control", "Simulink"],
       visual: "vtol",
       links: [
@@ -189,33 +228,19 @@ window.SITE_DATA = {
     },
     {
       title:
-        "DDP for underactuated robots under hard input constraints",
-      year: "Winter — Spring 2023/2024",
-      org: "Sapienza · Control Problems in Robotics",
-      photo: "proj-ddp",
-      slotPlaceholder: "Drop a pendubot / acrobot frame",
+        "Control of a video-game race car with a CNN",
+      year: "2024",
+      org: "Sapienza · Machine Learning",
+      photo: "proj-cnn",
+      category: "academic",
+      slotPlaceholder: "Drop a CarRacing frame",
       desc:
-        "Pushed Differential Dynamic Programming beyond textbook form to tame under-actuated robots — fusing DDP with Levenberg–Marquardt regularisation, line-search safeguarding, hard input constraints and a receding-horizon MPC wrapper. Experiments on the pendubot and acrobot show rapid convergence, constraint satisfaction, and graceful swings-to-upright.",
-      tags: ["Optimal control", "DDP", "MPC", "Underactuated"],
+        "Tackled OpenAI Gym's CarRacing-v0 as a frame-by-frame image-classification task. Trained a convolutional network in Keras to turn raw pixels into steering and throttle commands — a self-driving racer from a blank-slate neural net.",
+      tags: ["CNN", "Python", "Keras", "Reinforcement"],
       visual: "race",
       links: [
-        { label: "Paper", href: "https://s-orion10.github.io/files/ddp.pdf" },
-        { label: "Video", href: "https://www.youtube.com/watch?v=K4GSg-HV834" },
-      ],
-    },
-    {
-      title: "Ingenuity — Mars helicopter digital twin",
-      year: "Winter — Spring 2023/2024",
-      org: "Sapienza · team project",
-      photo: "proj-ingenuity",
-      slotPlaceholder: "Drop an Ingenuity render",
-      desc:
-        "High-fidelity Simulink digital twin of NASA's Ingenuity helicopter — six-DOF rigid-body model with rotor flapping dynamics, motor time constants, and the true martian ISA atmosphere. Compared static feedback-linearisation against nonlinear backstepping; only backstepping survived gusts and saturation by embracing the vehicle's underactuated structure.",
-      tags: ["Coaxial rotor", "Simulink", "Modelling", "Backstepping"],
-      visual: "rotor",
-      links: [
-        { label: "Paper", href: "https://s-orion10.github.io/files/ingenuity.pdf" },
-        { label: "Video", href: "https://s-orion10.github.io/files/ingenuity_edit.mp4" },
+        { label: "Paper", href: "https://s-orion10.github.io/files/HW2_ORELLI.pdf" },
+        { label: "Video", href: "https://www.youtube.com/watch?v=xVTm94bYn78" },
       ],
     },
     {
@@ -224,6 +249,7 @@ window.SITE_DATA = {
       year: "2023 / 2024",
       org: "Sapienza · Energy Systems",
       photo: "proj-ev",
+      category: "academic",
       slotPlaceholder: "Drop an EV-charging figure",
       desc:
         "Classical and decentralised MPC to schedule optimal charging of a large fleet of plug-in electric vehicles — coordination without a central authority, respecting grid and battery constraints.",
@@ -235,11 +261,39 @@ window.SITE_DATA = {
       ],
     },
     {
+      title: "Ingenuity — Mars helicopter digital twin",
+      year: "Winter — Spring 2023/2024",
+      org: "Sapienza · team project",
+      photo: "proj-ingenuity",
+      category: "academic",
+      slotPlaceholder: "Drop an Ingenuity render",
+      desc:
+        "High-fidelity Simulink digital twin of NASA's Ingenuity helicopter — six-DOF rigid-body model with rotor flapping dynamics, motor time constants, and the true martian ISA atmosphere. Compared static feedback-linearisation against nonlinear backstepping; only backstepping survived gusts and saturation by embracing the vehicle's underactuated structure.",
+      body: [
+        "Teaming up with three fellow engineers, I spearheaded the creation of a high-fidelity Simulink digital twin of NASA's historic Ingenuity helicopter — the first aircraft ever to achieve powered flight on another planet (Mars, 2021–2024). We began by mining published aerodynamic data, rotorcraft papers, and flight-test logs, then fused them into a six-DOF rigid-body model complete with rotor flapping dynamics, motor time constants, and the true martian ISA atmosphere (≈ 0.016 kg/m³, 3.72 m/s² gravity).",
+        "Once the physics were nailed down, we designed and compared two radically different control paradigms:",
+      ],
+      bullets: [
+        "Static feedback-linearisation — an elegant input-output decoupling scheme that flattened the nonlinear dynamics but struggled to stay robust under martian gusts and actuator saturation.",
+        "Nonlinear backstepping — a recursive Lyapunov-based strategy that embraced Ingenuity's under-actuated nature, chaining stabilising virtual controls all the way from attitude to position.",
+      ],
+      bodyAfter: [
+        "Among the two, only the latter returns satisfactory results, as it is able to achieve the objectives by exploiting the fact that Ingenuity is an underactuated robot.",
+      ],
+      tags: ["Coaxial rotor", "Simulink", "Modelling", "Backstepping"],
+      visual: "rotor",
+      links: [
+        { label: "Paper", href: "https://s-orion10.github.io/files/ingenuity.pdf" },
+        { label: "Video", href: "https://s-orion10.github.io/files/ingenuity_edit.mp4" },
+      ],
+    },
+    {
       title:
         "Self-balancing robot on two wheels (GRANDLAND)",
       year: "Autumn — Winter 2023",
       org: "Sapienza · Digital Control Systems",
       photo: "proj-balance",
+      category: "academic",
       slotPlaceholder: "Drop a self-balancing robot photo",
       desc:
         "ACC on a self-balancing wheeled robot built around an Arduino Pro Micro, stepper motors with A4988 drivers and an MPU-6050 IMU. From identification and stabilising controller design to embedded firmware and physical assembly.",
@@ -251,19 +305,24 @@ window.SITE_DATA = {
       ],
     },
     {
-      title:
-        "Control of a video-game race car with a CNN",
-      year: "2024",
-      org: "Sapienza · Machine Learning",
-      photo: "proj-cnn",
-      slotPlaceholder: "Drop a CarRacing frame",
+      title: "Markov & semi-Markov chains: memoryless processes and fractional evolution",
+      year: "2021",
+      org: "Sapienza · Bachelor thesis",
+      photo: "proj-bachelor",
+      category: "thesis",
+      slotPlaceholder: "Drop a Markov-chain figure",
+      heroFit: "contain",
       desc:
-        "Tackled OpenAI Gym's CarRacing-v0 as a frame-by-frame image-classification task. Trained a convolutional network in Keras to turn raw pixels into steering and throttle commands — a self-driving racer from a blank-slate neural net.",
-      tags: ["CNN", "Python", "Keras", "Reinforcement"],
-      visual: "race",
+        "Bachelor thesis bridging classical probability and mathematical physics — from continuous-time Markov chains to semi-Markov processes with heavy-tailed Mittag-Leffler waiting times, governed by non-local Caputo fractional operators. Advisor: Prof. Costantino Ricciuti.",
+      body: [
+        "This research bridges classical probability and advanced mathematical physics to model complex dynamic systems. Starting with standard, continuous-time Markov chains and their strict memoryless constraints, the work transitions into the domain of semi-Markov processes by introducing heavy-tailed wait times, specifically through the Mittag-Leffler distribution.",
+        "The core of the thesis demonstrates how replacing standard time derivatives with non-local Caputo fractional operators yields the precise integro-differential equations that govern time-fractional backward dynamics.",
+        "This project provided me with a rigorous foundation in state-space modelling and analytical control theory — tools that directly support my current approach to managing unpredictable environments and noisy sensor data in robotics.",
+      ],
+      tags: ["Probability", "Markov chains", "Fractional calculus", "Stochastic processes"],
+      visual: "fpga",
       links: [
-        { label: "Paper", href: "https://s-orion10.github.io/files/HW2_ORELLI.pdf" },
-        { label: "Video", href: "https://www.youtube.com/watch?v=xVTm94bYn78" },
+        { label: "Thesis PDF", href: "files/bachelor_thesis.pdf" },
       ],
     },
   ],
@@ -290,7 +349,7 @@ window.SITE_DATA = {
       },
     },
     {
-      title: "M.Eng. equivalent in Control Engineering",
+      title: "M.Sc. in Control Engineering (LM-25)",
       org: "Sapienza Università di Roma",
       role: "Master's degree",
       photo: "edu-msc",
@@ -304,7 +363,7 @@ window.SITE_DATA = {
     },
     {
       title:
-        "B.Eng. equivalent in Information Engineering, Informatics and Statistics",
+        "B.Sc. in Information Engineering, Computer Science and Statistics (L-8)",
       org: "Sapienza Università di Roma — Latina campus",
       role: "Bachelor's degree",
       photo: "edu-bsc",
@@ -398,29 +457,29 @@ window.SITE_DATA = {
   /* ===== Beyond engineering — IMPORTANT: keep YouTube + chess.com links ===== */
   beyond: [
     {
-      icon: "guitar",
+      icon: "music",
       h: "Acoustic arrangements",
       p: "Fingerstyle guitar in my free time — exploring arrangements as a way to relax and express myself.",
       href: "https://youtu.be/QU9rJnTvPro?si=brRrWfDxHEmQPqcV",
     },
     {
-      icon: "ball",
+      icon: "team",
       h: "Collective energy",
       p: "Live matches and pick-up games recharge me — the rhythm of a midfield run reminds me how teamwork elevates complex engineering missions.",
     },
     {
-      icon: "chess",
+      icon: "puzzle",
       h: "Strategic puzzles",
       p: "I play chess and train daily on Chess.com — it keeps my strategic thinking sharp.",
       href: "https://www.chess.com/member/messiorion10",
     },
     {
-      icon: "star",
+      icon: "planet",
       h: "Cosmic curiosity",
       p: "Astrophysics through podcasts, documentaries and books — plus the occasional night with the telescope and a bit of astrophotography.",
     },
     {
-      icon: "globe",
+      icon: "share",
       h: "Open knowledge",
       p: "I enjoy a social network where knowledge is shared openly through platforms like LinkedIn, GitHub and community talks.",
     },
