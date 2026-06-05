@@ -1,10 +1,7 @@
 ---
-permalink: /
-title: "About Me"
+permalink: /about-legacy/
+title: "About Me (Legacy)"
 author_profile: true
-redirect_from:
-  - /about/
-  - /about.html
 ---
 
 <style>
