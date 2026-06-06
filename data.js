@@ -260,6 +260,7 @@ window.SITE_DATA = {
       year: "2023 / 2024",
       org: "Sapienza · Energy Systems",
       photo: "proj-ev",
+      photoSrc: "images/ccen.png",
       category: "academic",
       slotPlaceholder: "Drop an EV-charging figure",
       desc:
@@ -322,6 +323,7 @@ window.SITE_DATA = {
       year: "2021",
       org: "Sapienza · Bachelor thesis",
       photo: "proj-bachelor",
+      photoSrc: "images/triennale.png",
       category: "thesis",
       slotPlaceholder: "Drop a Markov-chain figure",
       heroFit: "contain",
