@@ -81,6 +81,7 @@ window.SITE_DATA = {
       current: false,
       photo: "work-soar",
       photoSrc: "images/drone.png",
+      photos: ["images/drone.png", "images/soar-touch2.png", "images/soar-touch3.png"],
       slotPlaceholder: "Drop a SOAR-TOUCH / hexarotor photo",
       desc:
         "How can soft optical tactile sensing enable energy-efficient and stable interaction with the environment in aerial robots under external disturbances? Within the SOAR-TOUCH project I addressed this question by designing control strategies and integrating tactile perception on a hexarotor platform.",

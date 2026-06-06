@@ -331,9 +331,31 @@ function SectionHead({ id, label, kicker, title, sub, action }) {
   );
 }
 
+/* ----- Crossfade slideshow for entries with multiple photos ----- */
+function PhotoSlideshow({ photos, interval = 4000 }) {
+  const [idx, setIdx] = useState(0);
+  const [vis, setVis] = useState(true);
+  useEffect(() => {
+    if (photos.length <= 1) return;
+    const t = setInterval(() => {
+      setVis(false);
+      setTimeout(() => { setIdx((i) => (i + 1) % photos.length); setVis(true); }, 350);
+    }, interval);
+    return () => clearInterval(t);
+  }, [photos.length, interval]);
+  return (
+    <img
+      src={photos[idx]}
+      alt=""
+      style={{ width: "100%", height: "100%", objectFit: "cover", opacity: vis ? 1 : 0, transition: "opacity .35s ease" }}
+    />
+  );
+}
+
 /* ----- Timeline entry — vertical rail + photo, links to a detail page ----- */
 function TLEntry({ entry }) {
   const href = "experience.html?id=" + encodeURIComponent(entry.photo || "");
+  const photos = entry.photos && entry.photos.length > 1 ? entry.photos : null;
   return (
     <article className={"tl-item" + (entry.current ? " is-current" : "")}>
       <div className="tl-rail" aria-hidden="true">
@@ -342,13 +364,17 @@ function TLEntry({ entry }) {
       <a className={"tl-card" + (entry.photo ? "" : " tl-card--nomedia")} href={href}>
         {entry.photo && (
           <div className="tl-card__media">
-            <image-slot
-              id={entry.photo}
-              src={entry.photoSrc || ""}
-              shape="rect"
-              style={{ width: "100%", height: "100%" }}
-              placeholder={entry.slotPlaceholder || "Drop a photo"}
-            ></image-slot>
+            {photos ? (
+              <PhotoSlideshow photos={photos} />
+            ) : (
+              <image-slot
+                id={entry.photo}
+                src={entry.photoSrc || ""}
+                shape="rect"
+                style={{ width: "100%", height: "100%" }}
+                placeholder={entry.slotPlaceholder || "Drop a photo"}
+              ></image-slot>
+            )}
           </div>
         )}
         <div className="tl-card__content">

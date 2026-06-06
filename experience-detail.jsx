@@ -3,6 +3,27 @@
 const { Page: XPage } = window;
 const XIcon = window.Icon;
 const XD = window.SITE_DATA;
+const { useState: xuseState, useEffect: xUseEffect } = React;
+
+function XPhotoSlideshow({ photos, interval = 4000 }) {
+  const [idx, setIdx] = xuseState(0);
+  const [vis, setVis] = xuseState(true);
+  xUseEffect(() => {
+    if (photos.length <= 1) return;
+    const t = setInterval(() => {
+      setVis(false);
+      setTimeout(() => { setIdx((i) => (i + 1) % photos.length); setVis(true); }, 350);
+    }, interval);
+    return () => clearInterval(t);
+  }, [photos.length, interval]);
+  return (
+    <img
+      src={photos[idx]}
+      alt=""
+      style={{ width: "100%", height: "100%", objectFit: "cover", opacity: vis ? 1 : 0, transition: "opacity .35s ease" }}
+    />
+  );
+}
 
 function xGetParam(name) {
   const m = new URLSearchParams(window.location.search).get(name);
@@ -52,14 +73,18 @@ function ExperienceDetail() {
 
           {entry.photo && (
             <div className={"proj-detail__hero" + (heroFit === "contain" ? " proj-detail__hero--contain" : "")}>
-              <image-slot
-                id={entry.photo}
-                src={entry.photoSrc || ""}
-                shape="rect"
-                fit={heroFit}
-                style={{ width: "100%", height: "100%" }}
-                placeholder={entry.slotPlaceholder || "Drop a photo"}
-              ></image-slot>
+              {entry.photos && entry.photos.length > 1 ? (
+                <XPhotoSlideshow photos={entry.photos} />
+              ) : (
+                <image-slot
+                  id={entry.photo}
+                  src={entry.photoSrc || ""}
+                  shape="rect"
+                  fit={heroFit}
+                  style={{ width: "100%", height: "100%" }}
+                  placeholder={entry.slotPlaceholder || "Drop a photo"}
+                ></image-slot>
+              )}
             </div>
           )}
 
