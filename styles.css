@@ -529,7 +529,7 @@ em { font-style: italic; }
   opacity: 0;
   transition: opacity .35s ease;
   background:
-    linear-gradient(180deg, color-mix(in oklab, var(--bg-deep) 30%, transparent) 0%, color-mix(in oklab, var(--bg-deep) 90%, transparent) 86%),
+    linear-gradient(180deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,.72) 86%),
     radial-gradient(120% 90% at 12% 100%, color-mix(in oklab, var(--accent) 42%, transparent), transparent 60%);
 }
 .big-card__media:has(image-slot[data-filled]) + .big-card__scrim { opacity: 1; }
@@ -596,6 +596,10 @@ em { font-style: italic; }
 /* Minimal mode — hide the photo background, behave like a clean surface card */
 [data-cards="minimal"] .big-card__media { opacity: 0; pointer-events: none; }
 [data-cards="minimal"] .big-card { background: var(--surface); height: auto; min-height: 190px; }
+[data-cards="minimal"] .big-card__scrim { opacity: 0 !important; }
+[data-cards="minimal"] .big-card__media:has(image-slot[data-filled]) ~ .big-card__body .big-card__title,
+[data-cards="minimal"] .big-card__media:has(image-slot[data-filled]) ~ .big-card__body .big-card__desc { color: inherit; }
+[data-cards="minimal"] .big-card__media:has(image-slot[data-filled]) ~ .big-card__body .big-card__num { color: var(--accent); }
 
 @media (max-width: 980px) {
   .card-grid { grid-template-columns: repeat(4, 1fr); }
