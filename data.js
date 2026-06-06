@@ -144,7 +144,7 @@ window.SITE_DATA = {
       desc:
         "Volunteer of the National Civil Service engaged in the social-services sector for the project Help adults and elderly people in difficult conditions.",
       photo: "work-civil",
-      photoSrc: "images/sezze.png",
+      photoSrc: "images/servizio_civile_universale_logo.png",
       slotPlaceholder: "Drop a civil-service photo",
       heroFit: "cover",
       details: [
