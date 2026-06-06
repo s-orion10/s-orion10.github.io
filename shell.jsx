@@ -332,23 +332,28 @@ function SectionHead({ id, label, kicker, title, sub, action }) {
 }
 
 /* ----- Crossfade slideshow for entries with multiple photos ----- */
-function PhotoSlideshow({ photos, interval = 4000 }) {
-  const [idx, setIdx] = useState(0);
-  const [vis, setVis] = useState(true);
+function PhotoSlideshow({ photos, interval = 5000, duration = 1200 }) {
+  const [cur, setCur] = useState(0);
+  const [next, setNext] = useState(1 % photos.length);
+  const [fading, setFading] = useState(false);
   useEffect(() => {
     if (photos.length <= 1) return;
     const t = setInterval(() => {
-      setVis(false);
-      setTimeout(() => { setIdx((i) => (i + 1) % photos.length); setVis(true); }, 350);
+      setFading(true);
+      setTimeout(() => {
+        setCur((i) => (i + 1) % photos.length);
+        setNext((i) => (i + 2) % photos.length);
+        setFading(false);
+      }, duration);
     }, interval);
     return () => clearInterval(t);
-  }, [photos.length, interval]);
+  }, [photos.length, interval, duration]);
+  const base = { position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" };
   return (
-    <img
-      src={photos[idx]}
-      alt=""
-      style={{ width: "100%", height: "100%", objectFit: "cover", opacity: vis ? 1 : 0, transition: "opacity .35s ease" }}
-    />
+    <div style={{ position: "relative", width: "100%", height: "100%", overflow: "hidden" }}>
+      <img src={photos[cur]} alt="" style={{ ...base, opacity: 1 }} />
+      <img src={photos[next]} alt="" style={{ ...base, opacity: fading ? 1 : 0, transition: `opacity ${duration}ms ease` }} />
+    </div>
   );
 }
 

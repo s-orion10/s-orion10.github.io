@@ -5,23 +5,28 @@ const XIcon = window.Icon;
 const XD = window.SITE_DATA;
 const { useState: xuseState, useEffect: xUseEffect } = React;
 
-function XPhotoSlideshow({ photos, interval = 4000 }) {
-  const [idx, setIdx] = xuseState(0);
-  const [vis, setVis] = xuseState(true);
+function XPhotoSlideshow({ photos, interval = 5000, duration = 1200 }) {
+  const [cur, setCur] = xuseState(0);
+  const [next, setNext] = xuseState(1 % photos.length);
+  const [fading, setFading] = xuseState(false);
   xUseEffect(() => {
     if (photos.length <= 1) return;
     const t = setInterval(() => {
-      setVis(false);
-      setTimeout(() => { setIdx((i) => (i + 1) % photos.length); setVis(true); }, 350);
+      setFading(true);
+      setTimeout(() => {
+        setCur((i) => (i + 1) % photos.length);
+        setNext((i) => (i + 2) % photos.length);
+        setFading(false);
+      }, duration);
     }, interval);
     return () => clearInterval(t);
-  }, [photos.length, interval]);
+  }, [photos.length, interval, duration]);
+  const base = { position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" };
   return (
-    <img
-      src={photos[idx]}
-      alt=""
-      style={{ width: "100%", height: "100%", objectFit: "cover", opacity: vis ? 1 : 0, transition: "opacity .35s ease" }}
-    />
+    <div style={{ position: "relative", width: "100%", height: "100%", overflow: "hidden" }}>
+      <img src={photos[cur]} alt="" style={{ ...base, opacity: 1 }} />
+      <img src={photos[next]} alt="" style={{ ...base, opacity: fading ? 1 : 0, transition: `opacity ${duration}ms ease` }} />
+    </div>
   );
 }
 
