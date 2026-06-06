@@ -337,7 +337,7 @@ window.SITE_DATA = {
       tags: ["Probability", "Markov chains", "Fractional calculus", "Stochastic processes"],
       visual: "fpga",
       links: [
-        { label: "Thesis PDF", href: "files/bachelor_thesis.pdf" },
+        { label: "Thesis PDF", href: "files/triennale.pdf" },
       ],
     },
   ],
