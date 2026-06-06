@@ -384,7 +384,7 @@ window.SITE_DATA = {
       org: "Sapienza Università di Roma — Latina campus",
       role: "Bachelor's degree",
       photo: "edu-bsc",
-      photoSrc: "images/latina.jpg",
+      photoSrc: "images/sapienza.png",
       slotPlaceholder: "Drop a Latina campus photo",
       where: "Latina, Italy",
       from: "SEP 2016",
